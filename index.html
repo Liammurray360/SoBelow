@@ -28,12 +28,10 @@ body {
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.nav strong { letter-spacing: 0.1em; }
-
 .nav a {
-  text-decoration: none;
   color: #ccc;
   margin-left: 20px;
+  text-decoration: none;
 }
 
 .nav a:hover { color: white; }
@@ -42,9 +40,9 @@ body {
 .hero {
   position: relative;
   min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 100px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -52,8 +50,7 @@ body {
   position: absolute;
   inset: 0;
   background: url("bckgnd.svg") center/cover no-repeat;
-  opacity: 1;
-  filter: brightness(1.8);
+  filter: brightness(2) contrast(1.2);
 }
 
 .hero::after {
@@ -66,12 +63,14 @@ body {
 .hero-logo {
   position: relative;
   z-index: 2;
-  width: min(95vw, 1100px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-logo img {
   width: 100%;
-  max-height: 90vh;
+  max-height: 95vh;
   object-fit: contain;
 }
 
@@ -81,9 +80,7 @@ body {
   text-align: center;
 }
 
-.intro h1 {
-  font-size: 3rem;
-}
+.intro h1 { font-size: 3rem; }
 
 .intro p {
   max-width: 700px;
@@ -91,10 +88,7 @@ body {
   color: #ccc;
 }
 
-.buttons {
-  margin-top: 20px;
-}
-
+/* BUTTONS */
 .button {
   padding: 12px 18px;
   border-radius: 999px;
@@ -142,7 +136,7 @@ body {
   <h1>Live events with weight.</h1>
   <p>Alternative, rock and heavy shows built properly.</p>
 
-  <div class="buttons">
+  <div>
     <a class="button primary" href="shows.html">Shows</a>
     <a class="button secondary" href="contact.html">Contact</a>
   </div>
