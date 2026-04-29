@@ -26,6 +26,7 @@ body {
   align-items: center;
   background: rgba(10,10,10,0.85);
   border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 10;
 }
 
 .nav a {
@@ -39,7 +40,7 @@ body {
 /* HERO */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh; /* FIX: force proper full height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,19 +77,27 @@ body {
 
 /* INTRO */
 .intro {
-  padding: 80px 8%;
+  padding: 100px 8% 80px; /* FIX: extra top spacing */
   text-align: center;
 }
 
-.intro h1 { font-size: 3rem; }
+.intro h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
 
 .intro p {
   max-width: 700px;
   margin: auto;
   color: #ccc;
+  line-height: 1.6;
 }
 
 /* BUTTONS */
+.buttons {
+  margin-top: 25px;
+}
+
 .button {
   padding: 12px 18px;
   border-radius: 999px;
@@ -105,6 +114,7 @@ body {
   background: #050505;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .secret {
@@ -127,6 +137,7 @@ body {
 
 <main class="hero">
   <div class="hero-bg"></div>
+
   <div class="hero-logo">
     <img src="logo.svg">
   </div>
@@ -134,16 +145,18 @@ body {
 
 <section class="intro">
   <h1>Live events with weight.</h1>
-  <p>Alternative, rock and heavy shows built properly.</p>
+  <p>
+    Alternative, rock and heavy shows built properly.
+  </p>
 
-  <div>
+  <div class="buttons">
     <a class="button primary" href="shows.html">Shows</a>
     <a class="button secondary" href="contact.html">Contact</a>
   </div>
 </section>
 
 <footer class="footer">
-  <div>© So Below</div>
+  <div>© So Below Entertainment</div>
   <div class="secret">A division of Secret Sauce</div>
 </footer>
 
