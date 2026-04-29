@@ -1,209 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>So Below</title>
 
-  <title>So Below</title>
+<style>
+body {
+  margin: 0;
+  background: #0b0b0b;
+  color: white;
+  font-family: Arial, sans-serif;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+/* LANDING */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
 
-    body {
-      margin: 0;
-      background: #050000;
-      color: white;
-      font-family: Arial, Helvetica, sans-serif;
-      overflow-x: hidden;
-    }
+/* TEXTURE OVERLAY */
+.landing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url('https://www.transparenttextures.com/patterns/asfalt-dark.png'),
+    radial-gradient(circle at 30% 20%, rgba(255,0,0,0.15), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(120,0,0,0.2), transparent 50%);
+  opacity: 0.7;
+}
 
-    .landing {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 40px 20px;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 35%, rgba(255, 0, 0, 0.32), transparent 32%),
-        radial-gradient(circle at 50% 80%, rgba(120, 0, 0, 0.35), transparent 35%),
-        linear-gradient(180deg, #090000 0%, #000 100%);
-    }
+/* PAINT SPLATTER */
+.landing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,0,0,0.3) 0 60px, transparent 80px),
+    radial-gradient(circle at 80% 60%, rgba(200,0,0,0.25) 0 80px, transparent 120px),
+    radial-gradient(circle at 50% 90%, rgba(255,0,0,0.2) 0 50px, transparent 100px);
+  mix-blend-mode: overlay;
+}
 
-    .landing::before {
-      content: "";
-      position: absolute;
-      inset: -30%;
-      background:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 44px 44px;
-      transform: rotate(-8deg);
-      opacity: 0.35;
-    }
+/* LOGO FRAME */
+.logo-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  padding: 40px;
+  background: rgba(0,0,0,0.7);
+  border: 2px solid rgba(255,0,0,0.3);
+  transform: rotate(-1deg);
+}
 
-    .landing::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle, transparent 45%, rgba(0,0,0,0.85) 100%);
-      pointer-events: none;
-    }
+/* SCRATCH BORDER */
+.logo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 1px dashed rgba(255,255,255,0.2);
+  transform: rotate(1deg);
+}
 
-    .logo-wrap {
-      position: relative;
-      z-index: 2;
-      width: min(92vw, 920px);
-      padding: clamp(22px, 5vw, 60px);
-      border: 1px solid rgba(255, 0, 0, 0.22);
-      border-radius: 28px;
-      background: rgba(0, 0, 0, 0.28);
-      box-shadow:
-        0 0 35px rgba(255, 0, 0, 0.18),
-        inset 0 0 40px rgba(255, 0, 0, 0.08);
-      backdrop-filter: blur(4px);
-      text-align: center;
-      animation: rise 1.2s ease both;
-    }
+/* LOGO */
+.logo-wrap img {
+  width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  filter: contrast(1.2) brightness(1.1);
+}
 
-    .logo-wrap img {
-      display: block;
-      width: 100%;
-      max-height: 68vh;
-      object-fit: contain;
-      filter:
-        drop-shadow(0 0 6px rgba(255, 0, 0, 0.9))
-        drop-shadow(0 0 18px rgba(255, 0, 0, 0.65))
-        drop-shadow(0 0 42px rgba(120, 0, 0, 0.85));
-    }
+/* TAGLINE */
+.tagline {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ff4d4d;
+}
 
-    .tagline {
-      margin-top: 26px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-size: clamp(0.75rem, 1.6vw, 1rem);
-      color: #ffb3b3;
-      text-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
-    }
+/* EVENTS */
+.section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
 
-    .scroll-cue {
-      position: absolute;
-      z-index: 3;
-      bottom: 24px;
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: #ff4d4d;
-      animation: flicker 2.2s infinite alternate;
-    }
+h2 {
+  letter-spacing: 3px;
+  color: #ff2a2a;
+}
 
-    .section {
-      padding: 80px 20px;
-      max-width: 980px;
-      margin: auto;
-      text-align: center;
-    }
+/* EVENT CARD */
+.event {
+  margin-top: 30px;
+  padding: 25px;
+  background: rgba(0,0,0,0.8);
+  border-left: 4px solid red;
+  text-align: left;
+}
 
-    h2 {
-      letter-spacing: 0.18em;
-      text-shadow: 0 0 14px red;
-    }
+.event h3 {
+  margin: 0;
+}
 
-    .event {
-      margin-top: 30px;
-      padding: 30px;
-      border: 1px solid rgba(255, 0, 0, 0.28);
-      border-radius: 22px;
-      background: linear-gradient(145deg, rgba(35,0,0,0.75), rgba(0,0,0,0.85));
-      box-shadow: 0 0 28px rgba(255,0,0,0.12);
-      transition: 0.25s ease;
-    }
+.event p {
+  margin: 5px 0 10px;
+  color: #bbb;
+}
 
-    .event:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 0, 0, 0.75);
-      box-shadow: 0 0 34px rgba(255,0,0,0.32);
-    }
+/* BUTTON */
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 1px solid red;
+  text-decoration: none;
+  color: white;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
 
-    .event h3 {
-      margin-top: 0;
-      letter-spacing: 0.1em;
-    }
+.button:hover {
+  background: red;
+}
 
-    .button {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 12px 18px;
-      border: 1px solid #ff3333;
-      border-radius: 999px;
-      color: white;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.8rem;
-      box-shadow: 0 0 16px rgba(255,0,0,0.35);
-    }
-
-    @keyframes rise {
-      from {
-        opacity: 0;
-        transform: translateY(18px) scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @keyframes flicker {
-      from { opacity: 0.45; }
-      to { opacity: 1; }
-    }
-
-    @media (max-width: 600px) {
-      .landing {
-        padding: 24px 14px;
-      }
-
-      .logo-wrap {
-        width: 94vw;
-        padding: 20px;
-        border-radius: 20px;
-      }
-
-      .logo-wrap img {
-        max-height: 62vh;
-      }
-
-      .tagline {
-        margin-top: 18px;
-      }
-    }
-  </style>
+/* MOBILE */
+@media (max-width: 600px) {
+  .logo-wrap {
+    padding: 20px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <main class="landing">
-    <div class="logo-wrap">
-      <img src="LandingPage.svg" alt="So Below Logo" />
-      <div class="tagline">Live music from the underground</div>
-    </div>
+<div class="landing">
+  <div class="logo-wrap">
+    <img src="LandingPage.svg" alt="So Below Logo">
+    <div class="tagline">Live music from the underground</div>
+  </div>
+</div>
 
-    <div class="scroll-cue">Scroll</div>
-  </main>
+<section class="section">
+  <h2>UPCOMING CHAOS</h2>
 
-  <section class="section">
-    <h2>UPCOMING CHAOS</h2>
+  <div class="event">
+    <h3>STATE OF THE NATION VI</h3>
+    <p>29 August • Rumours Lounge</p>
+    <a class="button" href="#">Tickets Coming Soon</a>
+  </div>
 
-    <div class="event">
-      <h3>STATE OF THE NATION VI</h3>
-      <p>29 August • Rumours Lounge</p>
-      <a class="button" href="#">Tickets Coming Soon</a>
-    </div>
-  </section>
+</section>
 
 </body>
 </html>
