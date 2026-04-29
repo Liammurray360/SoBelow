@@ -10,36 +10,33 @@
 
 body {
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
   background: #0b0b0b;
   color: #f5f5f5;
-  font-family: Arial, Helvetica, sans-serif;
 }
-
-a { color: inherit; }
 
 /* NAV */
 .nav {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
   padding: 18px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(10,10,10,0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(10,10,10,0.9);
   border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 10;
 }
 
 .nav strong {
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
 }
 
 .nav a {
   text-decoration: none;
   color: #ccc;
-  margin-left: 22px;
+  margin-left: 20px;
   font-size: 0.9rem;
 }
 
@@ -47,27 +44,31 @@ a { color: inherit; }
 .hero {
   position: relative;
   min-height: 100vh;
-  padding: 130px 8% 80px;
+  padding: 120px 8% 80px;
   overflow: hidden;
 }
 
-/* BACKGROUND */
+/* BACKGROUND IMAGE */
 .hero-bg {
   position: absolute;
   inset: 0;
   background: url("bckgnd.svg") center/cover no-repeat;
-  opacity: 0.25;
+  opacity: 0.6; /* tuned so you can ACTUALLY see it */
 }
 
-/* OVERLAY */
+/* DARK OVERLAY */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.6));
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.6)
+  );
 }
 
-/* CONTENT GRID */
+/* CONTENT */
 .hero-inner {
   position: relative;
   z-index: 2;
@@ -77,34 +78,33 @@ a { color: inherit; }
   align-items: center;
 }
 
+/* TEXT */
 .hero-copy h1 {
   margin: 0;
-  font-size: clamp(2.6rem, 6vw, 5.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
 }
 
 .hero-copy p {
-  max-width: 520px;
-  margin: 24px 0;
-  font-size: 1.1rem;
-  line-height: 1.7;
+  margin: 20px 0;
+  max-width: 500px;
   color: #cfcfcf;
+  line-height: 1.6;
 }
 
 /* BUTTONS */
 .hero-buttons {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .button {
-  padding: 14px 20px;
+  padding: 12px 18px;
   border-radius: 999px;
+  font-weight: bold;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .button.primary {
@@ -114,6 +114,7 @@ a { color: inherit; }
 
 .button.secondary {
   border: 1px solid rgba(255,255,255,0.2);
+  color: white;
 }
 
 /* LOGO */
@@ -125,114 +126,59 @@ a { color: inherit; }
 
 .hero-logo img {
   width: 100%;
-  max-width: 420px;
-  object-fit: contain;
-  opacity: 0.95;
+  max-width: 400px;
 }
 
 /* SECTION */
 .section {
-  padding: 90px 8%;
+  padding: 80px 8%;
 }
 
-/* LIGHT SECTION */
 .section.light {
   background: #f5f5f5;
   color: #111;
 }
 
-.section-header {
-  max-width: 760px;
-  margin-bottom: 38px;
-}
-
-.section-header h2 {
-  margin: 0 0 12px;
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  letter-spacing: -0.04em;
-}
-
-.section-header p {
-  margin: 0;
-  color: #666;
+.section h2 {
+  margin-bottom: 30px;
 }
 
 /* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 20px;
 }
 
-/* CARDS */
+/* CARD */
 .card {
-  padding: 28px;
-  border-radius: 24px;
   background: white;
   color: #111;
-  border: 1px solid #e6e6e6;
-  min-height: 260px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 25px;
+  border-radius: 20px;
 }
 
 .date {
   color: #d51616;
-  font-weight: 900;
+  font-weight: bold;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.85rem;
 }
 
 .card h3 {
-  margin: 14px 0;
-  font-size: 1.6rem;
+  margin: 10px 0;
 }
 
 .card p {
   color: #666;
 }
 
-/* LABEL */
-.label {
-  margin-top: 20px;
-  font-size: 0.75rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  color: #d51616;
-}
-
-/* ABOUT */
-.about-blocks {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
-.about-box {
-  padding: 34px;
-  border-radius: 26px;
-  background: #141414;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.about-box p {
-  color: #cfcfcf;
-}
-
 /* FOOTER */
 .footer {
-  padding: 40px 8%;
+  padding: 30px 8%;
+  background: #050505;
   display: flex;
   justify-content: space-between;
-  background: #050505;
-  color: #888;
-}
-
-.footer a {
-  color: white;
-  text-decoration: none;
 }
 
 /* MOBILE */
@@ -242,18 +188,12 @@ a { color: inherit; }
     text-align: center;
   }
 
-  .grid,
-  .about-blocks {
+  .grid {
     grid-template-columns: 1fr;
   }
 
   .nav {
     position: static;
-  }
-
-  .footer {
-    flex-direction: column;
-    gap: 10px;
   }
 }
 </style>
@@ -265,8 +205,9 @@ a { color: inherit; }
   <strong>SO BELOW</strong>
   <nav>
     <a href="#shows">Shows</a>
-    <a href="#about">About</a>
-    <a href="https://www.instagram.com/so.below.ent/" target="_blank">Instagram</a>
+    <a href="https://www.instagram.com/so.below.ent/" target="_blank">
+      Instagram
+    </a>
   </nav>
 </header>
 
@@ -279,8 +220,8 @@ a { color: inherit; }
       <h1>Live events with weight.</h1>
 
       <p>
-        So Below Entertainment curates alternative, rock, metal and underground shows
-        with strong lineups and rooms that actually feel alive.
+        So Below Entertainment runs alternative and heavy shows
+        with strong lineups and real atmosphere.
       </p>
 
       <div class="hero-buttons">
@@ -299,65 +240,34 @@ a { color: inherit; }
 </main>
 
 <section id="shows" class="section light">
-  <div class="section-header">
-    <h2>Upcoming Shows</h2>
-  </div>
+  <h2>Upcoming Shows</h2>
 
   <div class="grid">
+
     <div class="card">
-      <div>
-        <div class="date">16 May</div>
-        <h3>Would You Still Love Me If I Was A Worm?</h3>
-        <p>Rumours Lounge</p>
-      </div>
-      <div class="label">LIVE EVENT</div>
+      <div class="date">16 May</div>
+      <h3>Would You Still Love Me If I Was A Worm?</h3>
+      <p>Rumours Lounge</p>
     </div>
 
     <div class="card">
-      <div>
-        <div class="date">26–27 June</div>
-        <h3>Defrost Fest</h3>
-        <p>Two day festival</p>
-      </div>
-      <div class="label">FESTIVAL</div>
+      <div class="date">26–27 June</div>
+      <h3>Defrost Fest</h3>
+      <p>Two day festival</p>
     </div>
 
     <div class="card">
-      <div>
-        <div class="date">29 August</div>
-        <h3>State Of The Nation VI</h3>
-        <p>Rumours Lounge</p>
-      </div>
-      <div class="label">HEAVY SHOW</div>
-    </div>
-  </div>
-</section>
-
-<section id="about" class="section">
-  <div class="section-header">
-    <h2>What We Do</h2>
-  </div>
-
-  <div class="about-blocks">
-    <div class="about-box">
-      <h3>Event Curation</h3>
-      <p>We build lineups and shows that actually make sense.</p>
+      <div class="date">29 August</div>
+      <h3>State Of The Nation VI</h3>
+      <p>Rumours Lounge</p>
     </div>
 
-    <div class="about-box">
-      <h3>Promotion</h3>
-      <p>From announcements to show day, we handle the energy.</p>
-    </div>
   </div>
 </section>
 
 <footer class="footer">
-  <div>© So Below Entertainment</div>
-  <div>
-    <a href="https://www.instagram.com/so.below.ent/" target="_blank">
-      @so.below.ent
-    </a>
-  </div>
+  <div>© So Below</div>
+  <div>@so.below.ent</div>
 </footer>
 
 </body>
