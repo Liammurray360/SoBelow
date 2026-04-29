@@ -4,24 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About | So Below Entertainment</title>
-<link rel="stylesheet" href="style.css">
 
 <style>
+* { box-sizing: border-box; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #111;
+  color: white;
+}
+
+.nav {
+  padding: 20px;
+  background: black;
+  color: white;
+}
+
+.nav strong {
+  margin-right: 20px;
+}
+
+.nav a {
+  color: #ccc;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: white;
+}
+
 .about-hero {
-  padding: 90px 8% 50px;
-  background:
-    radial-gradient(circle at top right, rgba(213,22,22,0.22), transparent 32%),
-    linear-gradient(135deg, #111, #050505);
+  padding: 80px 8%;
+  background: linear-gradient(135deg, #111, #050505);
 }
 
 .about-hero h1 {
-  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-size: clamp(2.6rem, 6vw, 5.5rem);
   line-height: 0.95;
-  margin: 0;
+  margin: 0 0 20px;
 }
 
 .about-hero p {
-  max-width: 720px;
+  max-width: 760px;
   color: #ccc;
   line-height: 1.7;
   font-size: 1.1rem;
@@ -29,25 +55,19 @@
 
 .about-wrap {
   padding: 70px 8%;
+  background: #f5f5f5;
+  color: #111;
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: 40px;
-  background: #f5f5f5;
-  color: #111;
 }
 
 .about-side {
-  position: sticky;
-  top: 100px;
-  align-self: start;
-  padding: 28px;
-  border-radius: 24px;
   background: #111;
   color: white;
-}
-
-.about-side h2 {
-  margin-top: 0;
+  padding: 28px;
+  border-radius: 24px;
+  align-self: start;
 }
 
 .about-side p {
@@ -64,12 +84,6 @@
   background: white;
   padding: 30px;
   border-radius: 24px;
-  border: 1px solid #e5e5e5;
-  box-shadow: 0 14px 34px rgba(0,0,0,0.05);
-}
-
-.story-card h2 {
-  margin-top: 0;
 }
 
 .story-card p {
@@ -79,22 +93,45 @@
 
 .statement {
   padding: 34px;
-  border-radius: 26px;
+  border-radius: 24px;
   background: #d51616;
   color: white;
-  font-size: clamp(1.4rem, 3vw, 2.5rem);
-  line-height: 1.1;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 900;
 }
 
-@media (max-width: 900px) {
+.footer {
+  padding: 30px 8%;
+  background: #050505;
+  color: #aaa;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.secret {
+  font-size: 0.7rem;
+  color: #555;
+  margin-top: 6px;
+}
+
+@media (max-width: 850px) {
   .about-wrap {
     grid-template-columns: 1fr;
-    padding: 50px 5%;
   }
 
-  .about-side {
-    position: static;
+  .nav a {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 10px;
   }
 }
 </style>
@@ -104,12 +141,10 @@
 
 <header class="nav">
   <strong>SO BELOW</strong>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="shows.html">Shows</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <a href="index.html">Home</a>
+  <a href="shows.html">Shows</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
 </header>
 
 <section class="about-hero">
@@ -122,7 +157,6 @@
 </section>
 
 <main class="about-wrap">
-
   <aside class="about-side">
     <h2>So Below Entertainment</h2>
     <p>Alternative shows, heavy music, community nights, fresh lineups and rooms that feel alive.</p>
@@ -132,58 +166,32 @@
   </aside>
 
   <section class="about-content">
-
     <article class="story-card">
       <h2>Where It Started</h2>
-      <p>
-        So Below Entertainment officially kicked off in 2022. Nothing fancy, just a few
-        alternative shows, a lot of hard work, and a genuine love for live music.
-      </p>
-      <p>
-        Not long after, we launched State Of The Nation, which became our biggest show brand
-        and a big part of who we are. It helped cement our place in the metal scene and showed
-        us what’s possible when the right bands, the right crowd, and the right energy come
-        together in one room.
-      </p>
+      <p>So Below Entertainment officially kicked off in 2022. Nothing fancy, just a few alternative shows, a lot of hard work, and a genuine love for live music.</p>
+      <p>Not long after, we launched State Of The Nation, which became our biggest show brand and a big part of who we are.</p>
     </article>
 
     <article class="story-card">
       <h2>Scene First</h2>
-      <p>
-        We’ve always been about the scene first. Good shows, solid sound, proper lighting,
-        fair treatment of bands, and an environment where people actually want to come back.
-        No egos.
-      </p>
+      <p>We’ve always been about the scene first. Good shows, solid sound, proper lighting, fair treatment of bands, and an environment where people actually want to come back. No egos.</p>
     </article>
 
     <div class="statement">Now we’re expanding.</div>
 
     <article class="story-card">
       <h2>More Space To Grow</h2>
-      <p>
-        So Below is opening things up to more genres, more sounds, more venues and more artists
-        from all over the country. Not because we’re turning our backs on where we came from,
-        but because we want to give space for everything to grow.
-      </p>
-      <p>
-        More opportunities for bands, more variety for crowds, and more room for scenes to thrive
-        without stepping on each other.
-      </p>
+      <p>So Below is opening things up to more genres, more sounds, more venues and more artists from all over the country.</p>
+      <p>More opportunities for bands, more variety for crowds, and more room for scenes to thrive without stepping on each other.</p>
     </article>
 
     <article class="story-card">
       <h2>The Goal</h2>
-      <p>
-        At the end of the day, we’re here to build something sustainable, exciting, and real.
-        Whether it’s a sweaty underground show or something a little bigger, the goal stays the same:
-      </p>
+      <p>At the end of the day, we’re here to build something sustainable, exciting, and real.</p>
       <p><strong>Put on great events and support the people who make live music what it is.</strong></p>
-      <p>This is So Below Entertainment.</p>
       <p><strong>From the underground, and everywhere else we can take it.</strong></p>
     </article>
-
   </section>
-
 </main>
 
 <footer class="footer">
