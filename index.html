@@ -36,7 +36,9 @@ body {
   text-decoration: none;
 }
 
-.nav a:hover { color: white; }
+.nav a:hover {
+  color: white;
+}
 
 .hero {
   position: relative;
@@ -60,27 +62,17 @@ body {
   z-index: 1;
 }
 
+/* THE FIX: logo used as cropped background, not as an img */
 .hero-logo {
   position: absolute;
+  inset: 0;
   z-index: 2;
-  left: 50%;
-  top: 50%;
-  width: 180vw;
-  height: 140vh;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-image: url("logo.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 320% auto;
 }
 
-.hero-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-/* INTRO */
 .intro {
   padding: 95px 5% 80px;
   text-align: center;
@@ -152,8 +144,7 @@ body {
   }
 
   .hero-logo {
-    width: 230vw;
-    height: 120vh;
+    background-size: 430% auto;
   }
 
   .intro {
@@ -180,10 +171,7 @@ body {
 
 <main class="hero">
   <div class="hero-bg"></div>
-
-  <div class="hero-logo">
-    <img src="logo.svg" alt="So Below Entertainment">
-  </div>
+  <div class="hero-logo" aria-label="So Below Entertainment logo"></div>
 </main>
 
 <section class="intro">
