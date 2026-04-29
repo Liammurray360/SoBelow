@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>So Below Entertainment</title>
 
+<!-- ✅ PROPER FAVICON SETUP -->
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-32x32.png">
+<link rel="shortcut icon" href="favicon-32x32.png">
 
 <style>
 * { box-sizing: border-box; }
@@ -36,15 +39,15 @@ body {
   text-decoration: none;
 }
 
-.nav a:hover {
-  color: white;
-}
+.nav a:hover { color: white; }
 
 .hero {
   position: relative;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  background: #050505;
 }
 
 .hero-bg {
@@ -58,41 +61,44 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.18);
-  z-index: 1;
+  background: rgba(0,0,0,0.25);
 }
 
-/* THE FIX: logo used as cropped background, not as an img */
 .hero-logo {
-  position: absolute;
-  inset: 0;
+  position: relative;
   z-index: 2;
-  background-image: url("logo.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 320% auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
+.hero-logo img {
+  width: 100%;
+  max-height: 95vh;
+  object-fit: contain;
+}
+
+/* INTRO */
 .intro {
-  padding: 95px 5% 80px;
+  padding: 100px 8% 80px;
   text-align: center;
 }
 
 .intro h1 {
-  font-size: clamp(2.4rem, 6vw, 5rem);
-  margin: 0 0 20px;
+  font-size: 3rem;
+  margin-bottom: 20px;
 }
 
 .intro p {
-  width: min(92vw, 1100px);
+  max-width: 900px;
   margin: auto;
   color: #ccc;
   line-height: 1.6;
-  font-size: 1.15rem;
 }
 
+/* BUTTONS */
 .buttons {
-  margin-top: 28px;
+  margin-top: 25px;
 }
 
 .button {
@@ -101,19 +107,12 @@ body {
   text-decoration: none;
   margin: 5px;
   display: inline-block;
-  font-weight: 700;
 }
 
-.primary {
-  background: #d51616;
-  color: white;
-}
+.primary { background: red; color: white; }
+.secondary { border: 1px solid #555; color: white; }
 
-.secondary {
-  border: 1px solid #555;
-  color: white;
-}
-
+/* FOOTER */
 .footer {
   padding: 30px 8%;
   background: #050505;
@@ -143,12 +142,8 @@ body {
     margin: 0 8px;
   }
 
-  .hero-logo {
-    background-size: 430% auto;
-  }
-
-  .intro {
-    padding: 70px 5%;
+  .intro h1 {
+    font-size: 2.3rem;
   }
 
   .footer {
@@ -171,7 +166,10 @@ body {
 
 <main class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-logo" aria-label="So Below Entertainment logo"></div>
+
+  <div class="hero-logo">
+    <img src="logo.svg" alt="So Below Entertainment">
+  </div>
 </main>
 
 <section class="intro">
