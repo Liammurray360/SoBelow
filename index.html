@@ -7,33 +7,117 @@
   <style>
     body {
       margin: 0;
-      background: black;
+      background: #050000;
       color: white;
       font-family: Arial, sans-serif;
+      overflow-x: hidden;
     }
 
+    /* HERO SECTION */
     .hero {
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: black;
+      background: radial-gradient(circle at center, #120000, #000);
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero img {
-      max-width: 80%;
-      max-height: 80vh;
-      object-fit: contain;
-      filter: drop-shadow(0 0 20px rgba(0,255,120,0.3));
+    /* moving red glow background */
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,0,0,0.2), transparent 60%);
+      animation: pulse 6s infinite alternate;
     }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.2); }
+    }
+
+    /* LOGO */
+    .hero img {
+      position: relative;
+      max-width: 70%;
+      max-height: 70vh;
+      object-fit: contain;
+
+      filter:
+        drop-shadow(0 0 5px red)
+        drop-shadow(0 0 15px red)
+        drop-shadow(0 0 30px darkred);
+
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* SECTION */
+    .section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h2 {
+      letter-spacing: 3px;
+      text-shadow: 0 0 10px red;
+    }
+
+    /* EVENT CARD */
+    .event {
+      border: 1px solid #300000;
+      padding: 20px;
+      margin: 20px 0;
+      transition: 0.3s;
+      background: rgba(20,0,0,0.4);
+    }
+
+    .event:hover {
+      border-color: red;
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(255,0,0,0.4);
+    }
+
+    a {
+      color: #ff4d4d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-shadow: 0 0 10px red;
+    }
+
   </style>
 </head>
 
 <body>
 
-<div class="hero">
-  <img src="LandingPage.svg" alt="So Below Logo">
-</div>
+  <!-- HERO -->
+  <div class="hero">
+    <img src="LandingPage.svg" alt="So Below Logo">
+  </div>
+
+  <!-- EVENTS -->
+  <section class="section">
+    <h2>UPCOMING CHAOS</h2>
+
+    <div class="event">
+      <h3>STATE OF THE NATION VI</h3>
+      <p>29 August • Rumours Lounge</p>
+      <a href="#">Tickets Coming Soon</a>
+    </div>
+
+  </section>
 
 </body>
 </html>
