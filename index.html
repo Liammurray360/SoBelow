@@ -11,203 +11,223 @@
 body {
   margin: 0;
   background: #080808;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-family: Arial Black, Impact, Arial, sans-serif;
   overflow-x: hidden;
 }
 
 .landing {
   min-height: 100vh;
-  position: relative;
   display: grid;
   place-items: center;
-  padding: 35px 18px;
+  padding: 34px 18px;
+  position: relative;
   overflow: hidden;
   background:
-    repeating-linear-gradient(
-      -12deg,
-      rgba(255,255,255,0.025) 0px,
-      rgba(255,255,255,0.025) 2px,
-      transparent 2px,
-      transparent 9px
-    ),
-    radial-gradient(circle at 20% 25%, rgba(180,0,0,0.55), transparent 18%),
-    radial-gradient(circle at 85% 70%, rgba(255,0,0,0.42), transparent 22%),
-    linear-gradient(135deg, #111 0%, #000 55%, #170000 100%);
+    radial-gradient(circle at 20% 20%, rgba(255,0,0,0.22), transparent 28%),
+    radial-gradient(circle at 80% 75%, rgba(255,255,255,0.08), transparent 26%),
+    linear-gradient(135deg, #111 0%, #050505 55%, #210000 100%);
 }
 
-/* big ugly paint smears */
+/* halftone dots */
 .landing::before {
   content: "";
   position: absolute;
-  inset: -15%;
-  background:
-    radial-gradient(circle at 16% 20%, #c40000 0 4%, transparent 4.4%),
-    radial-gradient(circle at 20% 24%, #8b0000 0 8%, transparent 8.5%),
-    radial-gradient(circle at 82% 18%, #ff1010 0 5%, transparent 5.5%),
-    radial-gradient(circle at 76% 63%, #a00000 0 10%, transparent 10.5%),
-    radial-gradient(circle at 48% 88%, #d00000 0 7%, transparent 7.5%);
-  filter: blur(2px);
-  opacity: 0.75;
-  transform: rotate(-8deg);
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.22) 1.2px, transparent 1.2px);
+  background-size: 12px 12px;
+  opacity: 0.28;
+  transform: rotate(-8deg) scale(1.2);
 }
 
-/* scratchy photocopy mess */
+/* comic burst */
 .landing::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -20%;
   background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.06) 0px,
-      rgba(255,255,255,0.06) 1px,
-      transparent 1px,
-      transparent 18px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,0,0,0.05) 0px,
-      rgba(255,0,0,0.05) 2px,
-      transparent 2px,
-      transparent 27px
+    conic-gradient(
+      from 10deg,
+      transparent 0 8deg,
+      rgba(190,0,0,0.38) 8deg 13deg,
+      transparent 13deg 22deg
     );
-  mix-blend-mode: screen;
   opacity: 0.45;
+  mix-blend-mode: screen;
 }
 
-.logo-wrap {
+.hero-card {
   position: relative;
   z-index: 2;
-  width: min(94vw, 930px);
-  padding: clamp(18px, 4vw, 48px);
-  background:
-    linear-gradient(135deg, rgba(0,0,0,0.92), rgba(20,0,0,0.88)),
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,0.04) 0px,
-      rgba(255,255,255,0.04) 1px,
-      transparent 1px,
-      transparent 7px
-    );
-  border: 3px solid #111;
-  outline: 2px solid rgba(255,0,0,0.75);
-  box-shadow:
-    -18px 18px 0 rgba(160,0,0,0.72),
-    18px -14px 0 rgba(255,255,255,0.08),
-    0 0 0 8px rgba(0,0,0,0.85);
-  transform: rotate(-1.5deg);
+  width: min(94vw, 980px);
+  padding: clamp(18px, 4vw, 44px);
+  background: #f5f1e8;
+  color: #050505;
+  border: 6px solid #050505;
+  box-shadow: 14px 14px 0 #c90000, 22px 22px 0 #050505;
+  transform: rotate(-1deg);
 }
 
-.logo-wrap::before {
+.hero-card::before {
   content: "";
   position: absolute;
-  inset: -20px;
-  z-index: -1;
+  inset: 14px;
+  border: 3px solid #050505;
+  pointer-events: none;
+}
+
+.logo-box {
+  position: relative;
   background:
-    linear-gradient(90deg, transparent 0 8%, #c90000 8% 13%, transparent 13% 100%),
-    linear-gradient(177deg, transparent 0 62%, rgba(255,255,255,0.18) 62% 66%, transparent 66%);
-  transform: rotate(3deg);
+    radial-gradient(circle, rgba(200,0,0,0.16) 1.5px, transparent 1.5px),
+    #fff8ec;
+  background-size: 10px 10px;
+  border: 4px solid #050505;
+  padding: clamp(16px, 4vw, 38px);
 }
 
-.logo-wrap::after {
-  content: "SO BELOW";
-  position: absolute;
-  right: -18px;
-  bottom: -18px;
-  padding: 8px 14px;
-  background: #d00000;
-  color: #050505;
-  font-weight: 900;
-  letter-spacing: 0.2em;
-  font-size: clamp(0.7rem, 1.6vw, 1rem);
-  transform: rotate(2deg);
-}
-
-.logo-wrap img {
+.logo-box img {
   display: block;
   width: 100%;
-  max-height: 66vh;
+  max-height: 58vh;
   object-fit: contain;
-  filter: contrast(1.35) saturate(0.9);
+  filter: contrast(1.18);
+}
+
+.badge {
+  position: absolute;
+  top: -22px;
+  left: -18px;
+  background: #d00000;
+  color: #fff;
+  border: 4px solid #050505;
+  padding: 10px 16px;
+  font-size: clamp(0.8rem, 2vw, 1.15rem);
+  letter-spacing: 0.08em;
+  transform: rotate(-6deg);
+  box-shadow: 6px 6px 0 #050505;
 }
 
 .tagline {
   margin-top: 22px;
-  color: #e5e5e5;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: clamp(0.72rem, 1.6vw, 0.95rem);
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: clamp(0.85rem, 2vw, 1.25rem);
+}
+
+.speech {
+  position: absolute;
+  right: -16px;
+  bottom: -34px;
+  max-width: 260px;
+  background: #fff;
+  border: 4px solid #050505;
+  padding: 14px 18px;
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  line-height: 1.15;
+  transform: rotate(4deg);
+  box-shadow: 6px 6px 0 #c90000;
+}
+
+.speech::after {
+  content: "";
+  position: absolute;
+  left: 34px;
+  bottom: -22px;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border-right: 4px solid #050505;
+  border-bottom: 4px solid #050505;
+  transform: rotate(45deg);
 }
 
 .section {
-  max-width: 980px;
+  padding: 78px 20px;
+  max-width: 1000px;
   margin: auto;
-  padding: 80px 20px;
 }
 
-h2 {
+.section-title {
   display: inline-block;
-  margin: 0 0 28px;
-  padding: 8px 14px;
-  background: #d00000;
+  background: #fff;
   color: #050505;
+  border: 5px solid #050505;
+  padding: 10px 16px;
+  box-shadow: 8px 8px 0 #c90000;
   transform: rotate(-1deg);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
 }
 
 .event {
+  margin-top: 36px;
+  background: #f5f1e8;
+  color: #050505;
+  border: 5px solid #050505;
+  padding: 26px;
+  box-shadow: 12px 12px 0 #c90000;
   position: relative;
-  padding: 28px;
-  background: #0d0d0d;
-  border: 2px solid #222;
-  box-shadow: -10px 10px 0 #8b0000;
 }
 
 .event::before {
   content: "";
   position: absolute;
-  top: -14px;
-  left: 22px;
-  width: 120px;
-  height: 26px;
-  background: rgba(255,255,255,0.15);
-  transform: rotate(-3deg);
+  inset: 0;
+  background-image: radial-gradient(rgba(0,0,0,0.22) 1px, transparent 1px);
+  background-size: 9px 9px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.event h3, .event p, .button {
+  position: relative;
+  z-index: 1;
 }
 
 .event h3 {
-  margin-top: 0;
-  letter-spacing: 0.1em;
+  margin: 0 0 8px;
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  letter-spacing: 0.04em;
 }
 
 .event p {
-  color: #cfcfcf;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
 }
 
 .button {
   display: inline-block;
-  margin-top: 10px;
-  padding: 11px 16px;
-  background: #c90000;
-  color: #050505;
+  margin-top: 12px;
+  background: #d00000;
+  color: white;
+  border: 4px solid #050505;
+  padding: 12px 18px;
   text-decoration: none;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  box-shadow: 5px 5px 0 #050505;
 }
 
-@media (max-width: 600px) {
-  .logo-wrap {
-    transform: rotate(-0.6deg);
-    box-shadow:
-      -8px 8px 0 rgba(160,0,0,0.72),
-      0 0 0 6px rgba(0,0,0,0.85);
+.button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 #050505;
+}
+
+@media (max-width: 700px) {
+  .hero-card {
+    box-shadow: 8px 8px 0 #c90000, 14px 14px 0 #050505;
   }
 
-  .logo-wrap::after {
-    right: 8px;
-    bottom: -14px;
+  .speech {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 22px auto -6px;
+    max-width: 100%;
+  }
+
+  .badge {
+    top: -18px;
+    left: 10px;
   }
 }
 </style>
@@ -216,19 +236,292 @@ h2 {
 <body>
 
 <main class="landing">
-  <div class="logo-wrap">
-    <img src="LandingPage.svg" alt="So Below Logo" />
-    <div class="tagline">Live music from the underground</div>
+  <div class="hero-card">
+    <div class="badge">LIVE!</div>
+
+    <div class="logo-box">
+      <img src="LandingPage.svg" alt="So Below Logo" />
+    </div>
+
+    <div class="tagline">Underground shows • heavy nights • loud rooms</div>
+
+    <div class="speech">
+      New shows loading. Bring earplugs.
+    </div>
   </div>
 </main>
 
 <section class="section">
-  <h2>UPCOMING CHAOS</h2>
+  <h2 class="section-title">UPCOMING CHAOS</h2>
 
   <div class="event">
     <h3>STATE OF THE NATION VI</h3>
     <p>29 August • Rumours Lounge</p>
-    <a class="button" href="#">Tickets Coming Soon</a>
+    <a class="button" href="#">TICKETS COMING SOON</a>
+  </div>
+</section>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>So Below</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #080808;
+  color: #fff;
+  font-family: Arial Black, Impact, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.landing {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 34px 18px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,0,0,0.22), transparent 28%),
+    radial-gradient(circle at 80% 75%, rgba(255,255,255,0.08), transparent 26%),
+    linear-gradient(135deg, #111 0%, #050505 55%, #210000 100%);
+}
+
+/* halftone dots */
+.landing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.22) 1.2px, transparent 1.2px);
+  background-size: 12px 12px;
+  opacity: 0.28;
+  transform: rotate(-8deg) scale(1.2);
+}
+
+/* comic burst */
+.landing::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    conic-gradient(
+      from 10deg,
+      transparent 0 8deg,
+      rgba(190,0,0,0.38) 8deg 13deg,
+      transparent 13deg 22deg
+    );
+  opacity: 0.45;
+  mix-blend-mode: screen;
+}
+
+.hero-card {
+  position: relative;
+  z-index: 2;
+  width: min(94vw, 980px);
+  padding: clamp(18px, 4vw, 44px);
+  background: #f5f1e8;
+  color: #050505;
+  border: 6px solid #050505;
+  box-shadow: 14px 14px 0 #c90000, 22px 22px 0 #050505;
+  transform: rotate(-1deg);
+}
+
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 3px solid #050505;
+  pointer-events: none;
+}
+
+.logo-box {
+  position: relative;
+  background:
+    radial-gradient(circle, rgba(200,0,0,0.16) 1.5px, transparent 1.5px),
+    #fff8ec;
+  background-size: 10px 10px;
+  border: 4px solid #050505;
+  padding: clamp(16px, 4vw, 38px);
+}
+
+.logo-box img {
+  display: block;
+  width: 100%;
+  max-height: 58vh;
+  object-fit: contain;
+  filter: contrast(1.18);
+}
+
+.badge {
+  position: absolute;
+  top: -22px;
+  left: -18px;
+  background: #d00000;
+  color: #fff;
+  border: 4px solid #050505;
+  padding: 10px 16px;
+  font-size: clamp(0.8rem, 2vw, 1.15rem);
+  letter-spacing: 0.08em;
+  transform: rotate(-6deg);
+  box-shadow: 6px 6px 0 #050505;
+}
+
+.tagline {
+  margin-top: 22px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: clamp(0.85rem, 2vw, 1.25rem);
+}
+
+.speech {
+  position: absolute;
+  right: -16px;
+  bottom: -34px;
+  max-width: 260px;
+  background: #fff;
+  border: 4px solid #050505;
+  padding: 14px 18px;
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  line-height: 1.15;
+  transform: rotate(4deg);
+  box-shadow: 6px 6px 0 #c90000;
+}
+
+.speech::after {
+  content: "";
+  position: absolute;
+  left: 34px;
+  bottom: -22px;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border-right: 4px solid #050505;
+  border-bottom: 4px solid #050505;
+  transform: rotate(45deg);
+}
+
+.section {
+  padding: 78px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-title {
+  display: inline-block;
+  background: #fff;
+  color: #050505;
+  border: 5px solid #050505;
+  padding: 10px 16px;
+  box-shadow: 8px 8px 0 #c90000;
+  transform: rotate(-1deg);
+  letter-spacing: 0.08em;
+}
+
+.event {
+  margin-top: 36px;
+  background: #f5f1e8;
+  color: #050505;
+  border: 5px solid #050505;
+  padding: 26px;
+  box-shadow: 12px 12px 0 #c90000;
+  position: relative;
+}
+
+.event::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0,0,0,0.22) 1px, transparent 1px);
+  background-size: 9px 9px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.event h3, .event p, .button {
+  position: relative;
+  z-index: 1;
+}
+
+.event h3 {
+  margin: 0 0 8px;
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  letter-spacing: 0.04em;
+}
+
+.event p {
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 12px;
+  background: #d00000;
+  color: white;
+  border: 4px solid #050505;
+  padding: 12px 18px;
+  text-decoration: none;
+  box-shadow: 5px 5px 0 #050505;
+}
+
+.button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 #050505;
+}
+
+@media (max-width: 700px) {
+  .hero-card {
+    box-shadow: 8px 8px 0 #c90000, 14px 14px 0 #050505;
+  }
+
+  .speech {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 22px auto -6px;
+    max-width: 100%;
+  }
+
+  .badge {
+    top: -18px;
+    left: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="landing">
+  <div class="hero-card">
+    <div class="badge">LIVE!</div>
+
+    <div class="logo-box">
+      <img src="LandingPage.svg" alt="So Below Logo" />
+    </div>
+
+    <div class="tagline">Underground shows • heavy nights • loud rooms</div>
+
+    <div class="speech">
+      New shows loading. Bring earplugs.
+    </div>
+  </div>
+</main>
+
+<section class="section">
+  <h2 class="section-title">UPCOMING CHAOS</h2>
+
+  <div class="event">
+    <h3>STATE OF THE NATION VI</h3>
+    <p>29 August • Rumours Lounge</p>
+    <a class="button" href="#">TICKETS COMING SOON</a>
   </div>
 </section>
 
