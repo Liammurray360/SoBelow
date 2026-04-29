@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>So Below Entertainment</title>
 
 <style>
@@ -15,6 +15,7 @@ body {
   color: #f5f5f5;
 }
 
+/* NAV */
 .nav {
   position: fixed;
   top: 0;
@@ -23,10 +24,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(10,10,10,0.82);
+  background: rgba(10,10,10,0.85);
   border-bottom: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  z-index: 10;
 }
 
 .nav strong { letter-spacing: 0.1em; }
@@ -35,17 +34,17 @@ body {
   text-decoration: none;
   color: #ccc;
   margin-left: 20px;
-  font-size: 0.9rem;
 }
 
 .nav a:hover { color: white; }
 
+/* HERO */
 .hero {
   position: relative;
   min-height: 100vh;
   display: grid;
   place-items: center;
-  padding: 100px 5% 60px;
+  padding: 100px 5%;
   overflow: hidden;
 }
 
@@ -54,119 +53,69 @@ body {
   inset: 0;
   background: url("bckgnd.svg") center/cover no-repeat;
   opacity: 1;
-  filter: brightness(1.85) contrast(1.15);
+  filter: brightness(1.8);
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0.26)),
-    linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.35));
+  background: rgba(0,0,0,0.25);
 }
 
 .hero-logo {
   position: relative;
   z-index: 2;
-  width: min(96vw, 1050px);
+  width: min(95vw, 1100px);
 }
 
 .hero-logo img {
   width: 100%;
-  max-height: 88vh;
+  max-height: 90vh;
   object-fit: contain;
-  display: block;
 }
 
-.home-intro {
+/* INTRO */
+.intro {
   padding: 80px 8%;
-  background: #0b0b0b;
   text-align: center;
 }
 
-.home-intro h1 {
-  margin: 0;
-  font-size: clamp(2.3rem, 5vw, 4.8rem);
-  line-height: 1;
+.intro h1 {
+  font-size: 3rem;
 }
 
-.home-intro p {
-  max-width: 720px;
-  margin: 22px auto;
-  color: #cfcfcf;
-  line-height: 1.7;
-  font-size: 1.05rem;
+.intro p {
+  max-width: 700px;
+  margin: auto;
+  color: #ccc;
 }
 
-.button-row {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 26px;
+.buttons {
+  margin-top: 20px;
 }
 
 .button {
   padding: 12px 18px;
   border-radius: 999px;
-  font-weight: bold;
   text-decoration: none;
-  font-size: 0.85rem;
+  margin: 5px;
 }
 
-.button.primary {
-  background: #d51616;
-  color: white;
-}
+.primary { background: red; color: white; }
+.secondary { border: 1px solid #555; color: white; }
 
-.button.secondary {
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
-}
-
+/* FOOTER */
 .footer {
-  padding: 34px 8%;
+  padding: 30px 8%;
   background: #050505;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
-  color: #aaa;
-}
-
-.footer a {
-  color: white;
-  text-decoration: none;
 }
 
 .secret {
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   color: #555;
-  margin-top: 8px;
-}
-
-@media (max-width: 850px) {
-  .nav {
-    position: static;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .nav a {
-    margin: 0 8px;
-  }
-
-  .hero-logo {
-    width: 96vw;
-  }
-
-  .hero-logo img {
-    max-height: 75vh;
-  }
-
-  .footer {
-    flex-direction: column;
-  }
 }
 </style>
 </head>
@@ -177,41 +126,31 @@ body {
   <strong>SO BELOW</strong>
   <nav>
     <a href="shows.html">Shows</a>
-    <a href="about.html">About Us</a>
+    <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="https://www.instagram.com/so.below.ent/" target="_blank">Instagram</a>
   </nav>
 </header>
 
 <main class="hero">
   <div class="hero-bg"></div>
   <div class="hero-logo">
-    <img src="logo.svg" alt="So Below Logo">
+    <img src="logo.svg">
   </div>
 </main>
 
-<section class="home-intro">
+<section class="intro">
   <h1>Live events with weight.</h1>
-  <p>
-    So Below Entertainment runs alternative and heavy shows with strong lineups,
-    clean promotion and rooms that actually feel alive.
-  </p>
+  <p>Alternative, rock and heavy shows built properly.</p>
 
-  <div class="button-row">
-    <a class="button primary" href="shows.html">View Shows</a>
-    <a class="button secondary" href="contact.html">Contact Us</a>
+  <div class="buttons">
+    <a class="button primary" href="shows.html">Shows</a>
+    <a class="button secondary" href="contact.html">Contact</a>
   </div>
 </section>
 
 <footer class="footer">
-  <div>
-    © So Below Entertainment
-    <div class="secret">A division of Secret Sauce</div>
-  </div>
-  <div>
-    <a href="mailto:so.below.ent@gmail.com">so.below.ent@gmail.com</a><br>
-    <a href="tel:+27616723985">061 672 3985</a>
-  </div>
+  <div>© So Below</div>
+  <div class="secret">A division of Secret Sauce</div>
 </footer>
 
 </body>
