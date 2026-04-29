@@ -5,10 +5,159 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>So Below Entertainment</title>
 
-<!-- FAVICON -->
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
-<link rel="stylesheet" href="style.css">
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0b0b0b;
+  color: #f5f5f5;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10,10,10,0.85);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 10;
+}
+
+.nav a {
+  color: #ccc;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: white;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url("bckgnd.svg") center/cover no-repeat;
+  filter: brightness(2) contrast(1.2);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+}
+
+.hero-logo {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-logo img {
+  width: 100%;
+  max-height: 95vh;
+  object-fit: contain;
+}
+
+.intro {
+  padding: 100px 8% 80px;
+  text-align: center;
+}
+
+.intro h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.intro p {
+  max-width: 700px;
+  margin: auto;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.buttons {
+  margin-top: 25px;
+}
+
+.button {
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  margin: 5px;
+  display: inline-block;
+}
+
+.primary {
+  background: red;
+  color: white;
+}
+
+.secondary {
+  border: 1px solid #555;
+  color: white;
+}
+
+.footer {
+  padding: 30px 8%;
+  background: #050505;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.secret {
+  font-size: 0.7rem;
+  color: #555;
+}
+
+@media (max-width: 850px) {
+  .nav {
+    position: static;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav a {
+    margin: 0 8px;
+  }
+
+  .hero-logo img {
+    max-height: 85vh;
+  }
+
+  .intro h1 {
+    font-size: 2.3rem;
+  }
+
+  .footer {
+    gap: 10px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -32,12 +181,10 @@
 
 <section class="intro">
   <h1>Live events with weight.</h1>
-  <p>
-    Alternative, rock and heavy shows built properly.
-  </p>
+  <p>Alternative, rock and heavy shows built properly.</p>
 
   <div class="buttons">
-    <a class="button primary" href="shows.html">View Shows</a>
+    <a class="button primary" href="shows.html">Shows</a>
     <a class="button secondary" href="contact.html">Contact</a>
   </div>
 </section>
@@ -47,6 +194,7 @@
     © So Below Entertainment
     <div class="secret">A division of Secret Sauce</div>
   </div>
+
   <div>
     <a href="https://www.instagram.com/so.below.ent/" target="_blank">@so.below.ent</a>
   </div>
