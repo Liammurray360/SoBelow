@@ -19,7 +19,6 @@ body {
   color: #111;
 }
 
-/* NAV */
 .nav {
   padding: 18px 8%;
   display: flex;
@@ -39,7 +38,6 @@ body {
 
 .nav a:hover { color: white; }
 
-/* PAGE */
 .page {
   padding: 70px 8%;
 }
@@ -49,7 +47,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* BIG SHOWS */
 .show-grid {
   display: grid;
   gap: 34px;
@@ -116,6 +113,12 @@ body {
   margin: 18px 0;
 }
 
+.lineup strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.lineup span,
 .lineup a {
   display: inline-block;
   margin: 4px;
@@ -131,6 +134,17 @@ body {
   color: white;
 }
 
+.ticket-box {
+  margin: 16px 0;
+  padding: 14px;
+  border-radius: 16px;
+  background: #f5f5f5;
+}
+
+.ticket-box strong {
+  color: #d51616;
+}
+
 .button {
   padding: 12px 18px;
   border-radius: 999px;
@@ -140,13 +154,13 @@ body {
   display: inline-block;
   margin-top: 10px;
   transition: 0.2s ease;
+  font-weight: 800;
 }
 
 .button:hover {
   transform: translateY(-2px);
 }
 
-/* SMALL EVENTS */
 .small-grid {
   margin-top: 50px;
   display: grid;
@@ -171,7 +185,6 @@ body {
   transform: scale(1.04);
 }
 
-/* FOOTER */
 .footer {
   padding: 25px;
   background: #050505;
@@ -183,9 +196,7 @@ body {
   color: #555;
 }
 
-/* MOBILE */
 @media (max-width: 900px) {
-
   .nav {
     flex-direction: column;
     gap: 10px;
@@ -214,7 +225,6 @@ body {
   .small-grid {
     grid-template-columns: 1fr;
   }
-
 }
 </style>
 </head>
@@ -238,82 +248,65 @@ body {
 
   <section class="show-grid">
 
-    <!-- WORM SHOW -->
+    <!-- DEFROST FEST -->
     <article class="show-card">
-      <a class="poster-link" href="WYLMIIWAW.png" target="_blank">
-        <img class="poster" src="WYLMIIWAW.png">
+      <a class="poster-link" href="defrost-fest.jpg" target="_blank">
+        <img class="poster" src="defrost-fest.jpg">
       </a>
 
       <div class="show-content">
-        <div class="date">16 May • Doors 17:00 • R100</div>
-        <h2>Would You Love Me If I Was a Worm?</h2>
+        <div class="date">26 & 27 June • Rumours Lounge</div>
+        <h2>Defrost Fest 2026</h2>
 
-        <p class="description">
-          Cool. Normal question. Totally chill. Definitely not existential at all.
-        </p>
+        <div class="hype">Two nights • winter riffs • no fluff</div>
 
         <div class="lineup">
-          <a href="https://www.instagram.com/pandora_band_sa/" target="_blank">Pandora</a>
-          <a href="https://www.instagram.com/kaylinhillx/" target="_blank">Kaylin Hill</a>
-          <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk n Kiff</a>
-          <a href="https://www.instagram.com/atfn012/" target="_blank">All This For Nothing</a>
-          <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+          <strong>Friday</strong>
+          <a href="https://www.instagram.com/theburn_outs/" target="_blank">The Burnouts</a>
+          <a href="https://www.instagram.com/glitterclit_band/" target="_blank">Glitter Clit</a>
+          <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
+          <a href="https://www.instagram.com/after_wonderland/" target="_blank">After Wonderland</a>
+          <a href="https://www.instagram.com/deadly_since_official/" target="_blank">Deadly Since</a>
         </div>
 
-        <a class="button" href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
-          Buy Tickets
-        </a>
+        <div class="lineup">
+          <strong>Saturday</strong>
+          <a href="https://www.instagram.com/sometimes_useless_at_night/" target="_blank">Sometimes Useless At Night</a>
+          <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+          <a href="https://www.instagram.com/the.thr3.proj3ct/" target="_blank">THE THR3 PROJ3CT</a>
+          <a href="https://www.instagram.com/manasmachine_sa/" target="_blank">Man As Machine</a>
+          <a href="https://www.instagram.com/raptorbabyband/" target="_blank">Raptor Baby</a>
+        </div>
+
+        <div class="ticket-box">
+          <p><strong>Tickets:</strong></p>
+          <p>R100 per day</p>
+          <p>R150 weekend pass</p>
+        </div>
       </div>
     </article>
 
     <!-- SOTN -->
     <article class="show-card">
-      <a class="poster-link" href="SOTNVI.png" target="_blank">
-        <img class="poster" src="SOTNVI.png">
+      <a class="poster-link" href="sotnvi-1announce.png" target="_blank">
+        <img class="poster" src="sotnvi-1announce.png">
       </a>
 
       <div class="show-content">
-        <div class="date">29 August</div>
+        <div class="date">29 August • Rumours Lounge</div>
         <h2>State Of The Nation VI</h2>
 
-        <div class="hype">
-          14 bands • 2 stages • indoor + outdoor • powered by As Above Audio
+        <div class="lineup">
+          <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+          <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+          <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
         </div>
 
-        <p class="description">
-          The next chapter of So Below’s flagship heavy show.
-        </p>
+        <a class="button" href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">
+          Phase 1 Tickets
+        </a>
       </div>
     </article>
-
-  </section>
-
-  <!-- SMALL EVENTS -->
-  <section class="small-grid">
-
-    <div class="small-card">
-      <a href="JamNight.png" target="_blank">
-        <img src="JamNight.png">
-      </a>
-      <h3>Jam Night</h3>
-      <p>First & Last Wednesday • Free</p>
-    </div>
-
-    <div class="small-card">
-      <a href="OpenMic.png" target="_blank">
-        <img src="OpenMic.png">
-      </a>
-      <h3>Open Mic</h3>
-      <p>2nd & 3rd Wednesday • Free</p>
-    </div>
-
-    <div class="small-card">
-      <a href="Karaoke.png" target="_blank">
-        <img src="Karaoke.png">
-      </a>
-      <h3>Karaoke</h3>
-      <p>First & Last Thursday • Free</p>
-    </div>
 
   </section>
 
