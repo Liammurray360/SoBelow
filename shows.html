@@ -19,6 +19,7 @@ body {
   color: #111;
 }
 
+/* NAV */
 .nav {
   padding: 18px 8%;
   display: flex;
@@ -38,6 +39,7 @@ body {
 
 .nav a:hover { color: white; }
 
+/* PAGE */
 .page {
   padding: 70px 8%;
 }
@@ -47,12 +49,12 @@ body {
   margin-bottom: 30px;
 }
 
+/* BIG SHOWS */
 .show-grid {
   display: grid;
   gap: 34px;
 }
 
-/* BIG SHOWS */
 .show-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -156,6 +158,7 @@ body {
   background: white;
   border-radius: 20px;
   padding: 20px;
+  border: 1px solid #e6e6e6;
 }
 
 .small-card img {
@@ -168,6 +171,7 @@ body {
   transform: scale(1.04);
 }
 
+/* FOOTER */
 .footer {
   padding: 25px;
   background: #050505;
@@ -179,28 +183,28 @@ body {
   color: #555;
 }
 
-/* TRANSITION */
-.paint-transition {
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 40%, #d51616 0 8%, transparent 9%),
-    radial-gradient(circle at 50% 50%, #8b0000 0 12%, transparent 13%),
-    linear-gradient(90deg, #050505, #d51616, #050505);
-  transform: translateX(-120%) skewX(-12deg);
-  z-index: 9999;
-  transition: 0.55s ease;
-}
-
-.paint-transition.active {
-  transform: translateX(0) skewX(-12deg);
-}
-
 /* MOBILE */
 @media (max-width: 900px) {
+
   .nav {
     flex-direction: column;
+    gap: 10px;
     text-align: center;
+  }
+
+  .nav nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .nav a {
+    margin: 0;
+  }
+
+  .page {
+    padding: 40px 5%;
   }
 
   .show-card {
@@ -211,9 +215,6 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .page {
-    padding: 40px 5%;
-  }
 }
 </style>
 </head>
@@ -232,11 +233,12 @@ body {
 </header>
 
 <main class="page">
+
   <h1>Shows</h1>
 
   <section class="show-grid">
 
-    <!-- WORM -->
+    <!-- WORM SHOW -->
     <article class="show-card">
       <a class="poster-link" href="WYLMIIWAW.png" target="_blank">
         <img class="poster" src="WYLMIIWAW.png">
@@ -247,15 +249,15 @@ body {
         <h2>Would You Love Me If I Was a Worm?</h2>
 
         <p class="description">
-          Cool. Normal question. Totally chill.
+          Cool. Normal question. Totally chill. Definitely not existential at all.
         </p>
 
         <div class="lineup">
-          <a href="#">Pandora</a>
-          <a href="#">Kaylin Hill</a>
-          <a href="#">Funk n Kiff</a>
-          <a href="#">All This For Nothing</a>
-          <a href="#">Moshmallow</a>
+          <a href="https://www.instagram.com/pandora_band_sa/" target="_blank">Pandora</a>
+          <a href="https://www.instagram.com/kaylinhillx/" target="_blank">Kaylin Hill</a>
+          <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk n Kiff</a>
+          <a href="https://www.instagram.com/atfn012/" target="_blank">All This For Nothing</a>
+          <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
         </div>
 
         <a class="button" href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
@@ -286,23 +288,29 @@ body {
 
   </section>
 
-  <!-- SMALL -->
+  <!-- SMALL EVENTS -->
   <section class="small-grid">
 
     <div class="small-card">
-      <a href="JamNight.png" target="_blank"><img src="JamNight.png"></a>
+      <a href="JamNight.png" target="_blank">
+        <img src="JamNight.png">
+      </a>
       <h3>Jam Night</h3>
       <p>First & Last Wednesday • Free</p>
     </div>
 
     <div class="small-card">
-      <a href="OpenMic.png" target="_blank"><img src="OpenMic.png"></a>
+      <a href="OpenMic.png" target="_blank">
+        <img src="OpenMic.png">
+      </a>
       <h3>Open Mic</h3>
       <p>2nd & 3rd Wednesday • Free</p>
     </div>
 
     <div class="small-card">
-      <a href="Karaoke.png" target="_blank"><img src="Karaoke.png"></a>
+      <a href="Karaoke.png" target="_blank">
+        <img src="Karaoke.png">
+      </a>
       <h3>Karaoke</h3>
       <p>First & Last Thursday • Free</p>
     </div>
@@ -314,24 +322,6 @@ body {
 <footer class="footer">
   <div class="secret">A division of Secret Sauce</div>
 </footer>
-
-<div class="paint-transition"></div>
-
-<script>
-const t = document.querySelector(".paint-transition");
-
-document.querySelectorAll("a").forEach(link => {
-  const href = link.getAttribute("href");
-
-  if (href && !href.startsWith("http") && !link.hasAttribute("target")) {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      t.classList.add("active");
-      setTimeout(() => window.location.href = href, 500);
-    });
-  }
-});
-</script>
 
 </body>
 </html>
