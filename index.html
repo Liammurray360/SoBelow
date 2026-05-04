@@ -32,10 +32,6 @@ body {
   z-index: 10;
 }
 
-.nav strong {
-  letter-spacing: 0.08em;
-}
-
 .nav a {
   color: #ccc;
   margin-left: 20px;
@@ -44,12 +40,10 @@ body {
 
 .nav a:hover { color: white; }
 
+/* HERO */
 .hero {
   position: relative;
   min-height: 100vh;
-  padding: 110px 6% 60px;
-  display: grid;
-  place-items: center;
   overflow: hidden;
 }
 
@@ -57,61 +51,56 @@ body {
   position: absolute;
   inset: 0;
   background: url("bckgnd.svg") center/cover no-repeat;
-  filter: brightness(1.85) contrast(1.15);
+  filter: brightness(1.9) contrast(1.15);
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(0,0,0,0.03), rgba(0,0,0,0.38)),
-    linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.42));
+  background: rgba(0,0,0,0.25);
 }
 
-.hero-card {
-  position: relative;
-  z-index: 2;
-  width: min(94vw, 1180px);
-  min-height: 68vh;
-  display: grid;
-  place-items: center;
-  padding: 30px;
+/* 🔥 FIXED CENTERING */
+.hero-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero-card img {
-  width: min(100%, 1050px);
-  max-height: 78vh;
+.hero-logo img {
+  width: 100%;
+  height: auto;
   object-fit: contain;
   display: block;
 }
 
+/* INTRO */
 .intro {
-  padding: 80px 6% 75px;
+  padding: 90px 6% 75px;
   text-align: center;
-  background: #0b0b0b;
-}
-
-.intro-inner {
-  max-width: 950px;
-  margin: auto;
 }
 
 .intro h1 {
   font-size: clamp(2.4rem, 6vw, 5rem);
-  line-height: 1;
   margin: 0 0 20px;
 }
 
 .intro p {
+  max-width: 900px;
+  margin: auto;
   color: #ccc;
   line-height: 1.6;
-  font-size: 1.1rem;
-  margin: 0 auto;
 }
 
 .buttons {
-  margin-top: 28px;
+  margin-top: 26px;
   display: flex;
   justify-content: center;
   gap: 12px;
@@ -122,7 +111,6 @@ body {
   padding: 13px 20px;
   border-radius: 999px;
   text-decoration: none;
-  display: inline-block;
   font-weight: bold;
 }
 
@@ -140,16 +128,13 @@ body {
   color: #555;
 }
 
+/* 🔥 MOBILE FIX */
 @media (max-width: 850px) {
+
   .nav {
-    position: fixed;
-    padding: 14px 5%;
     flex-direction: column;
     gap: 10px;
-  }
-
-  .nav strong {
-    font-size: 0.9rem;
+    padding: 14px 5%;
   }
 
   .nav nav {
@@ -161,41 +146,24 @@ body {
 
   .nav a {
     margin: 0;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
   }
 
-  .hero {
-    min-height: 92vh;
-    padding: 95px 0 34px;
+  /* 👉 THIS IS THE MAGIC */
+  .hero-logo {
+    width: 160vw;              /* make logo BIG */
   }
 
-  .hero-bg {
-    background-position: center;
-    filter: brightness(1.65) contrast(1.08);
-  }
-
-  .hero-card {
-    width: 100vw;
-    min-height: 70vh;
-    padding: 0;
-  }
-
-  .hero-card img {
-    width: 132vw;
-    max-width: none;
-    max-height: 78vh;
+  .hero-logo img {
+    transform: scale(1.2);     /* zoom it in */
   }
 
   .intro {
-    padding: 62px 6% 58px;
+    padding: 60px 6%;
   }
 
   .intro h1 {
     font-size: clamp(2.3rem, 12vw, 3.4rem);
-  }
-
-  .intro p {
-    font-size: 1rem;
   }
 
   .buttons {
@@ -215,7 +183,8 @@ body {
 <body>
 
 <header class="nav">
-  <strong>SO BELOW</strong>
+  <strong>SO BELOW ENTERTAINMENT</strong>
+
   <nav>
     <a href="shows.html">Shows</a>
     <a href="about.html">About</a>
@@ -226,20 +195,18 @@ body {
 <main class="hero">
   <div class="hero-bg"></div>
 
-  <div class="hero-card">
+  <div class="hero-logo">
     <img src="logo.svg" alt="So Below Entertainment">
   </div>
 </main>
 
 <section class="intro">
-  <div class="intro-inner">
-    <h1>Live events with weight.</h1>
-    <p>Alternative, rock and heavy shows built properly.</p>
+  <h1>Live events with weight.</h1>
+  <p>Alternative, rock and heavy shows built properly.</p>
 
-    <div class="buttons">
-      <a class="button primary" href="shows.html">Shows</a>
-      <a class="button secondary" href="contact.html">Contact</a>
-    </div>
+  <div class="buttons">
+    <a class="button primary" href="shows.html">Shows</a>
+    <a class="button secondary" href="contact.html">Contact</a>
   </div>
 </section>
 
