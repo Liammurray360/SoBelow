@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shows | So Below Entertainment</title>
+<meta name="description" content="Upcoming So Below Entertainment shows, including alternative, rock and metal events in Johannesburg.">
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -28,9 +29,7 @@ body {
   color: white;
 }
 
-.nav strong {
-  letter-spacing: 0.08em;
-}
+.nav strong { letter-spacing: 0.08em; }
 
 .nav a {
   color: #ccc;
@@ -46,7 +45,7 @@ body {
 
 .page h1 {
   font-size: clamp(2.5rem, 6vw, 5rem);
-  margin-bottom: 30px;
+  margin: 0 0 30px;
 }
 
 .show-grid {
@@ -54,7 +53,6 @@ body {
   gap: 34px;
 }
 
-/* BIG SHOW CARDS */
 .show-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -96,11 +94,10 @@ body {
 }
 
 .show-content h2 {
-  margin: 12px 0 10px;
+  margin: 12px 0 14px;
   font-size: clamp(1.8rem, 4vw, 3.1rem);
 }
 
-/* 🔥 NEW HYPE LINE */
 .hype {
   color: #d51616;
   font-weight: 900;
@@ -128,6 +125,7 @@ body {
   border: 1px solid #e1e1e1;
   text-decoration: none;
   color: #111;
+  transition: 0.2s ease;
 }
 
 .lineup a:hover {
@@ -143,9 +141,13 @@ body {
   text-decoration: none;
   display: inline-block;
   margin-top: 10px;
+  transition: 0.2s ease;
 }
 
-/* SMALL EVENTS */
+.button:hover {
+  transform: translateY(-2px);
+}
+
 .small-grid {
   margin-top: 50px;
   display: grid;
@@ -158,30 +160,56 @@ body {
   border-radius: 22px;
   padding: 22px;
   border: 1px solid #e6e6e6;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.045);
 }
 
 .small-card img {
   width: 100%;
   border-radius: 14px;
+  transition: 0.3s ease;
+}
+
+.small-card img:hover {
+  transform: scale(1.03);
 }
 
 .footer {
-  padding: 25px;
+  padding: 25px 8%;
   background: #050505;
   text-align: center;
+}
+
+.footer a {
+  color: #aaa;
+  text-decoration: none;
 }
 
 .secret {
   font-size: 0.7rem;
   color: #555;
+  margin-top: 8px;
 }
 
-/* MOBILE */
 @media (max-width: 900px) {
   .nav {
     flex-direction: column;
     gap: 10px;
     text-align: center;
+  }
+
+  .nav nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .nav a {
+    margin: 0;
+  }
+
+  .page {
+    padding: 42px 5%;
   }
 
   .show-card {
@@ -190,6 +218,11 @@ body {
 
   .small-grid {
     grid-template-columns: 1fr;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
   }
 }
 </style>
@@ -213,10 +246,9 @@ body {
 
   <section class="show-grid">
 
-    <!-- WORM SHOW -->
     <article class="show-card">
       <a class="poster-link" href="WYLMIIWAW.png" target="_blank">
-        <img class="poster" src="WYLMIIWAW.png">
+        <img class="poster" src="WYLMIIWAW.png" alt="Would You Love Me If I Was a Worm poster">
       </a>
 
       <div class="show-content">
@@ -225,6 +257,10 @@ body {
 
         <p class="description">
           Cool. Normal question. Totally chill. Definitely not existential at all.
+        </p>
+
+        <p class="description">
+          On May 16, we’re putting that question to the test at Rumours Lounge with a night that wriggles between genres, vibes, and emotional damage.
         </p>
 
         <div class="lineup">
@@ -241,59 +277,45 @@ body {
       </div>
     </article>
 
-    <!-- SOTN -->
     <article class="show-card">
       <a class="poster-link" href="SOTNVI.png" target="_blank">
-        <img class="poster" src="SOTNVI.png">
+        <img class="poster" src="SOTNVI.png" alt="State Of The Nation VI poster">
       </a>
 
       <div class="show-content">
         <div class="date">29 August</div>
         <h2>State Of The Nation VI</h2>
-
-        <div class="hype">
-          14 bands • 2 stages • heavy as hell
-        </div>
-
-        <p class="description">
-          The next chapter of So Below’s flagship heavy show.
-        </p>
+        <div class="hype">14 bands • 2 stages • indoor + outdoor • powered by As Above Audio</div>
+        <p class="description">The next chapter of So Below’s flagship heavy show.</p>
       </div>
     </article>
 
   </section>
 
   <section class="small-grid">
-
     <div class="small-card">
-      <a href="JamNight.png" target="_blank">
-        <img src="JamNight.png">
-      </a>
+      <a href="JamNight.png" target="_blank"><img src="JamNight.png" alt="Jam Night poster"></a>
       <h3>Jam Night</h3>
       <p>First & Last Wednesday • Free</p>
     </div>
 
     <div class="small-card">
-      <a href="OpenMic.png" target="_blank">
-        <img src="OpenMic.png">
-      </a>
+      <a href="OpenMic.png" target="_blank"><img src="OpenMic.png" alt="Open Mic poster"></a>
       <h3>Open Mic</h3>
       <p>2nd & 3rd Wednesday • Free</p>
     </div>
 
     <div class="small-card">
-      <a href="Karaoke.png" target="_blank">
-        <img src="Karaoke.png">
-      </a>
+      <a href="Karaoke.png" target="_blank"><img src="Karaoke.png" alt="Karaoke poster"></a>
       <h3>Karaoke</h3>
       <p>First & Last Thursday • Free</p>
     </div>
-
   </section>
 
 </main>
 
 <footer class="footer">
+  <a href="https://www.instagram.com/so.below.ent/" target="_blank">@so.below.ent</a>
   <div class="secret">A division of Secret Sauce</div>
 </footer>
 
