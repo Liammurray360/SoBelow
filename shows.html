@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shows | So Below Entertainment</title>
-<meta name="description" content="Upcoming So Below Entertainment shows, including alternative, rock and metal events in Johannesburg.">
+
+<meta name="description" content="Upcoming So Below Entertainment shows including alternative, rock and metal events in Johannesburg.">
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="shortcut icon" href="favicon.ico">
 
 <style>
 * { box-sizing: border-box; }
@@ -45,7 +44,7 @@ body {
 
 .page h1 {
   font-size: clamp(2.5rem, 6vw, 5rem);
-  margin: 0 0 30px;
+  margin-bottom: 30px;
 }
 
 .show-grid {
@@ -53,6 +52,7 @@ body {
   gap: 34px;
 }
 
+/* BIG SHOWS */
 .show-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -73,11 +73,11 @@ body {
 .poster {
   width: 100%;
   border-radius: 18px;
-  transition: transform 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .poster-link:hover .poster {
-  transform: scale(1.035);
+  transform: scale(1.04);
 }
 
 .show-content {
@@ -94,22 +94,20 @@ body {
 }
 
 .show-content h2 {
-  margin: 12px 0 14px;
-  font-size: clamp(1.8rem, 4vw, 3.1rem);
+  margin: 10px 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
 }
 
 .hype {
   color: #d51616;
   font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   margin-bottom: 12px;
-  font-size: 0.9rem;
+  text-transform: uppercase;
 }
 
 .description {
   color: #444;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .lineup {
@@ -118,14 +116,12 @@ body {
 
 .lineup a {
   display: inline-block;
-  margin: 4px 6px 4px 0;
-  padding: 7px 10px;
+  margin: 4px;
+  padding: 6px 10px;
   border-radius: 999px;
-  background: white;
-  border: 1px solid #e1e1e1;
+  background: #eee;
   text-decoration: none;
   color: #111;
-  transition: 0.2s ease;
 }
 
 .lineup a:hover {
@@ -148,6 +144,7 @@ body {
   transform: translateY(-2px);
 }
 
+/* SMALL EVENTS */
 .small-grid {
   margin-top: 50px;
   display: grid;
@@ -157,59 +154,53 @@ body {
 
 .small-card {
   background: white;
-  border-radius: 22px;
-  padding: 22px;
-  border: 1px solid #e6e6e6;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.045);
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .small-card img {
   width: 100%;
-  border-radius: 14px;
+  border-radius: 12px;
   transition: 0.3s ease;
 }
 
 .small-card img:hover {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .footer {
-  padding: 25px 8%;
+  padding: 25px;
   background: #050505;
   text-align: center;
-}
-
-.footer a {
-  color: #aaa;
-  text-decoration: none;
 }
 
 .secret {
   font-size: 0.7rem;
   color: #555;
-  margin-top: 8px;
 }
 
+/* TRANSITION */
+.paint-transition {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 40%, #d51616 0 8%, transparent 9%),
+    radial-gradient(circle at 50% 50%, #8b0000 0 12%, transparent 13%),
+    linear-gradient(90deg, #050505, #d51616, #050505);
+  transform: translateX(-120%) skewX(-12deg);
+  z-index: 9999;
+  transition: 0.55s ease;
+}
+
+.paint-transition.active {
+  transform: translateX(0) skewX(-12deg);
+}
+
+/* MOBILE */
 @media (max-width: 900px) {
   .nav {
     flex-direction: column;
-    gap: 10px;
     text-align: center;
-  }
-
-  .nav nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-  }
-
-  .nav a {
-    margin: 0;
-  }
-
-  .page {
-    padding: 42px 5%;
   }
 
   .show-card {
@@ -220,9 +211,8 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .button {
-    width: 100%;
-    text-align: center;
+  .page {
+    padding: 40px 5%;
   }
 }
 </style>
@@ -246,9 +236,10 @@ body {
 
   <section class="show-grid">
 
+    <!-- WORM -->
     <article class="show-card">
       <a class="poster-link" href="WYLMIIWAW.png" target="_blank">
-        <img class="poster" src="WYLMIIWAW.png" alt="Would You Love Me If I Was a Worm poster">
+        <img class="poster" src="WYLMIIWAW.png">
       </a>
 
       <div class="show-content">
@@ -256,19 +247,15 @@ body {
         <h2>Would You Love Me If I Was a Worm?</h2>
 
         <p class="description">
-          Cool. Normal question. Totally chill. Definitely not existential at all.
-        </p>
-
-        <p class="description">
-          On May 16, we’re putting that question to the test at Rumours Lounge with a night that wriggles between genres, vibes, and emotional damage.
+          Cool. Normal question. Totally chill.
         </p>
 
         <div class="lineup">
-          <a href="https://www.instagram.com/pandora_band_sa/" target="_blank">Pandora</a>
-          <a href="https://www.instagram.com/kaylinhillx/" target="_blank">Kaylin Hill</a>
-          <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk n Kiff</a>
-          <a href="https://www.instagram.com/atfn012/" target="_blank">All This For Nothing</a>
-          <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+          <a href="#">Pandora</a>
+          <a href="#">Kaylin Hill</a>
+          <a href="#">Funk n Kiff</a>
+          <a href="#">All This For Nothing</a>
+          <a href="#">Moshmallow</a>
         </div>
 
         <a class="button" href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
@@ -277,47 +264,74 @@ body {
       </div>
     </article>
 
+    <!-- SOTN -->
     <article class="show-card">
       <a class="poster-link" href="SOTNVI.png" target="_blank">
-        <img class="poster" src="SOTNVI.png" alt="State Of The Nation VI poster">
+        <img class="poster" src="SOTNVI.png">
       </a>
 
       <div class="show-content">
         <div class="date">29 August</div>
         <h2>State Of The Nation VI</h2>
-        <div class="hype">14 bands • 2 stages • indoor + outdoor • powered by As Above Audio</div>
-        <p class="description">The next chapter of So Below’s flagship heavy show.</p>
+
+        <div class="hype">
+          14 bands • 2 stages • indoor + outdoor • powered by As Above Audio
+        </div>
+
+        <p class="description">
+          The next chapter of So Below’s flagship heavy show.
+        </p>
       </div>
     </article>
 
   </section>
 
+  <!-- SMALL -->
   <section class="small-grid">
+
     <div class="small-card">
-      <a href="JamNight.png" target="_blank"><img src="JamNight.png" alt="Jam Night poster"></a>
+      <a href="JamNight.png" target="_blank"><img src="JamNight.png"></a>
       <h3>Jam Night</h3>
       <p>First & Last Wednesday • Free</p>
     </div>
 
     <div class="small-card">
-      <a href="OpenMic.png" target="_blank"><img src="OpenMic.png" alt="Open Mic poster"></a>
+      <a href="OpenMic.png" target="_blank"><img src="OpenMic.png"></a>
       <h3>Open Mic</h3>
       <p>2nd & 3rd Wednesday • Free</p>
     </div>
 
     <div class="small-card">
-      <a href="Karaoke.png" target="_blank"><img src="Karaoke.png" alt="Karaoke poster"></a>
+      <a href="Karaoke.png" target="_blank"><img src="Karaoke.png"></a>
       <h3>Karaoke</h3>
       <p>First & Last Thursday • Free</p>
     </div>
+
   </section>
 
 </main>
 
 <footer class="footer">
-  <a href="https://www.instagram.com/so.below.ent/" target="_blank">@so.below.ent</a>
   <div class="secret">A division of Secret Sauce</div>
 </footer>
+
+<div class="paint-transition"></div>
+
+<script>
+const t = document.querySelector(".paint-transition");
+
+document.querySelectorAll("a").forEach(link => {
+  const href = link.getAttribute("href");
+
+  if (href && !href.startsWith("http") && !link.hasAttribute("target")) {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      t.classList.add("active");
+      setTimeout(() => window.location.href = href, 500);
+    });
+  }
+});
+</script>
 
 </body>
 </html>
