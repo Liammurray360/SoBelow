@@ -5,22 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Past Shows | So Below Entertainment</title>
 
-<link rel="icon" href="favicon-32x32.png">
+<meta name="description" content="Past So Below Entertainment shows including State Of The Nation and alternative events in Johannesburg.">
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
 <style>
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, Helvetica, sans-serif;
   background: #f5f5f5;
+  color: #111;
 }
 
+/* NAV */
 .nav {
   padding: 18px 8%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: #050505;
   color: white;
 }
+
+.nav strong { letter-spacing: 0.08em; }
 
 .nav a {
   color: #ccc;
@@ -30,33 +39,134 @@ body {
 
 .nav a:hover { color: white; }
 
+/* PAGE */
 .page {
   padding: 70px 8%;
 }
 
+.page h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin-bottom: 10px;
+}
+
+.intro {
+  color: #666;
+  max-width: 700px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 26px;
 }
 
+/* CARD */
 .card {
   background: white;
+  border-radius: 22px;
   padding: 18px;
-  border-radius: 18px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.poster-link {
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
 }
 
 .card img {
   width: 100%;
-  border-radius: 12px;
+  display: block;
+  border-radius: 14px;
+  transition: 0.3s ease;
+}
+
+.poster-link:hover img {
+  transform: scale(1.04);
 }
 
 .card h3 {
-  margin: 10px 0 5px;
+  margin: 14px 0 6px;
+  font-size: 1.3rem;
 }
 
-@media(max-width:900px){
-  .grid { grid-template-columns:1fr; }
+.card p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* TAG */
+.tag {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eee;
+  color: #d51616;
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+/* FOOTER */
+.footer {
+  padding: 25px;
+  background: #050505;
+  text-align: center;
+}
+
+.secret {
+  font-size: 0.7rem;
+  color: #555;
+}
+
+/* MOBILE FIX (IMPORTANT) */
+@media(max-width: 900px){
+
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .nav nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .nav a {
+    margin: 0;
+  }
+
+  .page {
+    padding: 40px 5%;
+  }
+
+  .page h1 {
+    font-size: 2.6rem;
+    line-height: 1.1; /* 🔥 fixes squish */
+  }
+
+  .intro {
+    margin-bottom: 30px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 18px; /* 🔥 fixes cramped look */
+  }
+
+  .card {
+    padding: 16px;
+  }
+
 }
 </style>
 </head>
@@ -75,72 +185,130 @@ body {
 </header>
 
 <main class="page">
+
   <h1>Past Shows</h1>
 
-  <div class="grid">
+  <p class="intro">
+    A look back at the shows, chaos, lineups and loud rooms that helped build So Below Entertainment.
+  </p>
+
+  <section class="grid">
 
     <div class="card">
-      <img src="alt-night-1.jpg">
+      <a class="poster-link" href="alt-night-1.jpg" target="_blank">
+        <img src="alt-night-1.jpg">
+      </a>
       <h3>Alt Night I</h3>
+      <p>One of the early alternative nights.</p>
+      <span class="tag">Past Show</span>
     </div>
 
     <div class="card">
-      <img src="alt-night-2.jpg">
+      <a class="poster-link" href="alt-night-2.jpg" target="_blank">
+        <img src="alt-night-2.jpg">
+      </a>
       <h3>Alt Night II</h3>
+      <p>Round two of Alt Night energy.</p>
+      <span class="tag">Past Show</span>
     </div>
 
     <div class="card">
-      <img src="alt-night.jpg">
+      <a class="poster-link" href="alt-night.jpg" target="_blank">
+        <img src="alt-night.jpg">
+      </a>
       <h3>Alt Night</h3>
+      <p>Another chapter in the Alt Night run.</p>
+      <span class="tag">Past Show</span>
     </div>
 
     <div class="card">
-      <img src="helluvabash.jpg">
+      <a class="poster-link" href="helluvabash.jpg" target="_blank">
+        <img src="helluvabash.jpg">
+      </a>
       <h3>Helluvabash</h3>
+      <p>A loud one from the archive.</p>
+      <span class="tag">Past Show</span>
     </div>
 
     <div class="card">
-      <img src="sotn-1.jpg">
+      <a class="poster-link" href="sotn-1.jpg" target="_blank">
+        <img src="sotn-1.jpg">
+      </a>
       <h3>SOTN I</h3>
+      <p>The beginning of the flagship show.</p>
+      <span class="tag">SOTN</span>
     </div>
 
     <div class="card">
-      <img src="sotn-2.jpg">
+      <a class="poster-link" href="sotn-2.jpg" target="_blank">
+        <img src="sotn-2.jpg">
+      </a>
       <h3>SOTN II</h3>
+      <p>The second chapter.</p>
+      <span class="tag">SOTN</span>
     </div>
 
     <div class="card">
-      <img src="sotn-3.jpg">
+      <a class="poster-link" href="sotn-3.jpg" target="_blank">
+        <img src="sotn-3.jpg">
+      </a>
       <h3>SOTN III</h3>
+      <p>Growing louder.</p>
+      <span class="tag">SOTN</span>
     </div>
 
     <div class="card">
-      <img src="sotn-4.jpg">
+      <a class="poster-link" href="sotn-4.jpg" target="_blank">
+        <img src="sotn-4.jpg">
+      </a>
       <h3>SOTN IV</h3>
+      <p>Another heavy chapter.</p>
+      <span class="tag">SOTN</span>
     </div>
 
     <div class="card">
-      <img src="sotn-5.jpg">
+      <a class="poster-link" href="sotn-5.jpg" target="_blank">
+        <img src="sotn-5.jpg">
+      </a>
       <h3>SOTN V</h3>
+      <p>Flagship energy continues.</p>
+      <span class="tag">SOTN</span>
     </div>
 
     <div class="card">
-      <img src="tbdc-launch.jpg">
+      <a class="poster-link" href="tbdc-launch.jpg" target="_blank">
+        <img src="tbdc-launch.jpg">
+      </a>
       <h3>TBDC Launch</h3>
+      <p>A launch night from the archive.</p>
+      <span class="tag">Launch</span>
     </div>
 
     <div class="card">
-      <img src="the-last-straw.jpg">
+      <a class="poster-link" href="the-last-straw.jpg" target="_blank">
+        <img src="the-last-straw.jpg">
+      </a>
       <h3>The Last Straw</h3>
+      <p>Another moment from the vault.</p>
+      <span class="tag">Past Show</span>
     </div>
 
     <div class="card">
-      <img src="we-are-so-back.jpg">
+      <a class="poster-link" href="we-are-so-back.jpg" target="_blank">
+        <img src="we-are-so-back.jpg">
+      </a>
       <h3>We Are So Back</h3>
+      <p>Comeback energy.</p>
+      <span class="tag">Past Show</span>
     </div>
 
-  </div>
+  </section>
+
 </main>
+
+<footer class="footer">
+  <div class="secret">A division of Secret Sauce</div>
+</footer>
 
 </body>
 </html>
