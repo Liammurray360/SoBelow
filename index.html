@@ -67,7 +67,6 @@ body {
   position: relative;
   z-index: 2;
   width: min(100vw, 1250px);
-  padding: 90px 4% 45px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,6 +79,7 @@ body {
   display: block;
 }
 
+/* INTRO */
 .intro {
   padding: 90px 6% 75px;
   text-align: center;
@@ -87,7 +87,6 @@ body {
 
 .intro h1 {
   font-size: clamp(2.4rem, 6vw, 5rem);
-  line-height: 1;
   margin: 0 0 20px;
 }
 
@@ -96,7 +95,6 @@ body {
   margin: auto;
   color: #ccc;
   line-height: 1.6;
-  font-size: 1.1rem;
 }
 
 .buttons {
@@ -111,7 +109,6 @@ body {
   padding: 13px 20px;
   border-radius: 999px;
   text-decoration: none;
-  display: inline-block;
   font-weight: bold;
 }
 
@@ -136,17 +133,13 @@ body {
   color: #555;
 }
 
-/* MOBILE */
+/* 🔥 MOBILE FIX */
 @media (max-width: 850px) {
+
   .nav {
-    position: fixed;
-    padding: 14px 5%;
     flex-direction: column;
     gap: 10px;
-  }
-
-  .nav strong {
-    font-size: 0.95rem;
+    padding: 14px 5%;
   }
 
   .nav nav {
@@ -158,36 +151,29 @@ body {
 
   .nav a {
     margin: 0;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
   }
 
   .hero {
     min-height: 92svh;
   }
 
-  .hero-bg {
-    filter: brightness(1.65) contrast(1.1);
-  }
-
+  /* 👉 THIS IS THE FIX */
   .hero-logo {
-    width: 112vw;
-    padding: 105px 0 30px;
+    width: 140vw;        /* pushes logo bigger than screen */
   }
 
   .hero-logo img {
-    max-height: 72svh;
+    max-height: none;    /* remove height restriction */
+    height: 75vh;        /* force tall logo */
   }
 
   .intro {
-    padding: 62px 6% 58px;
+    padding: 60px 6%;
   }
 
   .intro h1 {
     font-size: clamp(2.3rem, 12vw, 3.4rem);
-  }
-
-  .intro p {
-    font-size: 1rem;
   }
 
   .buttons {
