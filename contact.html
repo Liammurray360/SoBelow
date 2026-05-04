@@ -10,17 +10,20 @@
 <link rel="shortcut icon" href="favicon.ico">
 
 <style>
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, Helvetica, sans-serif;
   background: #0b0b0b;
-  color: white;
+  color: #f5f5f5;
 }
 
 .nav {
   padding: 18px 8%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: #050505;
 }
 
@@ -34,14 +37,84 @@ body {
   text-decoration: none;
 }
 
-.content {
+.nav a:hover { color: white; }
+
+.hero {
+  padding: 80px 8%;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+  margin: 0 0 20px;
+}
+
+.hero p {
+  color: #ccc;
+  line-height: 1.7;
+  max-width: 650px;
+}
+
+.contact-card {
+  background: #f5f5f5;
+  color: #111;
+  padding: 30px;
+  border-radius: 24px;
+}
+
+.contact-row {
+  padding: 16px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.contact-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  display: block;
+  color: #d51616;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.contact-card a {
+  color: #111;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.info-grid {
   padding: 60px 8%;
+  background: #f5f5f5;
+  color: #111;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.info-box {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+}
+
+.info-box p {
+  color: #555;
+  line-height: 1.6;
 }
 
 .footer {
-  padding: 25px;
-  text-align: center;
+  padding: 25px 8%;
   background: #050505;
+  text-align: center;
 }
 
 .secret {
@@ -49,22 +122,38 @@ body {
   color: #555;
 }
 
-/* MOBILE */
 @media (max-width: 850px) {
   .nav {
     flex-direction: column;
     gap: 10px;
     text-align: center;
+    padding: 14px 5%;
   }
 
   .nav nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
   }
 
-  .content {
-    padding: 40px 5%;
+  .nav a {
+    margin: 0;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 55px 5% 40px;
+    gap: 26px;
+  }
+
+  .contact-card {
+    padding: 22px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    padding: 45px 5%;
   }
 }
 </style>
@@ -82,11 +171,51 @@ body {
   </nav>
 </header>
 
-<main class="content">
-  <h1>Contact</h1>
-  <p>Email: so.below.ent@gmail.com</p>
-  <p>Mobile: 061 672 3985</p>
-</main>
+<section class="hero">
+  <div>
+    <h1>Let’s build the next show.</h1>
+    <p>
+      For bookings, lineups, venue conversations, collaborations, event enquiries,
+      promotion or general chaos coordination, get in touch with So Below Entertainment.
+    </p>
+  </div>
+
+  <div class="contact-card">
+    <h2>Contact Details</h2>
+
+    <div class="contact-row">
+      <span class="label">Email</span>
+      <a href="mailto:so.below.ent@gmail.com">so.below.ent@gmail.com</a>
+    </div>
+
+    <div class="contact-row">
+      <span class="label">Mobile</span>
+      <a href="tel:+27616723985">061 672 3985</a>
+    </div>
+
+    <div class="contact-row">
+      <span class="label">Instagram</span>
+      <a href="https://www.instagram.com/so.below.ent/" target="_blank">@so.below.ent</a>
+    </div>
+  </div>
+</section>
+
+<section class="info-grid">
+  <div class="info-box">
+    <h3>Bookings</h3>
+    <p>Bands, artists and performers looking to get involved with upcoming shows can reach out directly.</p>
+  </div>
+
+  <div class="info-box">
+    <h3>Venues</h3>
+    <p>Want to host a So Below night, alternative show, open stage or heavy event? Let’s chat.</p>
+  </div>
+
+  <div class="info-box">
+    <h3>Collaborations</h3>
+    <p>Promoters, photographers, videographers, designers and scene-builders are welcome in the room.</p>
+  </div>
+</section>
 
 <footer class="footer">
   <div class="secret">A division of Secret Sauce</div>
