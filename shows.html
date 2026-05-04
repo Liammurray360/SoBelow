@@ -58,7 +58,6 @@ body {
 
 .show-grid {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 34px;
 }
 
@@ -76,8 +75,6 @@ body {
 .poster {
   width: 100%;
   border-radius: 18px;
-  display: block;
-  background: #ddd;
 }
 
 .show-content {
@@ -97,7 +94,6 @@ body {
 .show-content h2 {
   margin: 12px 0 14px;
   font-size: clamp(1.8rem, 4vw, 3.1rem);
-  line-height: 0.98;
 }
 
 .meta {
@@ -111,6 +107,7 @@ body {
   line-height: 1.65;
 }
 
+/* 🔥 UPDATED FOR LINKS */
 .lineup {
   margin: 18px 0;
   padding: 18px;
@@ -123,7 +120,7 @@ body {
   margin-bottom: 10px;
 }
 
-.lineup span {
+.lineup a {
   display: inline-block;
   margin: 4px 6px 4px 0;
   padding: 7px 10px;
@@ -131,21 +128,27 @@ body {
   background: white;
   border: 1px solid #e1e1e1;
   font-size: 0.9rem;
+  text-decoration: none;
+  color: #111;
+  transition: 0.2s ease;
+}
+
+.lineup a:hover {
+  background: #d51616;
+  color: white;
+  border-color: #d51616;
 }
 
 .button-row {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 10px;
 }
 
 .button {
-  display: inline-block;
   padding: 12px 18px;
   border-radius: 999px;
   font-weight: 800;
-  font-size: 0.85rem;
   text-decoration: none;
 }
 
@@ -155,8 +158,8 @@ body {
 }
 
 .secondary {
-  color: #111;
   border: 1px solid #ccc;
+  color: #111;
 }
 
 .small-grid {
@@ -181,12 +184,10 @@ body {
 
 .small-card h3 {
   margin: 8px 0;
-  font-size: 1.4rem;
 }
 
 .small-card p {
   color: #555;
-  line-height: 1.5;
 }
 
 .footer {
@@ -200,6 +201,7 @@ body {
   color: #555;
 }
 
+/* MOBILE */
 @media (max-width: 900px) {
   .nav {
     flex-direction: column;
@@ -210,14 +212,13 @@ body {
 
   .nav nav {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 14px;
   }
 
   .nav a {
     margin: 0;
-    font-size: 0.9rem;
   }
 
   .page {
@@ -266,7 +267,7 @@ body {
   <section class="show-grid">
 
     <article class="show-card">
-      <img class="poster" src="WYLMIIWAW.png" alt="Would You Still Love Me If I Was A Worm poster">
+      <img class="poster" src="WYLMIIWAW.png">
 
       <div class="show-content">
         <div class="date">16 May • Doors 17:00 • R100</div>
@@ -275,43 +276,21 @@ body {
 
         <p class="description">
           Cool. Normal question. Totally chill. Definitely not existential at all.
-          On May 16, we’re putting that question to the test at Rumours Lounge with a night that wriggles between genres, vibes, and emotional damage.
-          This is an all female-fronted lineup bringing the heat, the heart, and possibly the identity crisis you didn’t know you needed.
         </p>
 
         <div class="lineup">
           <strong>Featuring</strong>
-          <span>Pandora</span>
-          <span>Kaylin Hill</span>
-          <span>Funk 'n' Kiff</span>
-          <span>All This For Nothing</span>
-          <span>Moshmallow</span>
+          <a href="https://www.instagram.com/pandora_band_sa/" target="_blank">Pandora</a>
+          <a href="https://www.instagram.com/kaylinhillx/" target="_blank">Kaylin Hill</a>
+          <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk 'n' Kiff</a>
+          <a href="https://www.instagram.com/atfn012/" target="_blank">All This For Nothing</a>
+          <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
         </div>
 
-        <p class="description">
-          Whether you’re here to dance, cry, scream, or spiral gently into the void, this one’s for you.
-        </p>
-
         <div class="button-row">
-          <a class="button primary" href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">Buy Tickets</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="show-card">
-      <img class="poster" src="SOTNVI.png" alt="State Of The Nation VI poster">
-
-      <div class="show-content">
-        <div class="date">29 August</div>
-        <h2>State Of The Nation VI</h2>
-        <div class="meta">Rumours Lounge</div>
-
-        <p class="description">
-          More information coming soon.
-        </p>
-
-        <div class="button-row">
-          <a class="button secondary" href="#">Details Coming Soon</a>
+          <a class="button primary" href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
+            Buy Tickets
+          </a>
         </div>
       </div>
     </article>
@@ -321,33 +300,21 @@ body {
   <section class="small-grid">
 
     <article class="small-card">
-      <img src="JamNight.png" alt="Jam Night poster">
-      <div class="date">First & Last Wednesday • 6PM</div>
+      <img src="JamNight.png">
       <h3>Jam Night</h3>
-      <p>
-        The rulebook goes in the bin. Strangers become bands, songs are made up on the spot, and the whole thing gets loud, messy and magic.
-      </p>
-      <p><strong>Free Entrance</strong></p>
+      <p>Free Entrance</p>
     </article>
 
     <article class="small-card">
-      <img src="OpenMic.png" alt="Open Mic poster">
-      <div class="date">2nd & 3rd Wednesday • 6PM</div>
+      <img src="OpenMic.png">
       <h3>Open Mic</h3>
-      <p>
-        Bands, solo acts, poets, comedians and brave chaos merchants: bring your set, bring your songs, and take your full moment.
-      </p>
-      <p><strong>Free Entrance</strong></p>
+      <p>Free Entrance</p>
     </article>
 
     <article class="small-card">
-      <img src="Karaoke.png" alt="Karaoke poster">
-      <div class="date">First & Last Thursday • 6PM</div>
+      <img src="Karaoke.png">
       <h3>Karaoke</h3>
-      <p>
-        Hosted by Robyn Norris. Mic in hand, lights in your face, zero shame. Ruin it or own it, either way we’re cheering.
-      </p>
-      <p><strong>Free Entrance</strong></p>
+      <p>Free Entrance</p>
     </article>
 
   </section>
