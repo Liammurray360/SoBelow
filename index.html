@@ -32,6 +32,10 @@ body {
   z-index: 10;
 }
 
+.nav strong {
+  letter-spacing: 0.08em;
+}
+
 .nav a {
   color: #ccc;
   margin-left: 20px;
@@ -42,10 +46,10 @@ body {
 
 .hero {
   position: relative;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 100vh;
+  padding: 110px 6% 60px;
+  display: grid;
+  place-items: center;
   overflow: hidden;
 }
 
@@ -53,52 +57,61 @@ body {
   position: absolute;
   inset: 0;
   background: url("bckgnd.svg") center/cover no-repeat;
-  filter: brightness(1.9) contrast(1.15);
+  filter: brightness(1.85) contrast(1.15);
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.22);
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.03), rgba(0,0,0,0.38)),
+    linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.42));
 }
 
-.hero-logo {
+.hero-card {
   position: relative;
   z-index: 2;
-  width: min(100vw, 1250px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: min(94vw, 1180px);
+  min-height: 68vh;
+  display: grid;
+  place-items: center;
+  padding: 30px;
 }
 
-.hero-logo img {
-  width: 100%;
-  max-height: 86svh;
+.hero-card img {
+  width: min(100%, 1050px);
+  max-height: 78vh;
   object-fit: contain;
   display: block;
 }
 
-/* INTRO */
 .intro {
-  padding: 90px 6% 75px;
+  padding: 80px 6% 75px;
   text-align: center;
+  background: #0b0b0b;
+}
+
+.intro-inner {
+  max-width: 950px;
+  margin: auto;
 }
 
 .intro h1 {
   font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 1;
   margin: 0 0 20px;
 }
 
 .intro p {
-  max-width: 900px;
-  margin: auto;
   color: #ccc;
   line-height: 1.6;
+  font-size: 1.1rem;
+  margin: 0 auto;
 }
 
 .buttons {
-  margin-top: 26px;
+  margin-top: 28px;
   display: flex;
   justify-content: center;
   gap: 12px;
@@ -109,6 +122,7 @@ body {
   padding: 13px 20px;
   border-radius: 999px;
   text-decoration: none;
+  display: inline-block;
   font-weight: bold;
 }
 
@@ -116,16 +130,9 @@ body {
 .secondary { border: 1px solid #555; color: white; }
 
 .footer {
-  padding: 30px 8%;
+  padding: 25px 8%;
   background: #050505;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.footer a {
-  color: white;
-  text-decoration: none;
+  text-align: center;
 }
 
 .secret {
@@ -133,13 +140,16 @@ body {
   color: #555;
 }
 
-/* 🔥 MOBILE FIX */
 @media (max-width: 850px) {
-
   .nav {
+    position: fixed;
+    padding: 14px 5%;
     flex-direction: column;
     gap: 10px;
-    padding: 14px 5%;
+  }
+
+  .nav strong {
+    font-size: 0.9rem;
   }
 
   .nav nav {
@@ -151,29 +161,41 @@ body {
 
   .nav a {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 
   .hero {
-    min-height: 92svh;
+    min-height: 92vh;
+    padding: 95px 0 34px;
   }
 
-  /* 👉 THIS IS THE FIX */
-  .hero-logo {
-    width: 140vw;        /* pushes logo bigger than screen */
+  .hero-bg {
+    background-position: center;
+    filter: brightness(1.65) contrast(1.08);
   }
 
-  .hero-logo img {
-    max-height: none;    /* remove height restriction */
-    height: 75vh;        /* force tall logo */
+  .hero-card {
+    width: 100vw;
+    min-height: 70vh;
+    padding: 0;
+  }
+
+  .hero-card img {
+    width: 132vw;
+    max-width: none;
+    max-height: 78vh;
   }
 
   .intro {
-    padding: 60px 6%;
+    padding: 62px 6% 58px;
   }
 
   .intro h1 {
     font-size: clamp(2.3rem, 12vw, 3.4rem);
+  }
+
+  .intro p {
+    font-size: 1rem;
   }
 
   .buttons {
@@ -184,13 +206,6 @@ body {
   .button {
     width: min(100%, 320px);
     margin: auto;
-    text-align: center;
-  }
-
-  .footer {
-    padding: 28px 6%;
-    flex-direction: column;
-    gap: 14px;
     text-align: center;
   }
 }
@@ -211,30 +226,25 @@ body {
 <main class="hero">
   <div class="hero-bg"></div>
 
-  <div class="hero-logo">
+  <div class="hero-card">
     <img src="logo.svg" alt="So Below Entertainment">
   </div>
 </main>
 
 <section class="intro">
-  <h1>Live events with weight.</h1>
-  <p>Alternative, rock and heavy shows built properly.</p>
+  <div class="intro-inner">
+    <h1>Live events with weight.</h1>
+    <p>Alternative, rock and heavy shows built properly.</p>
 
-  <div class="buttons">
-    <a class="button primary" href="shows.html">Shows</a>
-    <a class="button secondary" href="contact.html">Contact</a>
+    <div class="buttons">
+      <a class="button primary" href="shows.html">Shows</a>
+      <a class="button secondary" href="contact.html">Contact</a>
+    </div>
   </div>
 </section>
 
 <footer class="footer">
-  <div>
-    © So Below Entertainment
-    <div class="secret">A division of Secret Sauce</div>
-  </div>
-
-  <div>
-    <a href="https://www.instagram.com/so.below.ent/" target="_blank">@so.below.ent</a>
-  </div>
+  <div class="secret">A division of Secret Sauce</div>
 </footer>
 
 </body>
