@@ -32,6 +32,10 @@ body {
   z-index: 10;
 }
 
+.nav strong {
+  letter-spacing: 0.08em;
+}
+
 .nav a {
   color: #ccc;
   margin-left: 20px;
@@ -40,7 +44,6 @@ body {
 
 .nav a:hover { color: white; }
 
-/* HERO */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -61,27 +64,21 @@ body {
   background: rgba(0,0,0,0.25);
 }
 
-/* 🔥 FIXED CENTERING */
 .hero-logo {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 90vw;
   max-width: 1200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 .hero-logo img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
   display: block;
 }
 
-/* INTRO */
 .intro {
   padding: 90px 6% 75px;
   text-align: center;
@@ -128,9 +125,7 @@ body {
   color: #555;
 }
 
-/* 🔥 MOBILE FIX */
 @media (max-width: 850px) {
-
   .nav {
     flex-direction: column;
     gap: 10px;
@@ -149,13 +144,12 @@ body {
     font-size: 0.9rem;
   }
 
-  /* 👉 THIS IS THE MAGIC */
   .hero-logo {
-    width: 160vw;              /* make logo BIG */
+    width: 160vw;
   }
 
   .hero-logo img {
-    transform: scale(1.2);     /* zoom it in */
+    transform: scale(1.2);
   }
 
   .intro {
@@ -187,6 +181,7 @@ body {
 
   <nav>
     <a href="shows.html">Shows</a>
+    <a href="past-shows.html">Past Shows</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
