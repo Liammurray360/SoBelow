@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Shows | So Below Entertainment</title>
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="shortcut icon" href="favicon.ico">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #111;
+}
+
+.nav {
+  padding: 18px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #050505;
+  color: white;
+}
+
+.nav strong {
+  letter-spacing: 0.08em;
+}
+
+.nav a {
+  color: #ccc;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: white;
+}
+
+.page {
+  padding: 70px 8%;
+}
+
+.page h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin: 0 0 12px;
+}
+
+.intro {
+  max-width: 760px;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 42px;
+}
+
+.past-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.past-card {
+  background: white;
+  border-radius: 22px;
+  padding: 18px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.055);
+}
+
+.poster-link {
+  display: block;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.poster {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.poster-link:hover .poster {
+  transform: scale(1.035);
+  filter: contrast(1.05);
+}
+
+.past-card h2 {
+  font-size: 1.25rem;
+  margin: 16px 0 8px;
+}
+
+.past-card p {
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #f5f5f5;
+  color: #d51616;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.footer {
+  padding: 25px 8%;
+  background: #050505;
+  text-align: center;
+}
+
+.secret {
+  font-size: 0.7rem;
+  color: #555;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 5%;
+    text-align: center;
+  }
+
+  .nav nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .nav a {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .page {
+    padding: 42px 5%;
+  }
+
+  .past-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <strong>SO BELOW ENTERTAINMENT</strong>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shows.html">Shows</a>
+    <a href="past-shows.html">Past Shows</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="page">
+  <h1>Past Shows</h1>
+
+  <p class="intro">
+    A look back at the shows, chaos, lineups and loud rooms that helped build So Below Entertainment.
+  </p>
+
+  <section class="past-grid">
+
+    <article class="past-card">
+      <a class="poster-link" href="8 Alt Night 1.jpg" target="_blank">
+        <img class="poster" src="8 Alt Night 1.jpg" alt="Alt Night 1 poster">
+      </a>
+      <h2>Alt Night I</h2>
+      <p>One of the early alternative nights.</p>
+      <span class="tag">Past Show</span>
+    </article>
+
+    <article class="past-card">
+      <a class="poster-link" href="8 Alt Night 2.jpg" target="_blank">
+        <img class="poster" src="8 Alt Night 2.jpg" alt="Alt Night 2 poster">
+      </a>
+      <h2>Alt Night II</h2>
+      <p>Alternative night energy, round two.</p>
+      <span class="tag">Past Show</span>
+    </article>
+
+    <article class="past-card">
+      <a class="poster-link" href="8 Alt Night.jpg" target="_blank">
+        <img class="poster" src="8 Alt Night.jpg" alt="Alt Night poster">
+      </a>
+      <h2>Alt Night</h2>
+      <p>Another chapter in the Alt Night run.</p>
+      <span class="tag">Past Show</span>
+    </article>
+
+    <article class="past-card">
+      <a class="poster-link" href="8 Helluvabash.jpg" target="_blank">
+        <img class="poster" src="8 Helluvabash.jpg" alt="Helluvabash poster">
+      </a>
+      <h2>Helluvabash</h2>
+      <p>A loud one from the archive.</p>
+      <span class="tag">Past Show</span>
+    </article>
+
+    <article class="past-card">
+      <a class="poster-link" href="8 SOTN I.jpg" target="_blank">
+        <img class="poster" src="8 SOTN I.jpg" alt="State Of The Nation I poster">
+      </a>
+      <h2>State Of The Nation I</h2>
+      <p>The beginning of the flagship heavy show brand.</p>
+      <span class="tag">SOTN</span>
+    </article>
+
+    <article class="past-card">
+      <a class="poster-link" href="8 SOTN II.jpg" target="_blank">
+        <img class="poster" src="8 SOTN II.jpg" alt="State Of The Nation II poster">
+      </a>
+      <h2>State Of The Nation II</h2>
+      <p>The second strike in the State Of The Nation run.</p>
+      <span class="tag">SOTN</span>
+    </article>
+
+    <article class="past-card">
+      <a class="poster-link" href="8 SOTN III.jpg" target="_blank">
+        <img class="poster" src="8 SOTN III.jpg" alt="State Of The Nation III poster">
+      </a>
+      <h2>State Of The Nation III</h2>
+      <p>The brand kept growing, louder and heavier.</p>
+      <span class="tag">SOTN</span>
+    </article>
+
+    <article class="past-card">
+      <a class="poster-link" href="8 SOTN IV.jpg" target="_blank">
+        <img class="poster" src="8 SOTN IV.jpg" alt="State Of The Nation IV poster">
+      </a>
+      <h2>State Of The Nation IV</h2>
+      <p>Another heavy chapter in the series.</p>
+      <span class="tag">SOTN</span>
+    </article>
+
+    <article class="past-card">
+      <a class="poster-link" href="8 SOTN V.jpg" target="_blank">
+        <img class="poster" src="8 SOTN V.jpg" alt="State Of The Nation V poster">
+      </a>
+      <h2>State Of The Nation V</h2>
+      <p>The fifth edition of So Below’s flagship heavy show.</p>
+      <span class="tag">SOTN</span>
+    </article>
+
+    <article class="past-card">
+      <a class="poster-link" href="8 TBDC Launch.jpg" target="_blank">
+        <img class="poster" src="8 TBDC Launch.jpg" alt="TBDC Launch poster">
+      </a>
+      <h2>TBDC Launch</h2>
+      <p>A launch event from the So Below archive.</p>
+      <span class="tag">Launch</span>
+    </article>
+
+    <article class="past-card">
+      <a class="poster-link" href="8 The Last Straw.jpg" target="_blank">
+        <img class="poster" src="8 The Last Straw.jpg" alt="The Last Straw poster">
+      </a>
+      <h2>The Last Straw</h2>
+      <p>One more night from the previous-show vault.</p>
+      <span class="tag">Past Show</span>
+    </article>
+
+    <article class="past-card">
+      <a class="poster-link" href="8 We are so back.jpg" target="_blank">
+        <img class="poster" src="8 We are so back.jpg" alt="We Are So Back poster">
+      </a>
+      <h2>We Are So Back</h2>
+      <p>A comeback show with full So Below energy.</p>
+      <span class="tag">Past Show</span>
+    </article>
+
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="secret">A division of Secret Sauce</div>
+</footer>
+
+</body>
+</html>
