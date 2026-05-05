@@ -21,6 +21,20 @@ body {
   color: #f5f5f5;
 }
 
+/* SUBTLE SITE TEXTURE */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  background-image:
+    radial-gradient(circle at 20% 20%, white 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, white 0 1px, transparent 1px);
+  background-size: 38px 38px, 54px 54px;
+}
+
 /* NAV */
 .nav {
   position: fixed;
@@ -419,49 +433,6 @@ body {
   color: white;
 }
 
-/* STICKY TICKET BAR */
-.ticket-dock {
-  position: fixed;
-  left: 50%;
-  bottom: 18px;
-  transform: translate(-50%, 120px);
-  width: min(92%, 760px);
-  padding: 12px;
-  border-radius: 999px;
-  background: rgba(5,5,5,0.86);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.12);
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  z-index: 90;
-  transition: 0.35s ease;
-}
-
-.ticket-dock.visible {
-  transform: translate(-50%, 0);
-}
-
-.ticket-dock a {
-  padding: 10px 14px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 0.78rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.ticket-dock .red-ticket {
-  background: #d51616;
-  color: white;
-}
-
-.ticket-dock .white-ticket {
-  background: white;
-  color: #111;
-}
-
 /* REVEAL ANIMATIONS */
 .reveal {
   opacity: 0;
@@ -573,17 +544,6 @@ body {
 
   .show-poster-card {
     padding: 16px;
-  }
-
-  .ticket-dock {
-    bottom: 12px;
-    border-radius: 22px;
-    flex-direction: column;
-    width: min(92%, 360px);
-  }
-
-  .ticket-dock a {
-    text-align: center;
   }
 }
 </style>
@@ -725,15 +685,6 @@ body {
   </div>
 </section>
 
-<div class="ticket-dock" id="ticketDock">
-  <a class="red-ticket" href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">
-    SOTN VI Tickets
-  </a>
-  <a class="white-ticket" href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
-    Worm Tickets
-  </a>
-</div>
-
 <footer class="footer">
   <div class="secret">A division of Secret Sauce</div>
 </footer>
@@ -753,16 +704,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(element => {
   revealObserver.observe(element);
-});
-
-const ticketDock = document.getElementById("ticketDock");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 650) {
-    ticketDock.classList.add("visible");
-  } else {
-    ticketDock.classList.remove("visible");
-  }
 });
 </script>
 
