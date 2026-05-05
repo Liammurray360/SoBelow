@@ -11,6 +11,9 @@
 
 <style>
 * { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -27,14 +30,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(5,5,5,0.8);
+  background: rgba(5,5,5,0.82);
   backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   z-index: 100;
 }
 
 .brand {
   display: flex;
   flex-direction: column;
+  line-height: 1;
   cursor: pointer;
 }
 
@@ -53,7 +58,7 @@ body {
 .brand::after {
   content: "";
   margin-top: 6px;
-  width: 40%;
+  width: 42%;
   height: 2px;
   background: #d51616;
 }
@@ -64,63 +69,116 @@ body {
 }
 
 .nav a {
+  position: relative;
+  padding: 8px 10px;
   color: #aaa;
   text-decoration: none;
   font-size: 0.8rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 .nav a:hover { color: white; }
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #d51616;
+  transition: 0.25s ease;
+}
+
+.nav a:hover::after { width: 100%; }
 
 /* HERO */
 .hero {
   position: relative;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
   background: url("bckgnd.svg") center/cover no-repeat;
-  filter: grayscale(100%) brightness(0.95);
+  filter: grayscale(100%) brightness(0.98) contrast(1.05);
+  transform: scale(1.03);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 26%),
+    radial-gradient(circle at 18% 30%, rgba(213,22,22,0.16), transparent 22%);
+  mix-blend-mode: screen;
+  z-index: 1;
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.04), rgba(0,0,0,0.42)),
+    linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.5));
+  z-index: 1;
 }
 
 .hero-logo {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 120vw;
-  max-width: 1600px;
+  width: 122vw;
+  max-width: 1650px;
   transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 .hero-logo img {
   width: 100%;
+  display: block;
+  animation: breathe 7s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.018); }
 }
 
 /* MARQUEE */
 .marquee {
+  overflow: hidden;
   background: #050505;
   color: white;
-  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  width: 100%;
 }
 
 .marquee-track {
   display: flex;
-  animation: marquee 20s linear infinite;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .marquee span {
   padding: 14px 28px;
   font-weight: 900;
   text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
 }
 
 @keyframes marquee {
@@ -130,22 +188,36 @@ body {
 
 /* FEATURE BARS */
 .feature-bar {
-  padding: 20px 8%;
+  padding: 24px 8%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 18px;
   flex-wrap: wrap;
+  color: white;
 }
 
-.red { background: #d51616; }
-.white { background: #fff; color: #111; }
+.feature-bar strong {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
 
 .feature-bar a {
-  padding: 10px 16px;
+  padding: 12px 18px;
   border-radius: 999px;
+  text-decoration: none;
+  font-weight: 900;
+  transition: 0.2s ease;
+}
+
+.feature-bar a:hover { transform: translateY(-2px); }
+
+.red { background: #d51616; }
+.red a { background: white; color: #111; }
+
+.white {
   background: white;
   color: #111;
-  text-decoration: none;
-  font-weight: bold;
 }
 
 .white a {
@@ -155,92 +227,261 @@ body {
 
 /* INTRO */
 .intro {
-  padding: 80px 6%;
+  padding: 95px 6% 80px;
   text-align: center;
+  background:
+    radial-gradient(circle at top, rgba(213,22,22,0.12), transparent 38%),
+    #0b0b0b;
 }
 
 .intro h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2.7rem, 7vw, 6.5rem);
+  line-height: 0.9;
+  margin: 0 0 24px;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
 }
 
-/* FEATURED LINEUPS */
-.artist-strip {
-  padding: 90px 8%;
-  text-align: center;
+.intro p {
+  max-width: 900px;
+  margin: auto;
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 1.1rem;
 }
 
-.artist-strip h2 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  margin-bottom: 40px;
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.featured-grid {
+.button {
+  padding: 14px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 900;
+  transition: 0.2s ease;
+}
+
+.button:hover { transform: translateY(-3px); }
+
+.primary { background: #d51616; color: white; }
+.secondary { border: 1px solid #555; color: white; }
+
+/* BLOCKS */
+.blocks {
+  padding: 75px 8%;
   display: grid;
-  gap: 24px;
-  max-width: 1000px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  background: #f5f5f5;
+  color: #111;
+}
+
+.block {
+  background: white;
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 16px 35px rgba(0,0,0,0.055);
+  transition: 0.2s ease;
+}
+
+.block:hover { transform: translateY(-4px); }
+
+.block h3 {
+  margin: 0 0 10px;
+  font-size: 1.45rem;
+}
+
+.block p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* FEATURED SHOWS */
+.featured-shows {
+  padding: 95px 8%;
+  text-align: center;
+  background:
+    radial-gradient(circle at top left, rgba(213,22,22,0.12), transparent 30%),
+    linear-gradient(180deg, #0b0b0b, #050505);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.featured-shows h2 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.86;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.06em;
+}
+
+.featured-subtitle {
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 900;
+  font-size: 0.78rem;
+  margin-bottom: 52px;
+}
+
+.show-poster-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  max-width: 1250px;
   margin: auto;
 }
 
-.featured-card {
+.show-poster-card {
   background: #111;
-  border-radius: 24px;
-  padding: 28px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 28px;
+  padding: 18px;
   text-align: left;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.24);
+  transition: 0.22s ease;
 }
 
-.featured-card h3 {
-  font-size: 2rem;
-  margin: 10px 0;
+.show-poster-card:hover {
+  transform: translateY(-5px);
 }
 
-.featured-card p {
-  color: #aaa;
+.poster-link {
+  display: block;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
-.artist-links a {
-  display: inline-block;
-  margin: 5px;
-  padding: 8px 12px;
-  background: #f5f5f5;
-  color: #111;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: bold;
+.show-poster-card img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  transition: 0.3s ease;
 }
 
-.artist-links a:hover {
-  background: #d51616;
+.poster-link:hover img {
+  transform: scale(1.04);
+}
+
+.show-poster-card h3 {
+  margin: 18px 0 8px;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+}
+
+.show-poster-card h3 a {
   color: white;
+  text-decoration: none;
 }
 
-.mini-button {
+.show-poster-card h3 a:hover {
+  color: #d51616;
+}
+
+.show-poster-card p {
+  color: #aaa;
+  margin: 0 0 16px;
+  line-height: 1.4;
+}
+
+.card-button {
   display: inline-block;
-  margin-top: 15px;
-  padding: 10px 16px;
+  padding: 10px 15px;
+  border-radius: 999px;
   background: white;
   color: #111;
-  border-radius: 999px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.card-button:hover {
+  background: #d51616;
+  color: white;
 }
 
 /* FOOTER */
 .footer {
   padding: 25px;
-  text-align: center;
   background: #050505;
+  text-align: center;
 }
 
 .secret {
-  color: #555;
   font-size: 0.7rem;
+  color: #555;
 }
 
 /* MOBILE */
 @media(max-width:850px){
-  .nav { flex-direction: column; text-align: center; }
-  .hero-logo { width: 170vw; }
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 5%;
+    text-align: center;
+  }
+
+  .brand {
+    align-items: center;
+  }
+
+  .brand::after { width: 60%; }
+
+  .nav nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav a {
+    margin: 0;
+    font-size: 0.75rem;
+  }
+
+  .hero-logo {
+    width: 178vw;
+  }
+
+  .hero-logo img {
+    animation: none;
+  }
+
+  .feature-bar {
+    justify-content: center;
+    text-align: center;
+    padding: 22px 5%;
+  }
+
+  .intro {
+    padding: 65px 6%;
+  }
+
+  .blocks {
+    grid-template-columns: 1fr;
+    padding: 48px 5%;
+  }
+
+  .featured-shows {
+    padding: 70px 5%;
+  }
+
+  .show-poster-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .show-poster-card {
+    padding: 16px;
+  }
 }
 </style>
 </head>
@@ -252,6 +493,7 @@ body {
     <span class="so">SO BELOW</span>
     <span class="ent">ENTERTAINMENT</span>
   </div>
+
   <nav>
     <a href="shows.html">Shows</a>
     <a href="past-shows.html">Past Shows</a>
@@ -263,73 +505,120 @@ body {
 <main class="hero">
   <div class="hero-bg"></div>
   <div class="hero-logo">
-    <img src="logo.svg">
+    <img src="logo.svg" alt="So Below Entertainment">
   </div>
 </main>
 
 <section class="marquee">
   <div class="marquee-track">
-    <span>LIVE SHOWS WITH WEIGHT</span>
-    <span>ALTERNATIVE • ROCK • METAL</span>
-    <span>JOHANNESBURG</span>
-    <span>LIVE SHOWS WITH WEIGHT</span>
+
+    <div class="marquee-group">
+      <span>Live shows with weight</span>
+      <span>Alternative • Rock • Metal</span>
+      <span>Johannesburg live music</span>
+      <span>State Of The Nation VI</span>
+      <span>Defrost Fest 2026</span>
+      <span>Rumours Lounge</span>
+      <span>Scene first</span>
+      <span>Proper sound</span>
+    </div>
+
+    <div class="marquee-group" aria-hidden="true">
+      <span>Live shows with weight</span>
+      <span>Alternative • Rock • Metal</span>
+      <span>Johannesburg live music</span>
+      <span>State Of The Nation VI</span>
+      <span>Defrost Fest 2026</span>
+      <span>Rumours Lounge</span>
+      <span>Scene first</span>
+      <span>Proper sound</span>
+    </div>
+
   </div>
 </section>
 
 <section class="feature-bar red">
-  <div>State Of The Nation VI • 29 August</div>
-  <a href="https://tickets.koid.co.za/event/state-of-the-nation-vi">Tickets</a>
+  <div>
+    <strong>State Of The Nation VI</strong> • 29 August • Rumours Lounge
+  </div>
+  <a href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">
+    Get Tickets
+  </a>
 </section>
 
 <section class="feature-bar white">
-  <div>Would You Love Me If I Was a Worm? • 16 May</div>
-  <a href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-">Get Tickets</a>
+  <div>
+    <strong>Would You Love Me If I Was a Worm?</strong> • 16 May • Rumours Lounge
+  </div>
+  <a href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
+    Get Tickets
+  </a>
 </section>
 
 <section class="intro">
   <h1>Live Events With Weight.</h1>
+  <p>
+    So Below Entertainment builds alternative, rock and heavy shows with proper lineups,
+    proper sound, and rooms that feel alive.
+  </p>
+
+  <div class="buttons">
+    <a class="button primary" href="shows.html">Upcoming Shows</a>
+    <a class="button secondary" href="past-shows.html">Past Shows</a>
+  </div>
 </section>
 
-<section class="artist-strip">
-  <h2>Featured Lineups</h2>
-
-  <div class="featured-grid">
-
-    <div class="featured-card">
-      <h3>State Of The Nation VI</h3>
-      <p>29 August • Rumours Lounge</p>
-      <div class="artist-links">
-        <a>Moshmallow</a>
-        <a>Walk These Skies</a>
-        <a>Days Without Incident</a>
-      </div>
-      <a class="mini-button" href="#">Phase 1 Tickets</a>
-    </div>
-
-    <div class="featured-card">
-      <h3>Defrost Fest</h3>
-      <p>26 & 27 June</p>
-      <div class="artist-links">
-        <a>The Burnouts</a>
-        <a>Glitter Clit</a>
-        <a>Funk N Kiff</a>
-      </div>
-      <a class="mini-button" href="#">View Show</a>
-    </div>
-
-    <div class="featured-card">
-      <h3>Worm Show</h3>
-      <p>16 May</p>
-      <div class="artist-links">
-        <a>Pandora</a>
-        <a>Kaylin Hill</a>
-        <a>Funk N Kiff</a>
-      </div>
-      <a class="mini-button" href="#">Get Tickets</a>
-    </div>
-
+<section class="blocks">
+  <div class="block">
+    <h3>Live Shows</h3>
+    <p>Curated alternative, rock and metal events built around energy, flow and proper lineups.</p>
   </div>
 
+  <div class="block">
+    <h3>Proper Sound</h3>
+    <p>Production and atmosphere matter. The room should feel good before the first note hits.</p>
+  </div>
+
+  <div class="block">
+    <h3>Real Lineups</h3>
+    <p>Scene-first bookings, heavy hitters, fresh artists and shows people actually want to come back to.</p>
+  </div>
+</section>
+
+<section class="featured-shows">
+  <h2>Featured Shows</h2>
+  <div class="featured-subtitle">Current events on the radar</div>
+
+  <div class="show-poster-grid">
+
+    <article class="show-poster-card">
+      <a class="poster-link" href="shows.html">
+        <img src="sotnvi-1announce.png" alt="State Of The Nation VI poster">
+      </a>
+      <h3><a href="shows.html">State Of The Nation VI</a></h3>
+      <p>29 August • Rumours Lounge</p>
+      <a class="card-button" href="shows.html">View Show</a>
+    </article>
+
+    <article class="show-poster-card">
+      <a class="poster-link" href="shows.html">
+        <img src="defrost-fest.jpeg" alt="Defrost Fest 2026 poster">
+      </a>
+      <h3><a href="shows.html">Defrost Fest 2026</a></h3>
+      <p>26 & 27 June • Rumours Lounge</p>
+      <a class="card-button" href="shows.html">View Show</a>
+    </article>
+
+    <article class="show-poster-card">
+      <a class="poster-link" href="shows.html">
+        <img src="WYLMIIWAW.png" alt="Would You Love Me If I Was a Worm poster">
+      </a>
+      <h3><a href="shows.html">Would You Love Me If I Was a Worm?</a></h3>
+      <p>16 May • Rumours Lounge</p>
+      <a class="card-button" href="shows.html">View Show</a>
+    </article>
+
+  </div>
 </section>
 
 <footer class="footer">
