@@ -12,10 +12,12 @@
 <style>
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #0b0b0b;
+  background: #050505;
   color: #f5f5f5;
 }
 
@@ -28,9 +30,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(10,10,10,0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(5,5,5,0.78);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   z-index: 100;
 }
 
@@ -56,7 +58,7 @@ body {
 .brand::after {
   content: "";
   margin-top: 6px;
-  width: 40%;
+  width: 42%;
   height: 2px;
   background: #d51616;
 }
@@ -77,10 +79,7 @@ body {
   font-weight: 700;
 }
 
-.nav a:hover,
-.nav a.active {
-  color: white;
-}
+.nav a:hover { color: white; }
 
 .nav a::after {
   content: "";
@@ -93,9 +92,7 @@ body {
   transition: 0.25s ease;
 }
 
-.nav a:hover::after {
-  width: 100%;
-}
+.nav a:hover::after { width: 100%; }
 
 /* HERO */
 .hero {
@@ -108,88 +105,304 @@ body {
   position: absolute;
   inset: 0;
   background: url("bckgnd.svg") center/cover no-repeat;
-  filter: grayscale(100%) brightness(0.9);
+  filter: grayscale(100%) brightness(0.98) contrast(1.05);
+  transform: scale(1.03);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 26%),
+    radial-gradient(circle at 18% 30%, rgba(213,22,22,0.18), transparent 22%),
+    radial-gradient(circle at 80% 70%, rgba(213,22,22,0.10), transparent 24%);
+  mix-blend-mode: screen;
+  z-index: 1;
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(0,0,0,0.1), rgba(0,0,0,0.45));
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0.42)),
+    linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5));
+  z-index: 1;
 }
 
 .hero-logo {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 120vw;
-  max-width: 1600px;
+  width: 122vw;
+  max-width: 1650px;
   transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 .hero-logo img {
   width: 100%;
+  display: block;
+  animation: breathe 7s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.018); }
+}
+
+/* MARQUEE */
+.marquee {
+  overflow: hidden;
+  background: #d51616;
+  color: white;
+  border-top: 1px solid rgba(255,255,255,0.16);
+  border-bottom: 1px solid rgba(255,255,255,0.16);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+
+.marquee span {
+  padding: 14px 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* FEATURE BARS */
-.feature-bar {
-  padding: 22px 8%;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.feature-wrap {
+  background: #050505;
 }
 
+.feature-bar {
+  padding: 24px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.feature-bar strong {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.feature-bar a {
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 900;
+  transition: 0.2s ease;
+}
+
+.feature-bar a:hover { transform: translateY(-2px); }
+
 .red { background: #d51616; }
-.white { background: #fff; color: #111; }
+.red a { background: white; color: #111; }
+
+.white {
+  background: white;
+  color: #111;
+}
 
 .white a {
   background: #111;
   color: white;
 }
 
-.feature-bar a {
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: white;
-  color: #111;
-  text-decoration: none;
-  font-weight: 900;
-}
-
 /* INTRO */
 .intro {
-  padding: 90px 6%;
+  padding: 95px 6% 80px;
   text-align: center;
+  background:
+    radial-gradient(circle at top, rgba(213,22,22,0.12), transparent 38%),
+    #0b0b0b;
 }
 
 .intro h1 {
-  font-size: clamp(2.4rem, 6vw, 5rem);
-}
-
-/* ARTISTS */
-.artist-strip {
-  padding: 80px 8%;
-  text-align: center;
-}
-
-.lineup-block {
-  margin-bottom: 40px;
-}
-
-.lineup-title {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2.7rem, 7vw, 6.5rem);
+  line-height: 0.9;
+  margin: 0 0 24px;
   text-transform: uppercase;
+  letter-spacing: -0.05em;
 }
 
-.artist-links a {
-  display: inline-block;
-  margin: 6px;
-  padding: 10px 14px;
-  background: #f5f5f5;
-  color: #111;
+.intro p {
+  max-width: 900px;
+  margin: auto;
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 14px 22px;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 900;
+  transition: 0.2s ease;
+}
+
+.button:hover { transform: translateY(-3px); }
+
+.primary { background: #d51616; color: white; }
+.secondary { border: 1px solid #555; color: white; }
+
+/* BLOCKS */
+.blocks {
+  padding: 75px 8%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  background: #f5f5f5;
+  color: #111;
+}
+
+.block {
+  background: white;
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 16px 35px rgba(0,0,0,0.055);
+  transition: 0.2s ease;
+}
+
+.block:hover { transform: translateY(-4px); }
+
+.block h3 {
+  margin: 0 0 10px;
+  font-size: 1.45rem;
+}
+
+.block p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* FEATURED ARTISTS */
+.artist-strip {
+  padding: 95px 8%;
+  text-align: center;
+  background:
+    radial-gradient(circle at top left, rgba(213,22,22,0.16), transparent 30%),
+    linear-gradient(180deg, #0b0b0b, #050505);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.artist-strip h2 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.86;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.06em;
+}
+
+.artist-subtitle {
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 900;
+  font-size: 0.78rem;
+  margin-bottom: 52px;
+}
+
+.lineup-block {
+  max-width: 1180px;
+  margin: 0 auto 52px;
+  padding: 42px 24px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top left, rgba(213,22,22,0.18), transparent 34%),
+    #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.24);
+}
+
+.lineup-block:last-child { margin-bottom: 0; }
+
+.lineup-title {
+  font-size: clamp(2.1rem, 5.8vw, 4.8rem);
+  line-height: 0.88;
+  margin: 0 0 22px;
+  text-transform: uppercase;
+  letter-spacing: -0.055em;
+}
+
+.red-title { color: #d51616; }
+.white-title { color: white; }
+.frost-title { color: #bcd7ff; }
+
+.lineup-note {
+  display: inline-block;
+  margin-bottom: 26px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #d51616;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.light-note { background: white; color: #111; }
+.frost-note { background: #bcd7ff; color: #111; }
+
+.artist-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.artist-links a {
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: #f5f5f5;
+  color: #111;
+  text-decoration: none;
+  font-size: clamp(1rem, 2.2vw, 1.55rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  transition: 0.2s ease;
+}
+
+.artist-links a:hover {
+  background: #d51616;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.defrost-lineup .artist-links a:hover {
+  background: #bcd7ff;
+  color: #111;
+}
+
+.worm-lineup .artist-links a:hover {
+  background: #111;
+  color: white;
 }
 
 /* FOOTER */
@@ -206,9 +419,10 @@ body {
 
 /* MOBILE */
 @media(max-width:850px){
-
   .nav {
     flex-direction: column;
+    gap: 10px;
+    padding: 14px 5%;
     text-align: center;
   }
 
@@ -216,13 +430,58 @@ body {
     align-items: center;
   }
 
+  .brand::after { width: 60%; }
+
+  .nav nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav a {
+    margin: 0;
+    font-size: 0.75rem;
+  }
+
   .hero-logo {
-    width: 170vw;
+    width: 178vw;
+  }
+
+  .hero-logo img {
+    animation: none;
   }
 
   .feature-bar {
-    text-align: center;
     justify-content: center;
+    text-align: center;
+    padding: 22px 5%;
+  }
+
+  .intro {
+    padding: 65px 6%;
+  }
+
+  .blocks {
+    grid-template-columns: 1fr;
+    padding: 48px 5%;
+  }
+
+  .artist-strip {
+    padding: 70px 5%;
+  }
+
+  .lineup-block {
+    padding: 30px 16px;
+  }
+
+  .artist-links {
+    gap: 9px;
+  }
+
+  .artist-links a {
+    font-size: 0.95rem;
+    padding: 11px 13px;
   }
 }
 </style>
@@ -247,46 +506,121 @@ body {
 <main class="hero">
   <div class="hero-bg"></div>
   <div class="hero-logo">
-    <img src="logo.svg">
+    <img src="logo.svg" alt="So Below Entertainment">
   </div>
 </main>
 
-<section class="feature-bar red">
-  <div>State Of The Nation VI • 29 August</div>
-  <a href="https://tickets.koid.co.za/event/state-of-the-nation-vi">Tickets</a>
+<section class="marquee">
+  <div class="marquee-track">
+    <span>Live shows with weight</span>
+    <span>Alternative • Rock • Metal</span>
+    <span>Johannesburg live music</span>
+    <span>State Of The Nation VI</span>
+    <span>Defrost Fest 2026</span>
+
+    <span>Live shows with weight</span>
+    <span>Alternative • Rock • Metal</span>
+    <span>Johannesburg live music</span>
+    <span>State Of The Nation VI</span>
+    <span>Defrost Fest 2026</span>
+  </div>
 </section>
 
-<section class="feature-bar white">
-  <div>Would You Love Me If I Was a Worm? • 16 May</div>
-  <a href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-">Tickets</a>
+<section class="feature-wrap">
+  <section class="feature-bar red">
+    <div>
+      <strong>State Of The Nation VI</strong> • 29 August • Rumours Lounge
+    </div>
+    <a href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">
+      Phase 1 Tickets
+    </a>
+  </section>
+
+  <section class="feature-bar white">
+    <div>
+      <strong>Would You Love Me If I Was a Worm?</strong> • 16 May • Rumours Lounge
+    </div>
+    <a href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
+      Get Worm Tickets
+    </a>
+  </section>
 </section>
 
 <section class="intro">
-  <h1>Live events with weight.</h1>
+  <h1>Live Events With Weight.</h1>
+  <p>
+    So Below Entertainment builds alternative, rock and heavy shows with proper lineups,
+    proper sound, and rooms that feel alive.
+  </p>
+
+  <div class="buttons">
+    <a class="button primary" href="shows.html">Upcoming Shows</a>
+    <a class="button secondary" href="past-shows.html">Past Shows</a>
+  </div>
+</section>
+
+<section class="blocks">
+  <div class="block">
+    <h3>Live Shows</h3>
+    <p>Curated alternative, rock and metal events built around energy, flow and proper lineups.</p>
+  </div>
+
+  <div class="block">
+    <h3>Proper Sound</h3>
+    <p>Production and atmosphere matter. The room should feel good before the first note hits.</p>
+  </div>
+
+  <div class="block">
+    <h3>Real Lineups</h3>
+    <p>Scene-first bookings, heavy hitters, fresh artists and shows people actually want to come back to.</p>
+  </div>
 </section>
 
 <section class="artist-strip">
+  <h2>Featured Artists</h2>
+  <div class="artist-subtitle">Current lineup drops</div>
 
   <div class="lineup-block">
-    <h2 class="lineup-title">State Of The Nation VI</h2>
+    <h3 class="lineup-title red-title">State Of The Nation VI</h3>
+    <div class="lineup-note">First Lineup Drop</div>
+
     <div class="artist-links">
-      <a>Moshmallow</a>
-      <a>Walk These Skies</a>
-      <a>Days Without Incident</a>
+      <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+      <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+      <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
     </div>
   </div>
 
-  <div class="lineup-block">
-    <h2 class="lineup-title">Defrost Fest</h2>
+  <div class="lineup-block defrost-lineup">
+    <h3 class="lineup-title frost-title">Defrost Fest 2026</h3>
+    <div class="lineup-note frost-note">26 & 27 June • Rumours Lounge</div>
+
     <div class="artist-links">
-      <a>The Burnouts</a>
-      <a>Glitter Clit</a>
-      <a>Funk N Kiff</a>
-      <a>After Wonderland</a>
-      <a>Deadly Since</a>
+      <a href="https://www.instagram.com/theburn_outs/" target="_blank">The Burnouts</a>
+      <a href="https://www.instagram.com/glitterclit_band/" target="_blank">Glitter Clit</a>
+      <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
+      <a href="https://www.instagram.com/after_wonderland/" target="_blank">After Wonderland</a>
+      <a href="https://www.instagram.com/deadly_since_official/" target="_blank">Deadly Since</a>
+      <a href="https://www.instagram.com/sometimes_useless_at_night/" target="_blank">Sometimes Useless At Night</a>
+      <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+      <a href="https://www.instagram.com/the.thr3.proj3ct/" target="_blank">THE THR3 PROJ3CT</a>
+      <a href="https://www.instagram.com/manasmachine_sa/" target="_blank">Man As Machine</a>
+      <a href="https://www.instagram.com/raptorbabyband/" target="_blank">Raptor Baby</a>
     </div>
   </div>
 
+  <div class="lineup-block worm-lineup">
+    <h3 class="lineup-title white-title">Would You Love Me If I Was a Worm?</h3>
+    <div class="lineup-note light-note">16 May • Rumours Lounge</div>
+
+    <div class="artist-links">
+      <a href="https://www.instagram.com/pandora_band_sa/" target="_blank">Pandora</a>
+      <a href="https://www.instagram.com/kaylinhillx/" target="_blank">Kaylin Hill</a>
+      <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
+      <a href="https://www.instagram.com/atfn012/" target="_blank">All This For Nothing</a>
+      <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+    </div>
+  </div>
 </section>
 
 <footer class="footer">
