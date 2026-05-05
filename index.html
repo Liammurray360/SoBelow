@@ -146,10 +146,10 @@ body {
   bottom: 70px;
   transform: translateX(-50%);
   z-index: 3;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.86);
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 900;
   text-align: center;
   width: 90%;
@@ -209,6 +209,7 @@ body {
 .feature-bar strong {
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  font-size: 1.1rem;
 }
 
 .feature-bar a {
@@ -347,6 +348,7 @@ body {
 }
 
 .show-poster-card {
+  display: block;
   background: #111;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 28px;
@@ -354,11 +356,14 @@ body {
   text-align: left;
   box-shadow: 0 24px 60px rgba(0,0,0,0.24);
   transition: 0.22s ease;
-  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .show-poster-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 26px 70px rgba(213,22,22,0.18);
+  border-color: rgba(213,22,22,0.35);
 }
 
 .poster-link {
@@ -384,14 +389,10 @@ body {
   line-height: 0.95;
   text-transform: uppercase;
   letter-spacing: -0.035em;
-}
-
-.show-poster-card h3 a {
   color: white;
-  text-decoration: none;
 }
 
-.show-poster-card h3 a:hover {
+.show-poster-card:hover h3 {
   color: #d51616;
 }
 
@@ -413,9 +414,64 @@ body {
   font-size: 0.78rem;
 }
 
-.card-button:hover {
+.show-poster-card:hover .card-button {
   background: #d51616;
   color: white;
+}
+
+/* STICKY TICKET BAR */
+.ticket-dock {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translate(-50%, 120px);
+  width: min(92%, 760px);
+  padding: 12px;
+  border-radius: 999px;
+  background: rgba(5,5,5,0.86);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 90;
+  transition: 0.35s ease;
+}
+
+.ticket-dock.visible {
+  transform: translate(-50%, 0);
+}
+
+.ticket-dock a {
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ticket-dock .red-ticket {
+  background: #d51616;
+  color: white;
+}
+
+.ticket-dock .white-ticket {
+  background: white;
+  color: #111;
+}
+
+/* REVEAL ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* FOOTER */
@@ -461,6 +517,7 @@ body {
     justify-content: center;
     gap: 10px;
     flex-wrap: nowrap;
+    padding-top: 6px;
   }
 
   .nav a {
@@ -492,6 +549,10 @@ body {
     padding: 22px 5%;
   }
 
+  .feature-bar strong {
+    font-size: 1rem;
+  }
+
   .intro {
     padding: 65px 6%;
   }
@@ -512,6 +573,17 @@ body {
 
   .show-poster-card {
     padding: 16px;
+  }
+
+  .ticket-dock {
+    bottom: 12px;
+    border-radius: 22px;
+    flex-direction: column;
+    width: min(92%, 360px);
+  }
+
+  .ticket-dock a {
+    text-align: center;
   }
 }
 </style>
@@ -538,7 +610,7 @@ body {
   <div class="hero-logo">
     <img src="logo.svg" alt="So Below Entertainment">
   </div>
-  <div class="hero-tagline">Johannesburg live music • alternative • metal • community</div>
+  <div class="hero-tagline">Built for loud rooms and real crowds.</div>
 </main>
 
 <section class="marquee">
@@ -569,7 +641,7 @@ body {
   </div>
 </section>
 
-<section class="feature-bar red">
+<section class="feature-bar red reveal">
   <div>
     <strong>State Of The Nation VI</strong> • 29 August • Rumours Lounge
   </div>
@@ -578,7 +650,7 @@ body {
   </a>
 </section>
 
-<section class="feature-bar white">
+<section class="feature-bar white reveal">
   <div>
     <strong>Would You Love Me If I Was a Worm?</strong> • 16 May • Rumours Lounge
   </div>
@@ -587,7 +659,7 @@ body {
   </a>
 </section>
 
-<section class="intro">
+<section class="intro reveal">
   <h1>Live Events With Weight.</h1>
   <p>
     So Below Entertainment builds alternative, rock and heavy shows with proper lineups,
@@ -600,7 +672,7 @@ body {
   </div>
 </section>
 
-<section class="blocks">
+<section class="blocks reveal">
   <div class="block">
     <h3>Live Shows</h3>
     <p>Curated alternative, rock and metal events built around energy, flow and proper lineups.</p>
@@ -617,45 +689,82 @@ body {
   </div>
 </section>
 
-<section class="featured-shows">
+<section class="featured-shows reveal">
   <h2>Featured Shows</h2>
   <div class="featured-subtitle">Current events on the radar</div>
 
   <div class="show-poster-grid">
 
-    <article class="show-poster-card" onclick="location.href='shows.html'">
-      <div class="poster-link">
+    <a class="show-poster-card" href="shows.html">
+      <span class="poster-link">
         <img src="sotnvi-1announce.png" alt="State Of The Nation VI poster">
-      </div>
-      <h3><a href="shows.html">State Of The Nation VI</a></h3>
+      </span>
+      <h3>State Of The Nation VI</h3>
       <p>29 August • Rumours Lounge</p>
-      <a class="card-button" href="shows.html">View Show</a>
-    </article>
+      <span class="card-button">View Show</span>
+    </a>
 
-    <article class="show-poster-card" onclick="location.href='shows.html'">
-      <div class="poster-link">
+    <a class="show-poster-card" href="shows.html">
+      <span class="poster-link">
         <img src="defrost-fest.jpeg" alt="Defrost Fest 2026 poster">
-      </div>
-      <h3><a href="shows.html">Defrost Fest 2026</a></h3>
+      </span>
+      <h3>Defrost Fest 2026</h3>
       <p>26 & 27 June • Rumours Lounge</p>
-      <a class="card-button" href="shows.html">View Show</a>
-    </article>
+      <span class="card-button">View Show</span>
+    </a>
 
-    <article class="show-poster-card" onclick="location.href='shows.html'">
-      <div class="poster-link">
+    <a class="show-poster-card" href="shows.html">
+      <span class="poster-link">
         <img src="WYLMIIWAW.png" alt="Would You Love Me If I Was a Worm poster">
-      </div>
-      <h3><a href="shows.html">Would You Love Me If I Was a Worm?</a></h3>
+      </span>
+      <h3>Would You Love Me If I Was a Worm?</h3>
       <p>16 May • Rumours Lounge</p>
-      <a class="card-button" href="shows.html">View Show</a>
-    </article>
+      <span class="card-button">View Show</span>
+    </a>
 
   </div>
 </section>
 
+<div class="ticket-dock" id="ticketDock">
+  <a class="red-ticket" href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">
+    SOTN VI Tickets
+  </a>
+  <a class="white-ticket" href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
+    Worm Tickets
+  </a>
+</div>
+
 <footer class="footer">
   <div class="secret">A division of Secret Sauce</div>
 </footer>
+
+<script>
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+revealElements.forEach(element => {
+  revealObserver.observe(element);
+});
+
+const ticketDock = document.getElementById("ticketDock");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 650) {
+    ticketDock.classList.add("visible");
+  } else {
+    ticketDock.classList.remove("visible");
+  }
+});
+</script>
 
 </body>
 </html>
