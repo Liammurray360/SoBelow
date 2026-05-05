@@ -36,14 +36,36 @@ body {
   z-index: 100;
 }
 
-.nav strong {
-  font-size: 0.9rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: white;
+/* BRAND */
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
   cursor: pointer;
 }
 
+.brand .so {
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  font-weight: 900;
+}
+
+.brand .ent {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  color: #aaa;
+}
+
+.brand::after {
+  content: "";
+  margin-top: 6px;
+  width: 40%;
+  height: 2px;
+  background: #d51616;
+  opacity: 0.8;
+}
+
+/* NAV LINKS */
 .nav nav {
   display: flex;
   gap: 18px;
@@ -77,6 +99,14 @@ body {
 }
 
 .nav a:hover::after {
+  width: 100%;
+}
+
+.nav a.active {
+  color: white;
+}
+
+.nav a.active::after {
   width: 100%;
 }
 
@@ -153,11 +183,25 @@ body {
     flex-direction: column;
     gap: 10px;
     padding: 14px 5%;
+    text-align: center;
+  }
+
+  .brand {
+    align-items: center;
+  }
+
+  .brand::after {
+    width: 60%;
   }
 
   .nav nav {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 14px;
+  }
+
+  .nav a {
+    font-size: 0.75rem;
   }
 
   .hero {
@@ -180,13 +224,16 @@ body {
 <body>
 
 <header class="nav">
-  <strong onclick="location.href='index.html'">SO BELOW</strong>
+  <div class="brand" onclick="location.href='index.html'">
+    <span class="so">SO BELOW</span>
+    <span class="ent">ENTERTAINMENT</span>
+  </div>
 
   <nav>
     <a href="shows.html">Shows</a>
     <a href="past-shows.html">Past Shows</a>
     <a href="about.html">About</a>
-    <a href="contact.html" style="color:white;">Contact</a>
+    <a href="contact.html" class="active">Contact</a>
   </nav>
 </header>
 
