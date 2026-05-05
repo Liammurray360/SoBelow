@@ -26,11 +26,11 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 16px 8%;
+  padding: 14px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(5,5,5,0.82);
+  background: rgba(5,5,5,0.86);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,0.08);
   z-index: 100;
@@ -41,6 +41,8 @@ body {
   flex-direction: column;
   line-height: 1;
   cursor: pointer;
+  color: white;
+  flex-shrink: 0;
 }
 
 .brand .so {
@@ -65,34 +67,26 @@ body {
 
 .nav nav {
   display: flex;
-  gap: 18px;
+  gap: 14px;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .nav a {
   position: relative;
-  padding: 8px 10px;
   color: #aaa;
   text-decoration: none;
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
-.nav a:hover { color: white; }
-
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #d51616;
-  transition: 0.25s ease;
+.nav a:hover,
+.nav a.active {
+  color: white;
 }
-
-.nav a:hover::after { width: 100%; }
 
 /* HERO */
 .hero {
@@ -146,6 +140,21 @@ body {
   animation: breathe 7s ease-in-out infinite;
 }
 
+.hero-tagline {
+  position: absolute;
+  left: 50%;
+  bottom: 70px;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: rgba(255,255,255,0.82);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-align: center;
+  width: 90%;
+}
+
 @keyframes breathe {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.018); }
@@ -164,7 +173,7 @@ body {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 38s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 
 .marquee-group {
@@ -345,6 +354,7 @@ body {
   text-align: left;
   box-shadow: 0 24px 60px rgba(0,0,0,0.24);
   transition: 0.22s ease;
+  cursor: pointer;
 }
 
 .show-poster-card:hover {
@@ -364,7 +374,7 @@ body {
   transition: 0.3s ease;
 }
 
-.poster-link:hover img {
+.show-poster-card:hover img {
   transform: scale(1.04);
 }
 
@@ -423,28 +433,43 @@ body {
 /* MOBILE */
 @media(max-width:850px){
   .nav {
-    flex-direction: column;
+    position: sticky;
+    top: 0;
+    padding: 12px 4%;
     gap: 10px;
-    padding: 14px 5%;
-    text-align: center;
+    flex-direction: column;
   }
 
   .brand {
     align-items: center;
   }
 
-  .brand::after { width: 60%; }
+  .brand .so {
+    font-size: 0.9rem;
+  }
+
+  .brand .ent {
+    font-size: 0.55rem;
+  }
+
+  .brand::after {
+    width: 60%;
+  }
 
   .nav nav {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
+    width: 100%;
     justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
   }
 
   .nav a {
-    margin: 0;
-    font-size: 0.75rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+  }
+
+  .hero {
+    min-height: 82vh;
   }
 
   .hero-logo {
@@ -453,6 +478,12 @@ body {
 
   .hero-logo img {
     animation: none;
+  }
+
+  .hero-tagline {
+    bottom: 34px;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
   }
 
   .feature-bar {
@@ -507,31 +538,32 @@ body {
   <div class="hero-logo">
     <img src="logo.svg" alt="So Below Entertainment">
   </div>
+  <div class="hero-tagline">Johannesburg live music • alternative • metal • community</div>
 </main>
 
 <section class="marquee">
   <div class="marquee-track">
 
     <div class="marquee-group">
-      <span>Live shows with weight</span>
-      <span>Alternative • Rock • Metal</span>
-      <span>Johannesburg live music</span>
-      <span>State Of The Nation VI</span>
-      <span>Defrost Fest 2026</span>
-      <span>Rumours Lounge</span>
-      <span>Scene first</span>
-      <span>Proper sound</span>
+      <span>Live shows with weight •</span>
+      <span>Alternative • Rock • Metal •</span>
+      <span>Johannesburg live music •</span>
+      <span>State Of The Nation VI •</span>
+      <span>Defrost Fest 2026 •</span>
+      <span>Rumours Lounge •</span>
+      <span>Scene first •</span>
+      <span>Proper sound •</span>
     </div>
 
     <div class="marquee-group" aria-hidden="true">
-      <span>Live shows with weight</span>
-      <span>Alternative • Rock • Metal</span>
-      <span>Johannesburg live music</span>
-      <span>State Of The Nation VI</span>
-      <span>Defrost Fest 2026</span>
-      <span>Rumours Lounge</span>
-      <span>Scene first</span>
-      <span>Proper sound</span>
+      <span>Live shows with weight •</span>
+      <span>Alternative • Rock • Metal •</span>
+      <span>Johannesburg live music •</span>
+      <span>State Of The Nation VI •</span>
+      <span>Defrost Fest 2026 •</span>
+      <span>Rumours Lounge •</span>
+      <span>Scene first •</span>
+      <span>Proper sound •</span>
     </div>
 
   </div>
@@ -591,28 +623,28 @@ body {
 
   <div class="show-poster-grid">
 
-    <article class="show-poster-card">
-      <a class="poster-link" href="shows.html">
+    <article class="show-poster-card" onclick="location.href='shows.html'">
+      <div class="poster-link">
         <img src="sotnvi-1announce.png" alt="State Of The Nation VI poster">
-      </a>
+      </div>
       <h3><a href="shows.html">State Of The Nation VI</a></h3>
       <p>29 August • Rumours Lounge</p>
       <a class="card-button" href="shows.html">View Show</a>
     </article>
 
-    <article class="show-poster-card">
-      <a class="poster-link" href="shows.html">
+    <article class="show-poster-card" onclick="location.href='shows.html'">
+      <div class="poster-link">
         <img src="defrost-fest.jpeg" alt="Defrost Fest 2026 poster">
-      </a>
+      </div>
       <h3><a href="shows.html">Defrost Fest 2026</a></h3>
       <p>26 & 27 June • Rumours Lounge</p>
       <a class="card-button" href="shows.html">View Show</a>
     </article>
 
-    <article class="show-poster-card">
-      <a class="poster-link" href="shows.html">
+    <article class="show-poster-card" onclick="location.href='shows.html'">
+      <div class="poster-link">
         <img src="WYLMIIWAW.png" alt="Would You Love Me If I Was a Worm poster">
-      </a>
+      </div>
       <h3><a href="shows.html">Would You Love Me If I Was a Worm?</a></h3>
       <p>16 May • Rumours Lounge</p>
       <a class="card-button" href="shows.html">View Show</a>
