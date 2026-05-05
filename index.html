@@ -119,14 +119,15 @@ body {
   background: #d51616;
 }
 
-.black {
-  background: #050505;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+.white {
+  background: #ffffff;
+  color: #111;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
 }
 
-.black a {
-  background: #d51616;
+.white a {
+  background: #111;
   color: white;
 }
 
@@ -239,9 +240,9 @@ body {
 }
 
 .lineup-block {
-  max-width: 1100px;
+  max-width: 1150px;
   margin: 0 auto 48px;
-  padding: 34px 24px;
+  padding: 38px 24px;
   border-radius: 28px;
   background:
     radial-gradient(circle at top left, rgba(213,22,22,0.15), transparent 34%),
@@ -253,9 +254,29 @@ body {
   margin-bottom: 0;
 }
 
-.lineup-label {
+.lineup-title {
+  font-size: clamp(1.8rem, 5vw, 4rem);
+  line-height: 0.95;
+  margin: 0 0 22px;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+}
+
+.lineup-title.red-title {
+  color: #d51616;
+}
+
+.lineup-title.white-title {
+  color: white;
+}
+
+.lineup-title.frost-title {
+  color: #bcd7ff;
+}
+
+.lineup-note {
   display: inline-block;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   padding: 8px 12px;
   border-radius: 999px;
   background: #d51616;
@@ -266,8 +287,13 @@ body {
   font-weight: 900;
 }
 
-.lineup-label.black-label {
+.lineup-note.light-note {
   background: white;
+  color: #111;
+}
+
+.lineup-note.frost-note {
+  background: #bcd7ff;
   color: #111;
 }
 
@@ -300,6 +326,11 @@ body {
 .worm-lineup .artist-links a:hover {
   background: #111;
   color: white;
+}
+
+.defrost-lineup .artist-links a:hover {
+  background: #bcd7ff;
+  color: #111;
 }
 
 .footer {
@@ -376,7 +407,7 @@ body {
   }
 
   .lineup-block {
-    padding: 26px 16px;
+    padding: 28px 16px;
   }
 
   .artist-links {
@@ -419,7 +450,7 @@ body {
   </a>
 </section>
 
-<section class="feature-bar black">
+<section class="feature-bar white">
   <div>
     <strong>Would You Love Me If I Was a Worm?</strong> • 16 May • Rumours Lounge
   </div>
@@ -460,7 +491,8 @@ body {
   <div class="artist-subtitle">Current lineup drops</div>
 
   <div class="lineup-block">
-    <div class="lineup-label">State Of The Nation VI • First Lineup Drop</div>
+    <h3 class="lineup-title red-title">State Of The Nation VI</h3>
+    <div class="lineup-note">First Lineup Drop</div>
 
     <div class="artist-links">
       <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
@@ -469,8 +501,27 @@ body {
     </div>
   </div>
 
+  <div class="lineup-block defrost-lineup">
+    <h3 class="lineup-title frost-title">Defrost Fest 2026</h3>
+    <div class="lineup-note frost-note">26 & 27 June • Rumours Lounge</div>
+
+    <div class="artist-links">
+      <a href="https://www.instagram.com/theburn_outs/" target="_blank">The Burnouts</a>
+      <a href="https://www.instagram.com/glitterclit_band/" target="_blank">Glitter Clit</a>
+      <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
+      <a href="https://www.instagram.com/after_wonderland/" target="_blank">After Wonderland</a>
+      <a href="https://www.instagram.com/deadly_since_official/" target="_blank">Deadly Since</a>
+      <a href="https://www.instagram.com/sometimes_useless_at_night/" target="_blank">Sometimes Useless At Night</a>
+      <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+      <a href="https://www.instagram.com/the.thr3.proj3ct/" target="_blank">THE THR3 PROJ3CT</a>
+      <a href="https://www.instagram.com/manasmachine_sa/" target="_blank">Man As Machine</a>
+      <a href="https://www.instagram.com/raptorbabyband/" target="_blank">Raptor Baby</a>
+    </div>
+  </div>
+
   <div class="lineup-block worm-lineup">
-    <div class="lineup-label black-label">Would You Love Me If I Was a Worm?</div>
+    <h3 class="lineup-title white-title">Would You Love Me If I Was a Worm?</h3>
+    <div class="lineup-note light-note">16 May • Rumours Lounge</div>
 
     <div class="artist-links">
       <a href="https://www.instagram.com/pandora_band_sa/" target="_blank">Pandora</a>
