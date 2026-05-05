@@ -1,294 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | So Below Entertainment</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | So Below Entertainment</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta name="description" content="Get in touch with So Below Entertainment for bookings, collaborations and event enquiries.">
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #050505;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.92);
-      border-bottom: 1px solid #222;
-      padding: 14px 20px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0b0b0b;
+  color: #f5f5f5;
+}
 
-    .nav-wrap {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 14px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(5,5,5,0.86);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 100;
+}
 
-    .logo {
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 18px;
-      color: #fff;
-    }
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  cursor: pointer;
+  color: white;
+  flex-shrink: 0;
+}
 
-    nav {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
+.brand .so {
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  font-weight: 900;
+}
 
-    nav a {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #ccc;
-      transition: 0.2s ease;
-    }
+.brand .ent {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  color: #aaa;
+}
 
-    nav a:hover,
-    nav a.active {
-      color: #ff2a2a;
-    }
+.brand::after {
+  content: "";
+  margin-top: 6px;
+  width: 42%;
+  height: 2px;
+  background: #d51616;
+}
 
-    .hero {
-      min-height: 50vh;
-      padding: 90px 20px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background:
-        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.92)),
-        radial-gradient(circle at center, #3a0000, #050505 65%);
-    }
+.nav nav {
+  display: flex;
+  gap: 14px;
+  flex-wrap: nowrap;
+  align-items: center;
+}
 
-    .hero-content {
-      max-width: 900px;
-    }
+.nav a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  font-weight: 800;
+  white-space: nowrap;
+}
 
-    .eyebrow {
-      color: #ff2a2a;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 14px;
-    }
+.nav a:hover,
+.nav a.active {
+  color: white;
+}
 
-    h1 {
-      font-size: clamp(42px, 8vw, 92px);
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
+/* HERO */
+.hero {
+  padding: 140px 8% 60px;
+  text-align: center;
+}
 
-    .hero p {
-      color: #d0d0d0;
-      font-size: 18px;
-    }
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin: 0 0 20px;
+  line-height: 0.95;
+}
 
-    .section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 70px 20px;
-    }
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  color: #bbb;
+  line-height: 1.7;
+}
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
+/* CONTACT GRID */
+.contact-wrap {
+  padding: 50px 8% 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
 
-    .info-box {
-      background: #101010;
-      border: 1px solid #242424;
-      border-radius: 18px;
-      padding: 28px;
-    }
+/* CARDS */
+.card {
+  background: #111;
+  padding: 26px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
 
-    .info-box h2 {
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      font-size: 22px;
-    }
+.card h2 {
+  margin-top: 0;
+}
 
-    .info-box p {
-      color: #bbb;
-      margin-bottom: 12px;
-      font-size: 14px;
-    }
+.card p {
+  color: #bbb;
+  line-height: 1.6;
+}
 
-    .social-link {
-      display: inline-block;
-      margin-top: 10px;
-      color: #ff2a2a;
-      font-weight: bold;
-      letter-spacing: 1px;
-      transition: 0.2s ease;
-    }
+/* LINKS */
+.link {
+  display: block;
+  margin-top: 12px;
+  text-decoration: none;
+  font-weight: 900;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #d51616;
+  width: fit-content;
+  transition: 0.2s ease;
+}
 
-    .social-link:hover {
-      color: #fff;
-    }
+.link:hover {
+  transform: translateY(-2px);
+}
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+/* INFO BLOCK */
+.info {
+  display: grid;
+  gap: 16px;
+}
 
-    input, textarea {
-      background: #0b0b0b;
-      border: 1px solid #222;
-      border-radius: 10px;
-      padding: 14px;
-      color: #fff;
-      font-size: 14px;
-    }
+.info-box {
+  background: #f5f5f5;
+  color: #111;
+  padding: 20px;
+  border-radius: 18px;
+}
 
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #ff2a2a;
-    }
+.info-box strong {
+  display: block;
+  margin-bottom: 6px;
+}
 
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
+/* FOOTER */
+.footer {
+  padding: 25px;
+  background: #050505;
+  text-align: center;
+}
 
-    button {
-      background: #ff2a2a;
-      color: #fff;
-      border: none;
-      padding: 14px;
-      border-radius: 999px;
-      text-transform: uppercase;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
+.secret {
+  font-size: 0.7rem;
+  color: #555;
+}
 
-    button:hover {
-      background: #fff;
-      color: #000;
-    }
+/* MOBILE */
+@media(max-width:850px){
 
-    footer {
-      border-top: 1px solid #222;
-      padding: 28px 20px;
-      text-align: center;
-      color: #777;
-      font-size: 13px;
-      background: #050505;
-    }
+  .nav {
+    position: sticky;
+    top: 0;
+    padding: 12px 4%;
+    gap: 10px;
+    flex-direction: column;
+  }
 
-    @media (max-width: 700px) {
-      .nav-wrap {
-        flex-direction: column;
-        gap: 10px;
-      }
+  .brand {
+    align-items: center;
+  }
 
-      nav {
-        justify-content: center;
-      }
+  .brand .so {
+    font-size: 0.9rem;
+  }
 
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+  .brand .ent {
+    font-size: 0.55rem;
+  }
 
-      .hero {
-        padding-top: 55px;
-      }
-    }
-  </style>
+  .brand::after {
+    width: 60%;
+  }
+
+  .nav nav {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav a {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+  }
+
+  .hero {
+    padding: 35px 6% 40px;
+  }
+
+  .contact-wrap {
+    grid-template-columns: 1fr;
+    padding: 35px 5% 60px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="nav-wrap">
-      <a class="logo" href="index.html">So Below</a>
+<header class="nav">
+  <div class="brand" onclick="location.href='index.html'">
+    <span class="so">SO BELOW</span>
+    <span class="ent">ENTERTAINMENT</span>
+  </div>
 
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="shows.html">Shows</a>
-        <a href="past-shows.html">Past Shows</a>
-        <a href="about.html">About</a>
-        <a class="active" href="contact.html">Contact</a>
-      </nav>
+  <nav>
+    <a href="shows.html">Shows</a>
+    <a href="past-shows.html">Past Shows</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Get in touch.</h1>
+  <p>
+    Whether you're a band, a venue, or just trying to get involved — reach out.
+  </p>
+</section>
+
+<main class="contact-wrap">
+
+  <div class="card">
+    <h2>Bookings & Enquiries</h2>
+    <p>
+      Want to play a show, collaborate, or bring something to the table?
+      Hit us up directly.
+    </p>
+
+    <a class="link" href="mailto:sobelowentertainment@gmail.com">
+      Email Us
+    </a>
+
+    <a class="link" href="https://www.instagram.com/so.below.ent/" target="_blank">
+      Instagram
+    </a>
+  </div>
+
+  <div class="info">
+    <div class="info-box">
+      <strong>Location</strong>
+      Johannesburg, South Africa
     </div>
-  </header>
 
-  <main>
+    <div class="info-box">
+      <strong>Focus</strong>
+      Alternative • Rock • Metal
+    </div>
 
-    <section class="hero">
-      <div class="hero-content">
-        <div class="eyebrow">Get In Touch</div>
-        <h1>Contact</h1>
-        <p>Bookings, collabs, questions, or chaos proposals.</p>
-      </div>
-    </section>
+    <div class="info-box">
+      <strong>Main Venue</strong>
+      Rumours Lounge
+    </div>
 
-    <section class="section">
+    <div class="info-box">
+      <strong>Shows</strong>
+      State Of The Nation + Independent Events
+    </div>
+  </div>
 
-      <div class="contact-grid">
+</main>
 
-        <div class="info-box">
-          <h2>Contact Info</h2>
-          <p>For bookings, partnerships, or general enquiries, hit us up.</p>
-
-          <p>Email: sobelow.entertainment@gmail.com</p>
-
-          <p>Instagram:</p>
-          <a 
-            class="social-link" 
-            href="https://instagram.com/sobelow.entertainment" 
-            target="_blank"
-          >
-            @sobelow.entertainment
-          </a>
-        </div>
-
-        <div class="info-box">
-          <h2>Send a Message</h2>
-
-          <form>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Message..." required></textarea>
-            <button type="submit">Send Message</button>
-          </form>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer>
-    © 2026 So Below Entertainment. Built for loud rooms and questionable life choices.
-  </footer>
+<footer class="footer">
+  <div class="secret">A division of Secret Sauce</div>
+</footer>
 
 </body>
 </html>
