@@ -19,47 +19,114 @@ body {
   color: #111;
 }
 
+/* NAV */
 .nav {
-  padding: 18px 8%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #050505;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  z-index: 100;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  cursor: pointer;
   color: white;
 }
 
-.nav strong { letter-spacing: 0.08em; }
-
-.nav a {
-  color: #ccc;
-  margin-left: 20px;
-  text-decoration: none;
+.brand .so {
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  font-weight: 900;
 }
 
-.nav a:hover { color: white; }
+.brand .ent {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  color: #aaa;
+}
 
+.brand::after {
+  content: "";
+  margin-top: 6px;
+  width: 40%;
+  height: 2px;
+  background: #d51616;
+  opacity: 0.8;
+}
+
+.nav nav {
+  display: flex;
+  gap: 18px;
+}
+
+.nav a {
+  position: relative;
+  padding: 8px 10px;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #d51616;
+  transition: 0.25s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: white;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
+/* PAGE */
 .page {
-  padding: 70px 8%;
+  padding: 140px 8% 70px;
 }
 
 .page h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  margin-bottom: 10px;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin: 0 0 12px;
+  line-height: 0.95;
 }
 
 .intro {
   color: #666;
-  max-width: 700px;
+  max-width: 760px;
   margin-bottom: 40px;
   line-height: 1.6;
 }
 
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 26px;
 }
 
+/* CARD */
 .card {
   background: white;
   border-radius: 22px;
@@ -96,6 +163,7 @@ body {
   line-height: 1.5;
 }
 
+/* TAG */
 .tag {
   display: inline-block;
   margin-top: 12px;
@@ -108,6 +176,7 @@ body {
   text-transform: uppercase;
 }
 
+/* FOOTER */
 .footer {
   padding: 25px;
   background: #050505;
@@ -119,11 +188,22 @@ body {
   color: #555;
 }
 
-@media(max-width: 900px) {
+/* MOBILE */
+@media(max-width: 900px){
+
   .nav {
     flex-direction: column;
     gap: 10px;
+    padding: 14px 5%;
     text-align: center;
+  }
+
+  .brand {
+    align-items: center;
+  }
+
+  .brand::after {
+    width: 60%;
   }
 
   .nav nav {
@@ -135,15 +215,16 @@ body {
 
   .nav a {
     margin: 0;
+    font-size: 0.75rem;
   }
 
   .page {
-    padding: 40px 5%;
+    padding: 125px 5% 50px;
   }
 
   .page h1 {
-    font-size: 2.6rem;
-    line-height: 1.1;
+    font-size: 2.8rem;
+    line-height: 1;
   }
 
   .intro {
@@ -165,11 +246,14 @@ body {
 <body>
 
 <header class="nav">
-  <strong>SO BELOW ENTERTAINMENT</strong>
+  <div class="brand" onclick="location.href='index.html'">
+    <span class="so">SO BELOW</span>
+    <span class="ent">ENTERTAINMENT</span>
+  </div>
+
   <nav>
-    <a href="index.html">Home</a>
     <a href="shows.html">Shows</a>
-    <a href="past-shows.html">Past Shows</a>
+    <a href="past-shows.html" class="active">Past Shows</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
