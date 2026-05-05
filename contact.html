@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | So Below Entertainment</title>
 
-<meta name="description" content="Contact So Below Entertainment for bookings, events, collaborations and live show enquiries.">
+<meta name="description" content="Contact So Below Entertainment for bookings, shows, collaborations and live event enquiries.">
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
@@ -19,47 +19,99 @@ body {
   color: #f5f5f5;
 }
 
+/* NAV */
 .nav {
-  padding: 18px 8%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 8%;
   display: flex;
   justify-content: space-between;
-  background: #050505;
+  align-items: center;
+
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  z-index: 100;
 }
 
-.nav strong { letter-spacing: 0.08em; }
+.nav strong {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}
+
+.nav nav {
+  display: flex;
+  gap: 18px;
+}
 
 .nav a {
-  color: #ccc;
-  margin-left: 20px;
+  position: relative;
+  padding: 8px 10px;
+  color: #aaa;
   text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: 0.2s ease;
 }
 
-.nav a:hover { color: white; }
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #d51616;
+  transition: 0.25s ease;
+}
 
+.nav a:hover {
+  color: white;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* HERO */
 .hero {
-  padding: 80px 8%;
+  padding: 140px 8% 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 50px;
+  align-items: center;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin: 0 0 20px;
+  line-height: 0.95;
 }
 
 .hero p {
-  color: #ccc;
+  color: #bbb;
+  max-width: 500px;
+  line-height: 1.6;
 }
 
+/* CARD */
 .card {
   background: #f5f5f5;
   color: #111;
-  padding: 30px;
-  border-radius: 24px;
+  padding: 34px;
+  border-radius: 26px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
 .row {
-  margin-bottom: 20px;
+  margin-bottom: 26px;
 }
 
 .label {
@@ -67,14 +119,22 @@ body {
   font-weight: 900;
   color: #d51616;
   text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
 }
 
 .card a {
   color: #111;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
 .footer {
   padding: 25px;
   background: #050505;
@@ -86,27 +146,32 @@ body {
   color: #555;
 }
 
+/* MOBILE */
 @media(max-width:850px){
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 40px 5%;
-  }
 
   .nav {
     flex-direction: column;
     gap: 10px;
-    text-align: center;
+    padding: 14px 5%;
   }
 
   .nav nav {
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 14px;
   }
 
-  .nav a {
-    margin: 0;
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 110px 6% 60px;
+    text-align: center;
+  }
+
+  .hero p {
+    margin: auto;
+  }
+
+  .card {
+    margin-top: 20px;
   }
 }
 </style>
@@ -115,13 +180,13 @@ body {
 <body>
 
 <header class="nav">
-  <strong>SO BELOW ENTERTAINMENT</strong>
+  <strong onclick="location.href='index.html'">SO BELOW</strong>
+
   <nav>
-    <a href="index.html">Home</a>
     <a href="shows.html">Shows</a>
     <a href="past-shows.html">Past Shows</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" style="color:white;">Contact</a>
   </nav>
 </header>
 
@@ -129,12 +194,13 @@ body {
   <div>
     <h1>Let’s build something loud.</h1>
     <p>
-      For bookings, shows, collaborations or anything live music related —
-      get in touch.
+      Bookings, shows, collaborations or anything live music related —  
+      if it involves volume, we’re in.
     </p>
   </div>
 
   <div class="card">
+
     <div class="row">
       <div class="label">Email</div>
       <p><a href="mailto:so.below.ent@gmail.com">so.below.ent@gmail.com</a></p>
@@ -149,6 +215,7 @@ body {
       <div class="label">Instagram</div>
       <p><a href="https://www.instagram.com/so.below.ent/" target="_blank">@so.below.ent</a></p>
     </div>
+
   </div>
 </section>
 
