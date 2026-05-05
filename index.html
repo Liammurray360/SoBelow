@@ -19,7 +19,6 @@ body {
   color: #f5f5f5;
 }
 
-/* NAV */
 .nav {
   position: fixed;
   top: 0;
@@ -43,7 +42,6 @@ body {
 
 .nav a:hover { color: white; }
 
-/* HERO */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -79,7 +77,6 @@ body {
   display: block;
 }
 
-/* FEATURED BARS */
 .feature-bar {
   padding: 22px 8%;
   display: flex;
@@ -112,7 +109,6 @@ body {
 .red { background: #d51616; }
 .purple { background: #6c2bd9; }
 
-/* INTRO */
 .intro {
   padding: 90px 6% 75px;
   text-align: center;
@@ -193,11 +189,30 @@ body {
   color: #555;
 }
 
-/* MOBILE */
 @media(max-width:850px){
   .nav {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .nav nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav a {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .hero-logo {
+    width: 160vw;
+  }
+
+  .hero-logo img {
+    transform: scale(1.2);
   }
 
   .feature-bar {
@@ -227,11 +242,10 @@ body {
 <main class="hero">
   <div class="hero-bg"></div>
   <div class="hero-logo">
-    <img src="logo.svg">
+    <img src="logo.svg" alt="So Below Entertainment">
   </div>
 </main>
 
-<!-- SOTN -->
 <section class="feature-bar red">
   <div>
     <strong>State Of The Nation VI</strong> • 29 August • Rumours Lounge
@@ -239,12 +253,13 @@ body {
   <a href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">Phase 1 Tickets</a>
 </section>
 
-<!-- WORM -->
 <section class="feature-bar purple">
   <div>
-    <strong>Would You Love Me If I Was a Worm?</strong> • 16 May
+    <strong>Would You Love Me If I Was a Worm?</strong> • 16 May • Rumours Lounge
   </div>
-  <a href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">Tickets</a>
+  <a href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
+    Get Worm Tickets
+  </a>
 </section>
 
 <section class="intro">
@@ -277,21 +292,21 @@ body {
 <section class="artist-strip">
   <h2>Featured Artists</h2>
 
-  <p><strong>SOTN VI First Drop</strong></p>
+  <p><strong>State Of The Nation VI — First Lineup Drop</strong></p>
   <div class="artist-links">
-    <a href="https://www.instagram.com/moshmallowband/">Moshmallow</a>
-    <a href="https://www.instagram.com/walk_these_skies/">Walk These Skies</a>
-    <a href="https://www.instagram.com/dwidayswithoutincident/">Days Without Incident</a>
+    <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+    <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+    <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
   </div>
 
-  <p style="margin-top:30px;"><strong>Worm Show</strong></p>
+  <p style="margin-top:30px;"><strong>Would You Love Me If I Was a Worm?</strong></p>
   <div class="artist-links">
-    <a href="https://www.instagram.com/pandora_band_sa/">Pandora</a>
-    <a href="https://www.instagram.com/kaylinhillx/">Kaylin Hill</a>
-    <a href="https://www.instagram.com/funknkiff/">Funk n Kiff</a>
-    <a href="https://www.instagram.com/atfn012/">All This For Nothing</a>
+    <a href="https://www.instagram.com/pandora_band_sa/" target="_blank">Pandora</a>
+    <a href="https://www.instagram.com/kaylinhillx/" target="_blank">Kaylin Hill</a>
+    <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk n Kiff</a>
+    <a href="https://www.instagram.com/atfn012/" target="_blank">All This For Nothing</a>
+    <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
   </div>
-
 </section>
 
 <footer class="footer">
