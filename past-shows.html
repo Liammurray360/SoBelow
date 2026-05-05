@@ -1,446 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Past Shows | So Below Entertainment</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Shows | So Below Entertainment</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta name="description" content="Past So Below Entertainment shows including State Of The Nation, Dawn Of The Titans and alternative events in Johannesburg.">
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #050505;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.92);
-      border-bottom: 1px solid #222;
-      padding: 14px 20px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #111;
+}
 
-    .nav-wrap {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 14px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(5,5,5,0.86);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 100;
+}
 
-    .logo {
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 18px;
-      color: #fff;
-    }
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  cursor: pointer;
+  color: white;
+  flex-shrink: 0;
+}
 
-    nav {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
+.brand .so {
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  font-weight: 900;
+}
 
-    nav a {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #ccc;
-      transition: 0.2s ease;
-    }
+.brand .ent {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  color: #aaa;
+}
 
-    nav a:hover,
-    nav a.active {
-      color: #ff2a2a;
-    }
+.brand::after {
+  content: "";
+  margin-top: 6px;
+  width: 42%;
+  height: 2px;
+  background: #d51616;
+}
 
-    .hero {
-      min-height: 55vh;
-      padding: 90px 20px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background:
-        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.92)),
-        radial-gradient(circle at center, #3a0000, #050505 65%);
-    }
+.nav nav {
+  display: flex;
+  gap: 14px;
+  flex-wrap: nowrap;
+  align-items: center;
+}
 
-    .hero-content {
-      max-width: 900px;
-    }
+.nav a {
+  position: relative;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  font-weight: 800;
+  white-space: nowrap;
+}
 
-    .eyebrow {
-      color: #ff2a2a;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 14px;
-    }
+.nav a:hover,
+.nav a.active {
+  color: white;
+}
 
-    h1 {
-      font-size: clamp(42px, 8vw, 92px);
-      line-height: 0.95;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-    }
+/* PAGE */
+.page {
+  padding: 140px 8% 70px;
+}
 
-    .hero p {
-      max-width: 720px;
-      margin: auto;
-      color: #d0d0d0;
-      font-size: 18px;
-    }
+.page h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin: 0 0 12px;
+  line-height: 0.95;
+}
 
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 70px 20px;
-    }
+.intro {
+  color: #666;
+  max-width: 760px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
 
-    .section-title {
-      text-transform: uppercase;
-      font-size: clamp(28px, 5vw, 52px);
-      margin-bottom: 12px;
-    }
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
 
-    .section-intro {
-      color: #bdbdbd;
-      max-width: 780px;
-      margin-bottom: 36px;
-    }
+/* CARD */
+.card {
+  background: white;
+  border-radius: 22px;
+  padding: 18px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
 
-    .past-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+.poster-link {
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+}
 
-    .past-card {
-      background: #101010;
-      border: 1px solid #242424;
-      border-radius: 18px;
-      overflow: hidden;
-      transition: 0.25s ease;
-    }
+.card img {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  transition: 0.3s ease;
+}
 
-    .past-card:hover {
-      transform: translateY(-6px);
-      border-color: #ff2a2a;
-      box-shadow: 0 0 30px rgba(255, 42, 42, 0.14);
-    }
+.poster-link:hover img {
+  transform: scale(1.04);
+}
 
-    .poster-placeholder {
-      aspect-ratio: 4 / 5;
-      background:
-        linear-gradient(135deg, rgba(255,42,42,0.22), rgba(0,0,0,0.9)),
-        #171717;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      color: #888;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 13px;
-      font-weight: bold;
-    }
+.card h3 {
+  margin: 14px 0 6px;
+  font-size: 1.3rem;
+}
 
-    .past-content {
-      padding: 22px;
-    }
+.card p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+}
 
-    .date {
-      color: #ff2a2a;
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 2px;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
+/* TAG */
+.tag {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eee;
+  color: #d51616;
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
 
-    .past-content h2 {
-      font-size: 23px;
-      text-transform: uppercase;
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
+/* FOOTER */
+.footer {
+  padding: 25px;
+  background: #050505;
+  text-align: center;
+}
 
-    .venue {
-      color: #aaa;
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
+.secret {
+  font-size: 0.7rem;
+  color: #555;
+}
 
-    .lineup {
-      color: #ddd;
-      font-size: 14px;
-    }
+/* MOBILE */
+@media(max-width: 900px){
 
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
+  .nav {
+    position: sticky;
+    top: 0;
+    padding: 12px 4%;
+    gap: 10px;
+    flex-direction: column;
+  }
 
-    .tag {
-      border: 1px solid #333;
-      border-radius: 999px;
-      padding: 5px 10px;
-      font-size: 11px;
-      text-transform: uppercase;
-      color: #aaa;
-    }
+  .brand {
+    align-items: center;
+  }
 
-    .highlight-strip {
-      background: #0b0b0b;
-      border-top: 1px solid #222;
-      border-bottom: 1px solid #222;
-      padding: 36px 20px;
-      text-align: center;
-      color: #ddd;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: bold;
-    }
+  .brand .so {
+    font-size: 0.9rem;
+  }
 
-    .cta {
-      text-align: center;
-      padding: 70px 20px;
-      background: linear-gradient(180deg, #050505, #120000);
-    }
+  .brand .ent {
+    font-size: 0.55rem;
+  }
 
-    .cta h2 {
-      text-transform: uppercase;
-      font-size: clamp(28px, 5vw, 56px);
-      margin-bottom: 16px;
-    }
+  .brand::after {
+    width: 60%;
+  }
 
-    .cta p {
-      color: #cfcfcf;
-      margin-bottom: 26px;
-    }
+  .nav nav {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
 
-    .button {
-      display: inline-block;
-      background: #ff2a2a;
-      color: #fff;
-      padding: 14px 26px;
-      border-radius: 999px;
-      text-transform: uppercase;
-      font-weight: bold;
-      letter-spacing: 1px;
-      transition: 0.2s ease;
-    }
+  .nav a {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+  }
 
-    .button:hover {
-      background: #fff;
-      color: #000;
-    }
+  .page {
+    padding: 35px 5% 50px;
+  }
 
-    footer {
-      border-top: 1px solid #222;
-      padding: 28px 20px;
-      text-align: center;
-      color: #777;
-      font-size: 13px;
-      background: #050505;
-    }
+  .page h1 {
+    font-size: 2.8rem;
+    line-height: 1;
+  }
 
-    @media (max-width: 900px) {
-      .past-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+  .intro {
+    margin-bottom: 30px;
+  }
 
-    @media (max-width: 650px) {
-      header {
-        padding: 12px 10px;
-      }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
 
-      .nav-wrap {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .logo {
-        font-size: 15px;
-      }
-
-      nav {
-        width: 100%;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      nav a {
-        font-size: 11px;
-      }
-
-      .hero {
-        padding-top: 55px;
-      }
-
-      .past-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 50px 16px;
-      }
-    }
-  </style>
+  .card {
+    padding: 16px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="nav-wrap">
-      <a class="logo" href="index.html">So Below</a>
+<header class="nav">
+  <div class="brand" onclick="location.href='index.html'">
+    <span class="so">SO BELOW</span>
+    <span class="ent">ENTERTAINMENT</span>
+  </div>
 
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="shows.html">Shows</a>
-        <a class="active" href="past-shows.html">Past Shows</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <nav>
+    <a href="shows.html">Shows</a>
+    <a href="past-shows.html" class="active">Past Shows</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <main>
+<main class="page">
 
-    <section class="hero">
-      <div class="hero-content">
-        <div class="eyebrow">The Damage Report</div>
-        <h1>Past Shows</h1>
-        <p>
-          The gigs, the chaos, the sweaty ceilings, the strange little moments where a room full of people became a creature with too many elbows.
-        </p>
-      </div>
-    </section>
+  <h1>Past Shows</h1>
 
-    <section class="section">
-      <h2 class="section-title">Previously Summoned</h2>
-      <p class="section-intro">
-        A growing archive of So Below Entertainment shows. Posters and photo galleries are coming soon, because the evidence must be preserved.
-      </p>
+  <p class="intro">
+    A look back at the shows, chaos, lineups and loud rooms that helped build So Below Entertainment.
+  </p>
 
-      <div class="past-grid">
+  <section class="grid">
 
-        <article class="past-card">
-          <div class="poster-placeholder">
-            Poster Coming Soon
-          </div>
-          <div class="past-content">
-            <div class="date">May 16</div>
-            <h2>Would You Still Love Me If I Was A Worm?</h2>
-            <p class="venue">Rumours Lounge</p>
-            <p class="lineup">
-              Pandora, Kaylin Hill, Funk N Kiff, All This For Nothing, Moshmallow.
-            </p>
-            <div class="tag-row">
-              <span class="tag">Female Fronted</span>
-              <span class="tag">Alt Night</span>
-              <span class="tag">Rumours</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="past-card">
-          <div class="poster-placeholder">
-            Poster Coming Soon
-          </div>
-          <div class="past-content">
-            <div class="date">Past Event</div>
-            <h2>We’re So Back</h2>
-            <p class="venue">Rumours Lounge</p>
-            <p class="lineup">
-              Jasper Dan, Drunk Wizard, Days Without Incident, You, Me And The Harmony.
-            </p>
-            <div class="tag-row">
-              <span class="tag">Live Bands</span>
-              <span class="tag">Stage Upgrade</span>
-              <span class="tag">R50 Entry</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="past-card">
-          <div class="poster-placeholder">
-            Poster Coming Soon
-          </div>
-          <div class="past-content">
-            <div class="date">Past Event</div>
-            <h2>Duane On The Deck</h2>
-            <p class="venue">Rumours Lounge</p>
-            <p class="lineup">
-              Acoustic set from Duane, free entrance, drink specials and laid-back deck vibes.
-            </p>
-            <div class="tag-row">
-              <span class="tag">Acoustic</span>
-              <span class="tag">Free Entry</span>
-              <span class="tag">Deck Session</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="past-card">
-          <div class="poster-placeholder">
-            Poster Coming Soon
-          </div>
-          <div class="past-content">
-            <div class="date">SOTN I</div>
-            <h2>State Of The Nation</h2>
-            <p class="venue">Bailey’s</p>
-            <p class="lineup">
-              Sunken State, State Dependency, Days Without Incident, Middlegrounds, Walk These Skies.
-            </p>
-            <div class="tag-row">
-              <span class="tag">Metal</span>
-              <span class="tag">First Chapter</span>
-              <span class="tag">Pits</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <div class="highlight-strip">
-      More archive chaos coming soon: photos, posters, galleries and war stories.
+    <div class="card">
+      <a class="poster-link" href="Dawn-1.jpg" target="_blank">
+        <img src="Dawn-1.jpg" alt="Dawn Of The Titans I poster">
+      </a>
+      <h3>Dawn Of The Titans I</h3>
+      <p>The first strike in the Dawn Of The Titans run.</p>
+      <span class="tag">Dawn Of The Titans</span>
     </div>
 
-    <section class="cta">
-      <h2>Want the next one?</h2>
-      <p>Catch the upcoming shows before they become legends in the carpet.</p>
-      <a class="button" href="shows.html">View Upcoming Shows</a>
-    </section>
+    <div class="card">
+      <a class="poster-link" href="Dawn-2.jpg" target="_blank">
+        <img src="Dawn-2.jpg" alt="Dawn Of The Titans II poster">
+      </a>
+      <h3>Dawn Of The Titans II</h3>
+      <p>The second chapter of the Titans series.</p>
+      <span class="tag">Dawn Of The Titans</span>
+    </div>
 
-  </main>
+    <div class="card">
+      <a class="poster-link" href="Dawn-3.jpg" target="_blank">
+        <img src="Dawn-3.jpg" alt="Dawn Of The Titans III poster">
+      </a>
+      <h3>Dawn Of The Titans III</h3>
+      <p>The Titans kept rising, louder and heavier.</p>
+      <span class="tag">Dawn Of The Titans</span>
+    </div>
 
-  <footer>
-    © 2026 So Below Entertainment. Built for loud rooms and questionable life choices.
-  </footer>
+    <div class="card">
+      <a class="poster-link" href="Dawn-4.jpg" target="_blank">
+        <img src="Dawn-4.jpg" alt="Dawn Of The Titans IV poster">
+      </a>
+      <h3>Dawn Of The Titans IV</h3>
+      <p>The fourth Dawn Of The Titans event.</p>
+      <span class="tag">Dawn Of The Titans</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="alt-night-1.jpg" target="_blank">
+        <img src="alt-night-1.jpg" alt="Alt Night I poster">
+      </a>
+      <h3>Alt Night I</h3>
+      <p>One of the early alternative nights.</p>
+      <span class="tag">Past Show</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="alt-night-2.jpg" target="_blank">
+        <img src="alt-night-2.jpg" alt="Alt Night II poster">
+      </a>
+      <h3>Alt Night II</h3>
+      <p>Round two of Alt Night energy.</p>
+      <span class="tag">Past Show</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="alt-night.jpg" target="_blank">
+        <img src="alt-night.jpg" alt="Alt Night poster">
+      </a>
+      <h3>Alt Night</h3>
+      <p>Another chapter in the Alt Night run.</p>
+      <span class="tag">Past Show</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="helluvabash.jpg" target="_blank">
+        <img src="helluvabash.jpg" alt="Helluvabash poster">
+      </a>
+      <h3>Helluvabash</h3>
+      <p>A loud one from the archive.</p>
+      <span class="tag">Past Show</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-1.jpg" target="_blank">
+        <img src="sotn-1.jpg" alt="State Of The Nation I poster">
+      </a>
+      <h3>SOTN I</h3>
+      <p>The beginning of the flagship show.</p>
+      <span class="tag">SOTN</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-2.jpg" target="_blank">
+        <img src="sotn-2.jpg" alt="State Of The Nation II poster">
+      </a>
+      <h3>SOTN II</h3>
+      <p>The second chapter.</p>
+      <span class="tag">SOTN</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-3.jpg" target="_blank">
+        <img src="sotn-3.jpg" alt="State Of The Nation III poster">
+      </a>
+      <h3>SOTN III</h3>
+      <p>Growing louder.</p>
+      <span class="tag">SOTN</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-4.jpg" target="_blank">
+        <img src="sotn-4.jpg" alt="State Of The Nation IV poster">
+      </a>
+      <h3>SOTN IV</h3>
+      <p>Another heavy chapter.</p>
+      <span class="tag">SOTN</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-5.jpg" target="_blank">
+        <img src="sotn-5.jpg" alt="State Of The Nation V poster">
+      </a>
+      <h3>SOTN V</h3>
+      <p>Flagship energy continues.</p>
+      <span class="tag">SOTN</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="tbdc-launch.jpg" target="_blank">
+        <img src="tbdc-launch.jpg" alt="TBDC Launch poster">
+      </a>
+      <h3>TBDC Launch</h3>
+      <p>A launch night from the archive.</p>
+      <span class="tag">Launch</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="the-last-straw.jpg" target="_blank">
+        <img src="the-last-straw.jpg" alt="The Last Straw poster">
+      </a>
+      <h3>The Last Straw</h3>
+      <p>Another moment from the vault.</p>
+      <span class="tag">Past Show</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="we-are-so-back.jpg" target="_blank">
+        <img src="we-are-so-back.jpg" alt="We Are So Back poster">
+      </a>
+      <h3>We Are So Back</h3>
+      <p>Comeback energy.</p>
+      <span class="tag">Past Show</span>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="secret">A division of Secret Sauce</div>
+</footer>
 
 </body>
 </html>
