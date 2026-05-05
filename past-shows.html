@@ -161,6 +161,59 @@ body {
   text-transform: uppercase;
 }
 
+/* SOTN V GALLERY */
+.gallery {
+  margin-top: 18px;
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
+
+.gallery summary {
+  cursor: pointer;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #d51616;
+  margin-bottom: 14px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.gallery-grid a {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.25s ease;
+}
+
+.gallery-grid a:hover img {
+  transform: scale(1.06);
+}
+
+.photo-credit {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: #777;
+}
+
+.photo-credit a {
+  color: #d51616;
+  text-decoration: none;
+  font-weight: 900;
+}
+
 /* FOOTER */
 .footer {
   padding: 25px;
@@ -232,6 +285,10 @@ body {
 
   .card {
     padding: 16px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>
@@ -378,6 +435,37 @@ body {
       <h3>SOTN V</h3>
       <p>Flagship energy continues.</p>
       <span class="tag">SOTN</span>
+
+      <details class="gallery">
+        <summary>View SOTN V Photos</summary>
+
+        <div class="gallery-grid">
+          <a href="DSCF0010.jpg" target="_blank"><img src="DSCF0010.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF0067 (1).jpg" target="_blank"><img src="DSCF0067 (1).jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF0067.jpg" target="_blank"><img src="DSCF0067.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF0086.jpg" target="_blank"><img src="DSCF0086.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF0137.jpg" target="_blank"><img src="DSCF0137.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF9723.jpg" target="_blank"><img src="DSCF9723.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF9725.jpg" target="_blank"><img src="DSCF9725.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF9776.jpg" target="_blank"><img src="DSCF9776.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF9784.jpg" target="_blank"><img src="DSCF9784.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF9796.jpg" target="_blank"><img src="DSCF9796.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF9837.jpg" target="_blank"><img src="DSCF9837.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF9840.jpg" target="_blank"><img src="DSCF9840.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF9845.jpg" target="_blank"><img src="DSCF9845.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF9925.jpg" target="_blank"><img src="DSCF9925.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF9958.jpg" target="_blank"><img src="DSCF9958.jpg" alt="SOTN V live photo"></a>
+          <a href="DSCF9977.jpg" target="_blank"><img src="DSCF9977.jpg" alt="SOTN V live photo"></a>
+          <a href="SOTN-023.jpg" target="_blank"><img src="SOTN-023.jpg" alt="SOTN V live photo"></a>
+        </div>
+
+        <div class="photo-credit">
+          Photos by 
+          <a href="https://www.instagram.com/midnightenergy_prod/" target="_blank">
+            Midnight Energy
+          </a>
+        </div>
+      </details>
     </div>
 
     <div class="card">
