@@ -177,6 +177,14 @@ body {
   margin-bottom: 14px;
 }
 
+.gallery summary::after {
+  content: " ↓";
+}
+
+.gallery[open] summary::after {
+  content: " ↑";
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -184,8 +192,11 @@ body {
   margin-top: 14px;
 }
 
-.gallery-grid a {
-  display: block;
+.gallery-grid button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -198,7 +209,7 @@ body {
   transition: 0.25s ease;
 }
 
-.gallery-grid a:hover img {
+.gallery-grid button:hover img {
   transform: scale(1.06);
 }
 
@@ -212,6 +223,85 @@ body {
   color: #d51616;
   text-decoration: none;
   font-weight: 900;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 24px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 82vh;
+  border-radius: 14px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.75);
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  border: 0;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+  transition: 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: #d51616;
+}
+
+.lightbox-close {
+  top: 22px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  font-size: 1.4rem;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  font-size: 1.8rem;
+}
+
+.lightbox-prev { left: 22px; }
+.lightbox-next { right: 22px; }
+
+.lightbox-credit {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #aaa;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.lightbox-credit a {
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
 }
 
 /* FOOTER */
@@ -289,6 +379,30 @@ body {
 
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lightbox {
+    padding: 12px;
+  }
+
+  .lightbox img {
+    max-width: 94vw;
+    max-height: 76vh;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    width: 42px;
+    height: 42px;
+    font-size: 1.4rem;
+  }
+
+  .lightbox-prev { left: 10px; }
+  .lightbox-next { right: 10px; }
+
+  .lightbox-close {
+    top: 12px;
+    right: 12px;
   }
 }
 </style>
@@ -440,23 +554,23 @@ body {
         <summary>View SOTN V Photos</summary>
 
         <div class="gallery-grid">
-          <a href="DSCF0010.jpg" target="_blank"><img src="DSCF0010.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF0067 (1).jpg" target="_blank"><img src="DSCF0067 (1).jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF0067.jpg" target="_blank"><img src="DSCF0067.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF0086.jpg" target="_blank"><img src="DSCF0086.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF0137.jpg" target="_blank"><img src="DSCF0137.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF9723.jpg" target="_blank"><img src="DSCF9723.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF9725.jpg" target="_blank"><img src="DSCF9725.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF9776.jpg" target="_blank"><img src="DSCF9776.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF9784.jpg" target="_blank"><img src="DSCF9784.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF9796.jpg" target="_blank"><img src="DSCF9796.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF9837.jpg" target="_blank"><img src="DSCF9837.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF9840.jpg" target="_blank"><img src="DSCF9840.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF9845.jpg" target="_blank"><img src="DSCF9845.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF9925.jpg" target="_blank"><img src="DSCF9925.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF9958.jpg" target="_blank"><img src="DSCF9958.jpg" alt="SOTN V live photo"></a>
-          <a href="DSCF9977.jpg" target="_blank"><img src="DSCF9977.jpg" alt="SOTN V live photo"></a>
-          <a href="SOTN-023.jpg" target="_blank"><img src="SOTN-023.jpg" alt="SOTN V live photo"></a>
+          <button data-index="0"><img src="DSCF0010.jpg" alt="SOTN V live photo"></button>
+          <button data-index="1"><img src="DSCF0067 (1).jpg" alt="SOTN V live photo"></button>
+          <button data-index="2"><img src="DSCF0067.jpg" alt="SOTN V live photo"></button>
+          <button data-index="3"><img src="DSCF0086.jpg" alt="SOTN V live photo"></button>
+          <button data-index="4"><img src="DSCF0137.jpg" alt="SOTN V live photo"></button>
+          <button data-index="5"><img src="DSCF9723.jpg" alt="SOTN V live photo"></button>
+          <button data-index="6"><img src="DSCF9725.jpg" alt="SOTN V live photo"></button>
+          <button data-index="7"><img src="DSCF9776.jpg" alt="SOTN V live photo"></button>
+          <button data-index="8"><img src="DSCF9784.jpg" alt="SOTN V live photo"></button>
+          <button data-index="9"><img src="DSCF9796.jpg" alt="SOTN V live photo"></button>
+          <button data-index="10"><img src="DSCF9837.jpg" alt="SOTN V live photo"></button>
+          <button data-index="11"><img src="DSCF9840.jpg" alt="SOTN V live photo"></button>
+          <button data-index="12"><img src="DSCF9845.jpg" alt="SOTN V live photo"></button>
+          <button data-index="13"><img src="DSCF9925.jpg" alt="SOTN V live photo"></button>
+          <button data-index="14"><img src="DSCF9958.jpg" alt="SOTN V live photo"></button>
+          <button data-index="15"><img src="DSCF9977.jpg" alt="SOTN V live photo"></button>
+          <button data-index="16"><img src="SOTN-023.jpg" alt="SOTN V live photo"></button>
         </div>
 
         <div class="photo-credit">
@@ -499,9 +613,99 @@ body {
 
 </main>
 
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">×</button>
+  <button class="lightbox-prev" id="lightboxPrev">‹</button>
+  <img id="lightboxImage" src="" alt="SOTN V live photo">
+  <button class="lightbox-next" id="lightboxNext">›</button>
+
+  <div class="lightbox-credit">
+    Photos by 
+    <a href="https://www.instagram.com/midnightenergy_prod/" target="_blank">
+      Midnight Energy
+    </a>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="secret">A division of Secret Sauce</div>
 </footer>
+
+<script>
+const galleryImages = [
+  "DSCF0010.jpg",
+  "DSCF0067 (1).jpg",
+  "DSCF0067.jpg",
+  "DSCF0086.jpg",
+  "DSCF0137.jpg",
+  "DSCF9723.jpg",
+  "DSCF9725.jpg",
+  "DSCF9776.jpg",
+  "DSCF9784.jpg",
+  "DSCF9796.jpg",
+  "DSCF9837.jpg",
+  "DSCF9840.jpg",
+  "DSCF9845.jpg",
+  "DSCF9925.jpg",
+  "DSCF9958.jpg",
+  "DSCF9977.jpg",
+  "SOTN-023.jpg"
+];
+
+let currentImage = 0;
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const closeBtn = document.getElementById("lightboxClose");
+const prevBtn = document.getElementById("lightboxPrev");
+const nextBtn = document.getElementById("lightboxNext");
+
+function openLightbox(index) {
+  currentImage = index;
+  lightboxImage.src = galleryImages[currentImage];
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function showNext() {
+  currentImage = (currentImage + 1) % galleryImages.length;
+  lightboxImage.src = galleryImages[currentImage];
+}
+
+function showPrev() {
+  currentImage = (currentImage - 1 + galleryImages.length) % galleryImages.length;
+  lightboxImage.src = galleryImages[currentImage];
+}
+
+document.querySelectorAll(".gallery-grid button").forEach(button => {
+  button.addEventListener("click", () => {
+    openLightbox(Number(button.dataset.index));
+  });
+});
+
+closeBtn.addEventListener("click", closeLightbox);
+nextBtn.addEventListener("click", showNext);
+prevBtn.addEventListener("click", showPrev);
+
+lightbox.addEventListener("click", (event) => {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (!lightbox.classList.contains("active")) return;
+
+  if (event.key === "Escape") closeLightbox();
+  if (event.key === "ArrowRight") showNext();
+  if (event.key === "ArrowLeft") showPrev();
+});
+</script>
 
 </body>
 </html>
