@@ -24,13 +24,13 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 16px 8%;
+  padding: 14px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(10,10,10,0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(5,5,5,0.86);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   z-index: 100;
 }
 
@@ -40,6 +40,7 @@ body {
   line-height: 1;
   cursor: pointer;
   color: white;
+  flex-shrink: 0;
 }
 
 .brand .so {
@@ -57,48 +58,32 @@ body {
 .brand::after {
   content: "";
   margin-top: 6px;
-  width: 40%;
+  width: 42%;
   height: 2px;
   background: #d51616;
-  opacity: 0.8;
 }
 
 .nav nav {
   display: flex;
-  gap: 18px;
+  gap: 14px;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .nav a {
   position: relative;
-  padding: 8px 10px;
   color: #aaa;
   text-decoration: none;
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  font-weight: 700;
-  transition: 0.2s ease;
-}
-
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #d51616;
-  transition: 0.25s ease;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .nav a:hover,
 .nav a.active {
   color: white;
-}
-
-.nav a:hover::after,
-.nav a.active::after {
-  width: 100%;
 }
 
 /* PAGE */
@@ -283,14 +268,23 @@ body {
 /* MOBILE */
 @media (max-width: 900px) {
   .nav {
-    flex-direction: column;
+    position: sticky;
+    top: 0;
+    padding: 12px 4%;
     gap: 10px;
-    padding: 14px 5%;
-    text-align: center;
+    flex-direction: column;
   }
 
   .brand {
     align-items: center;
+  }
+
+  .brand .so {
+    font-size: 0.9rem;
+  }
+
+  .brand .ent {
+    font-size: 0.55rem;
   }
 
   .brand::after {
@@ -298,19 +292,19 @@ body {
   }
 
   .nav nav {
-    display: flex;
-    flex-wrap: wrap;
+    width: 100%;
     justify-content: center;
-    gap: 14px;
+    gap: 10px;
+    flex-wrap: nowrap;
   }
 
   .nav a {
-    margin: 0;
-    font-size: 0.75rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
   }
 
   .page {
-    padding: 125px 5% 50px;
+    padding: 35px 5% 50px;
   }
 
   .show-card {
@@ -368,13 +362,13 @@ body {
         <div class="lineup">
           <a href="https://www.instagram.com/pandora_band_sa/" target="_blank">Pandora</a>
           <a href="https://www.instagram.com/kaylinhillx/" target="_blank">Kaylin Hill</a>
-          <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk n Kiff</a>
+          <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
           <a href="https://www.instagram.com/atfn012/" target="_blank">All This For Nothing</a>
           <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
         </div>
 
         <a class="button" href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
-          Buy Tickets
+          Get Tickets
         </a>
       </div>
     </article>
@@ -477,7 +471,7 @@ body {
         </p>
 
         <a class="button" href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">
-          Phase 1 Tickets
+          Get Tickets
         </a>
       </div>
     </article>
