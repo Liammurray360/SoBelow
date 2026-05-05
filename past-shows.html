@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Past Shows | So Below Entertainment</title>
 
+<meta name="description" content="Past So Below Entertainment shows including State Of The Nation, Dawn Of The Titans and alternative events in Johannesburg.">
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
 <style>
@@ -28,10 +30,61 @@ body {
   align-items: center;
   background: rgba(5,5,5,0.86);
   backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   z-index: 100;
 }
 
-.brand { color: white; cursor: pointer; }
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  cursor: pointer;
+  color: white;
+  flex-shrink: 0;
+}
+
+.brand .so {
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  font-weight: 900;
+}
+
+.brand .ent {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  color: #aaa;
+}
+
+.brand::after {
+  content: "";
+  margin-top: 6px;
+  width: 42%;
+  height: 2px;
+  background: #d51616;
+}
+
+.nav nav {
+  display: flex;
+  gap: 14px;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.nav a {
+  position: relative;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: white;
+}
 
 /* PAGE */
 .page {
@@ -39,92 +92,354 @@ body {
 }
 
 .page h1 {
-  font-size: 3rem;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin: 0 0 12px;
+  line-height: 0.95;
 }
 
-/* MASONRY FIX */
+.intro {
+  color: #666;
+  max-width: 760px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* MASONRY GRID */
 .grid {
   column-count: 3;
   column-gap: 26px;
 }
 
+/* CARD */
 .card {
+  display: inline-block;
+  width: 100%;
   break-inside: avoid;
-  margin-bottom: 26px;
+  margin: 0 0 26px;
   background: white;
-  border-radius: 20px;
-  padding: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  border-radius: 22px;
+  padding: 18px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.poster-link {
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
 }
 
 .card img {
   width: 100%;
-  border-radius: 12px;
+  display: block;
+  border-radius: 14px;
+  transition: 0.3s ease;
 }
 
+.poster-link:hover img {
+  transform: scale(1.04);
+}
+
+.card h3 {
+  margin: 14px 0 6px;
+  font-size: 1.3rem;
+}
+
+.card p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* TAG */
 .tag {
   display: inline-block;
-  margin-top: 10px;
-  background: #eee;
+  margin-top: 12px;
   padding: 6px 10px;
   border-radius: 999px;
+  background: #eee;
+  color: #d51616;
   font-size: 0.7rem;
   font-weight: 900;
+  text-transform: uppercase;
 }
 
-/* BAND TAGS */
+/* BAND LINKS */
 .band-list {
-  margin-top: 12px;
+  margin-top: 14px;
+}
+
+.band-list strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #444;
 }
 
 .band-list a {
   display: inline-block;
-  margin: 3px;
-  padding: 6px 10px;
-  background: black;
-  color: white;
+  margin: 4px 3px;
+  padding: 6px 9px;
   border-radius: 999px;
+  background: #111;
+  color: white;
   text-decoration: none;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 900;
+  transition: 0.2s ease;
 }
 
 .band-list a:hover {
   background: #d51616;
+  transform: translateY(-2px);
 }
 
-/* GALLERY */
+/* GALLERIES */
+.gallery {
+  margin-top: 18px;
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
+
+.gallery summary {
+  cursor: pointer;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #d51616;
+  margin-bottom: 14px;
+}
+
+.gallery summary::after {
+  content: " ↓";
+}
+
+.gallery[open] summary::after {
+  content: " ↑";
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.gallery-grid button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .gallery-grid img {
   width: 100%;
-  border-radius: 8px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.25s ease;
+}
+
+.gallery-grid button:hover img {
+  transform: scale(1.06);
+}
+
+.photo-credit {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: #777;
+}
+
+.photo-credit a {
+  color: #d51616;
+  text-decoration: none;
+  font-weight: 900;
 }
 
 /* LIGHTBOX */
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.95);
+  background: rgba(0,0,0,0.92);
   display: none;
   align-items: center;
   justify-content: center;
+  z-index: 9999;
+  padding: 24px;
 }
 
-.lightbox.active { display: flex; }
+.lightbox.active {
+  display: flex;
+}
 
 .lightbox img {
-  max-width: 90vw;
-  max-height: 80vh;
+  max-width: 92vw;
+  max-height: 82vh;
+  border-radius: 14px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.75);
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  border: 0;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+  transition: 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: #d51616;
+}
+
+.lightbox-close {
+  top: 22px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  font-size: 1.4rem;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  font-size: 1.8rem;
+}
+
+.lightbox-prev { left: 22px; }
+.lightbox-next { right: 22px; }
+
+.lightbox-credit {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #aaa;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.lightbox-credit a {
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+/* FOOTER */
+.footer {
+  padding: 25px;
+  background: #050505;
+  text-align: center;
+}
+
+.secret {
+  font-size: 0.7rem;
+  color: #555;
 }
 
 /* MOBILE */
-@media(max-width:900px){
+@media(max-width: 900px){
+
+  .nav {
+    position: sticky;
+    top: 0;
+    padding: 12px 4%;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .brand {
+    align-items: center;
+  }
+
+  .brand .so {
+    font-size: 0.9rem;
+  }
+
+  .brand .ent {
+    font-size: 0.55rem;
+  }
+
+  .brand::after {
+    width: 60%;
+  }
+
+  .nav nav {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .nav a {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+  }
+
+  .page {
+    padding: 35px 5% 50px;
+  }
+
+  .page h1 {
+    font-size: 2.8rem;
+    line-height: 1;
+  }
+
+  .intro {
+    margin-bottom: 30px;
+  }
+
   .grid {
     column-count: 1;
+    column-gap: 0;
+  }
+
+  .card {
+    display: block;
+    margin-bottom: 18px;
+    padding: 16px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lightbox {
+    padding: 12px;
+  }
+
+  .lightbox img {
+    max-width: 94vw;
+    max-height: 76vh;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    width: 42px;
+    height: 42px;
+    font-size: 1.4rem;
+  }
+
+  .lightbox-prev { left: 10px; }
+  .lightbox-next { right: 10px; }
+
+  .lightbox-close {
+    top: 12px;
+    right: 12px;
   }
 }
 </style>
@@ -134,85 +449,420 @@ body {
 
 <header class="nav">
   <div class="brand" onclick="location.href='index.html'">
-    SO BELOW ENTERTAINMENT
+    <span class="so">SO BELOW</span>
+    <span class="ent">ENTERTAINMENT</span>
   </div>
+
+  <nav>
+    <a href="shows.html">Shows</a>
+    <a href="past-shows.html" class="active">Past Shows</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <main class="page">
 
-<h1>Past Shows</h1>
+  <h1>Past Shows</h1>
 
-<section class="grid">
+  <p class="intro">
+    A look back at the shows, chaos, lineups and loud rooms that helped build So Below Entertainment.
+  </p>
 
-<!-- SOTN III -->
-<div class="card">
-  <img src="sotn-3.jpg">
-  <h3>SOTN III</h3>
+  <section class="grid">
 
-  <div class="band-list">
-    <a href="#">Sunken State</a>
-    <a href="#">No Closure</a>
-    <a href="#">Moshmallow</a>
-    <a href="#">Walk These Skies</a>
-    <a href="#">Days Without Incident</a>
-  </div>
+    <div class="card">
+      <a class="poster-link" href="Dawn-1.jpg" target="_blank">
+        <img src="Dawn-1.jpg" alt="Dawn Of The Titans I poster">
+      </a>
+      <h3>Dawn Of The Titans I</h3>
+      <p>The first strike in the Dawn Of The Titans run.</p>
+      <span class="tag">Dawn Of The Titans</span>
+    </div>
 
-  <div class="gallery-grid">
-    <img src="469848292_122127338606545830_3987612754779190189_n.jpg">
-    <img src="469863081_122127338834545830_4452461668328611829_n.jpg">
-    <img src="469874753_122127338888545830_7416888791338845071_n.jpg">
-  </div>
+    <div class="card">
+      <a class="poster-link" href="Dawn-2.jpg" target="_blank">
+        <img src="Dawn-2.jpg" alt="Dawn Of The Titans II poster">
+      </a>
+      <h3>Dawn Of The Titans II</h3>
+      <p>The second chapter of the Titans series.</p>
+      <span class="tag">Dawn Of The Titans</span>
+    </div>
 
-  <p style="font-size:12px;color:#777;">Photos: Media Productions</p>
-</div>
+    <div class="card">
+      <a class="poster-link" href="Dawn-3.jpg" target="_blank">
+        <img src="Dawn-3.jpg" alt="Dawn Of The Titans III poster">
+      </a>
+      <h3>Dawn Of The Titans III</h3>
+      <p>The Titans kept rising, louder and heavier.</p>
+      <span class="tag">Dawn Of The Titans</span>
+    </div>
 
-<!-- SOTN IV -->
-<div class="card">
-  <img src="sotn-4.jpg">
-  <h3>SOTN IV</h3>
+    <div class="card">
+      <a class="poster-link" href="Dawn-4.jpg" target="_blank">
+        <img src="Dawn-4.jpg" alt="Dawn Of The Titans IV poster">
+      </a>
+      <h3>Dawn Of The Titans IV</h3>
+      <p>The fourth Dawn Of The Titans event.</p>
+      <span class="tag">Dawn Of The Titans</span>
+    </div>
 
-  <div class="band-list">
-    <a href="#">Walk These Skies</a>
-    <a href="#">Sunken State</a>
-    <a href="#">Lefokolodi</a>
-    <a href="#">Crash and the Void</a>
-    <a href="#">Human Nebula</a>
-  </div>
+    <div class="card">
+      <a class="poster-link" href="alt-night-1.jpg" target="_blank">
+        <img src="alt-night-1.jpg" alt="Alt Night I poster">
+      </a>
+      <h3>Alt Night I</h3>
+      <p>One of the early alternative nights.</p>
+      <span class="tag">Past Show</span>
+    </div>
 
-  <div class="gallery-grid">
-    <img src="473359850_122134380800545830_8458779569868368804_n.jpg">
-    <img src="473617450_122134380692545830_6003143334335795702_n.jpg">
-    <img src="473672159_122134558958545830_2195034657465815580_n.jpg">
-  </div>
+    <div class="card">
+      <a class="poster-link" href="alt-night-2.jpg" target="_blank">
+        <img src="alt-night-2.jpg" alt="Alt Night II poster">
+      </a>
+      <h3>Alt Night II</h3>
+      <p>Round two of Alt Night energy.</p>
+      <span class="tag">Past Show</span>
+    </div>
 
-  <p style="font-size:12px;color:#777;">Photos: Black Rock Studio</p>
-</div>
+    <div class="card">
+      <a class="poster-link" href="alt-night.jpg" target="_blank">
+        <img src="alt-night.jpg" alt="Alt Night poster">
+      </a>
+      <h3>Alt Night</h3>
+      <p>Another chapter in the Alt Night run.</p>
+      <span class="tag">Past Show</span>
+    </div>
 
-<!-- SOTN V -->
-<div class="card">
-  <img src="sotn-5.jpg">
-  <h3>SOTN V</h3>
+    <div class="card">
+      <a class="poster-link" href="helluvabash.jpg" target="_blank">
+        <img src="helluvabash.jpg" alt="Helluvabash poster">
+      </a>
+      <h3>Helluvabash</h3>
+      <p>A loud one from the archive.</p>
+      <span class="tag">Past Show</span>
+    </div>
 
-  <div class="band-list">
-    <a href="#">Vulvodynia</a>
-    <a href="#">No Closure</a>
-    <a href="#">Sunken State</a>
-    <a href="#">Walk These Skies</a>
-    <a href="#">Days Without Incident</a>
-  </div>
+    <div class="card">
+      <a class="poster-link" href="sotn-1.jpg" target="_blank">
+        <img src="sotn-1.jpg" alt="State Of The Nation I poster">
+      </a>
+      <h3>SOTN I</h3>
+      <p>The beginning of the flagship show.</p>
+      <span class="tag">SOTN</span>
+    </div>
 
-  <div class="gallery-grid">
-    <img src="DSCF0010.jpg">
-    <img src="DSCF0067.jpg">
-    <img src="DSCF0086.jpg">
-  </div>
+    <div class="card">
+      <a class="poster-link" href="sotn-2.jpg" target="_blank">
+        <img src="sotn-2.jpg" alt="State Of The Nation II poster">
+      </a>
+      <h3>SOTN II</h3>
+      <p>The second chapter.</p>
+      <span class="tag">SOTN</span>
+    </div>
 
-  <p style="font-size:12px;color:#777;">Photos: Midnight Energy</p>
-</div>
+    <div class="card">
+      <a class="poster-link" href="sotn-3.jpg" target="_blank">
+        <img src="sotn-3.jpg" alt="State Of The Nation III poster">
+      </a>
+      <h3>SOTN III</h3>
+      <p>Growing louder.</p>
+      <span class="tag">SOTN</span>
 
-</section>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/sunken_state/" target="_blank">Sunken State</a>
+        <a href="https://www.instagram.com/noclosure.hc/" target="_blank">No Closure</a>
+        <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+        <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+        <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+      </div>
+
+      <details class="gallery">
+        <summary>View SOTN III Photos</summary>
+        <div class="gallery-grid" data-gallery="sotn3"></div>
+
+        <div class="photo-credit">
+          Photos by 
+          <a href="https://www.instagram.com/mediaproductions_/" target="_blank">
+            Media Productions
+          </a>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-4.jpg" target="_blank">
+        <img src="sotn-4.jpg" alt="State Of The Nation IV poster">
+      </a>
+      <h3>SOTN IV</h3>
+      <p>Another heavy chapter.</p>
+      <span class="tag">SOTN</span>
+
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+        <a href="https://www.instagram.com/sunken_state/" target="_blank">Sunken State</a>
+        <a href="https://www.instagram.com/lefokolodi/" target="_blank">Lefokolodi</a>
+        <a href="https://www.instagram.com/crashandthevoid/" target="_blank">Crash And The Void</a>
+        <a href="https://www.instagram.com/humannebula/" target="_blank">Human Nebula</a>
+      </div>
+
+      <details class="gallery">
+        <summary>View SOTN IV Photos</summary>
+        <div class="gallery-grid" data-gallery="sotn4"></div>
+
+        <div class="photo-credit">
+          Photos by 
+          <a href="https://www.instagram.com/blackrock_studio/" target="_blank">
+            Black Rock Studio
+          </a>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-5.jpg" target="_blank">
+        <img src="sotn-5.jpg" alt="State Of The Nation V poster">
+      </a>
+      <h3>SOTN V</h3>
+      <p>Flagship energy continues.</p>
+      <span class="tag">SOTN</span>
+
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/vulvodyniaofficial/" target="_blank">Vulvodynia</a>
+        <a href="https://www.instagram.com/noclosure.hc/" target="_blank">No Closure</a>
+        <a href="https://www.instagram.com/sunken_state/" target="_blank">Sunken State</a>
+        <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+        <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+      </div>
+
+      <details class="gallery">
+        <summary>View SOTN V Photos</summary>
+        <div class="gallery-grid" data-gallery="sotn5"></div>
+
+        <div class="photo-credit">
+          Photos by 
+          <a href="https://www.instagram.com/midnightenergy_prod/" target="_blank">
+            Midnight Energy
+          </a>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="tbdc-launch.jpg" target="_blank">
+        <img src="tbdc-launch.jpg" alt="TBDC Launch poster">
+      </a>
+      <h3>TBDC Launch</h3>
+      <p>A launch night from the archive.</p>
+      <span class="tag">Launch</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="the-last-straw.jpg" target="_blank">
+        <img src="the-last-straw.jpg" alt="The Last Straw poster">
+      </a>
+      <h3>The Last Straw</h3>
+      <p>Another moment from the vault.</p>
+      <span class="tag">Past Show</span>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="we-are-so-back.jpg" target="_blank">
+        <img src="we-are-so-back.jpg" alt="We Are So Back poster">
+      </a>
+      <h3>We Are So Back</h3>
+      <p>Comeback energy.</p>
+      <span class="tag">Past Show</span>
+    </div>
+
+  </section>
 
 </main>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">×</button>
+  <button class="lightbox-prev" id="lightboxPrev">‹</button>
+  <img id="lightboxImage" src="" alt="Live show photo">
+  <button class="lightbox-next" id="lightboxNext">›</button>
+
+  <div class="lightbox-credit" id="lightboxCredit"></div>
+</div>
+
+<footer class="footer">
+  <div class="secret">A division of Secret Sauce</div>
+</footer>
+
+<script>
+const galleries = {
+  sotn3: {
+    creditName: "Media Productions",
+    creditUrl: "https://www.instagram.com/mediaproductions_/",
+    images: [
+      "469848292_122127338606545830_3987612754779190189_n.jpg",
+      "469863081_122127338834545830_4452461668328611829_n.jpg",
+      "469874753_122127338888545830_7416888791338845071_n.jpg",
+      "469905410_122127338900545830_1173613266022465084_n.jpg",
+      "470198933_122127338438545830_6829791930326711514_n.jpg",
+      "470227839_122128553246545830_7436921422092326399_n.jpg",
+      "470522082_122128779758545830_5362981050841619441_n.jpg",
+      "470568318_122128553270545830_2500447699291216258_n.jpg",
+      "470581916_122128553234545830_7473633988436481909_n.jpg",
+      "470656336_122128779392545830_6549770933220396978_n.jpg",
+      "470679482_122128779752545830_9002411955589565095_n.jpg",
+      "470796122_122128767692545830_5505332678134907458_n.jpg",
+      "470808629_122128767572545830_1154309213050293376_n.jpg",
+      "470865804_122128779764545830_8536400518937221899_n.jpg",
+      "470879473_122128779560545830_7611524922891793994_n.jpg",
+      "470881186_122128779410545830_6056702806248344364_n.jpg",
+      "470891616_122128767590545830_6188781686041358655_n.jpg",
+      "470991431_122128767584545830_5718530704424359480_n.jpg",
+      "471053519_122128779728545830_8218697310889523004_n.jpg",
+      "471077650_122128767608545830_4053351847112317047_n.jpg",
+      "472017132_122132076650545830_6124947371486269374_n.jpg",
+      "472208256_122132076308545830_5767674553782303380_n.jpg",
+      "472209299_122132076500545830_553093756736354399_n.jpg",
+      "472209447_122132076782545830_7221272855301355224_n.jpg",
+      "472570517_122132076704545830_7105948849694581780_n.jpg"
+    ]
+  },
+
+  sotn4: {
+    creditName: "Black Rock Studio",
+    creditUrl: "https://www.instagram.com/blackrock_studio/",
+    images: [
+      "473359850_122134380800545830_8458779569868368804_n.jpg",
+      "473617450_122134380692545830_6003143334335795702_n.jpg",
+      "473672159_122134558958545830_2195034657465815580_n.jpg",
+      "473696088_122134558970545830_5614106574806555280_n.jpg",
+      "473705364_122134380788545830_613915547455778204_n.jpg",
+      "473713994_122134380854545830_1531632696386129692_n.jpg",
+      "473714995_122134558952545830_8842073604580945428_n.jpg",
+      "473716440_122134558940545830_5040239897800030310_n.jpg",
+      "473730862_122134558946545830_4518243250098078142_n.jpg",
+      "473758280_122134558964545830_8938398765875311647_n.jpg",
+      "475467768_122138295050545830_5909153429300537835_n.jpg",
+      "475572080_122138295812545830_5303895384276579728_n.jpg",
+      "475779104_122138294924545830_8409553099035264624_n.jpg",
+      "476094716_122138294858545830_7382396271113007667_n.jpg",
+      "476118694_122138294768545830_5953001325817821608_n.jpg",
+      "479492805_17868141075317121_7253260576439556074_n.jpg",
+      "479901062_17868141066317121_680809316565598486_n.jpg",
+      "479916006_17868141084317121_40590207394703584_n.jpg",
+      "479962868_17868141093317121_8862869189328473271_n.jpg",
+      "479965195_17868238710317121_9010257848429786449_n.jpg",
+      "480393741_17868238737317121_376409603998714515_n.jpg",
+      "480419517_17868238728317121_914548487806997819_n.jpg"
+    ]
+  },
+
+  sotn5: {
+    creditName: "Midnight Energy",
+    creditUrl: "https://www.instagram.com/midnightenergy_prod/",
+    images: [
+      "DSCF0010.jpg",
+      "DSCF0067 (1).jpg",
+      "DSCF0067.jpg",
+      "DSCF0086.jpg",
+      "DSCF0137.jpg",
+      "DSCF9723.jpg",
+      "DSCF9725.jpg",
+      "DSCF9776.jpg",
+      "DSCF9784.jpg",
+      "DSCF9796.jpg",
+      "DSCF9837.jpg",
+      "DSCF9840.jpg",
+      "DSCF9845.jpg",
+      "DSCF9925.jpg",
+      "DSCF9958.jpg",
+      "DSCF9977.jpg",
+      "SOTN-023.jpg"
+    ]
+  }
+};
+
+let currentGallery = "sotn5";
+let currentImage = 0;
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCredit = document.getElementById("lightboxCredit");
+const closeBtn = document.getElementById("lightboxClose");
+const prevBtn = document.getElementById("lightboxPrev");
+const nextBtn = document.getElementById("lightboxNext");
+
+function renderGalleries() {
+  document.querySelectorAll("[data-gallery]").forEach(grid => {
+    const galleryName = grid.dataset.gallery;
+    const gallery = galleries[galleryName];
+
+    gallery.images.forEach((imageName, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.addEventListener("click", () => openLightbox(galleryName, index));
+
+      const image = document.createElement("img");
+      image.src = imageName;
+      image.alt = galleryName.toUpperCase() + " live photo";
+
+      button.appendChild(image);
+      grid.appendChild(button);
+    });
+  });
+}
+
+function openLightbox(galleryName, index) {
+  currentGallery = galleryName;
+  currentImage = index;
+
+  const gallery = galleries[currentGallery];
+
+  lightboxImage.src = gallery.images[currentImage];
+  lightboxCredit.innerHTML = `Photos by <a href="${gallery.creditUrl}" target="_blank">${gallery.creditName}</a>`;
+
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function showNext() {
+  const gallery = galleries[currentGallery];
+  currentImage = (currentImage + 1) % gallery.images.length;
+  lightboxImage.src = gallery.images[currentImage];
+}
+
+function showPrev() {
+  const gallery = galleries[currentGallery];
+  currentImage = (currentImage - 1 + gallery.images.length) % gallery.images.length;
+  lightboxImage.src = gallery.images[currentImage];
+}
+
+closeBtn.addEventListener("click", closeLightbox);
+nextBtn.addEventListener("click", showNext);
+prevBtn.addEventListener("click", showPrev);
+
+lightbox.addEventListener("click", (event) => {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (!lightbox.classList.contains("active")) return;
+
+  if (event.key === "Escape") closeLightbox();
+  if (event.key === "ArrowRight") showNext();
+  if (event.key === "ArrowLeft") showPrev();
+});
+
+renderGalleries();
+</script>
 
 </body>
 </html>
