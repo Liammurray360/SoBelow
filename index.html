@@ -24,27 +24,77 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 18px 8%;
+  padding: 16px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(10,10,10,0.92);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  z-index: 10;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  z-index: 100;
 }
 
-.nav strong {
-  letter-spacing: 0.08em;
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.brand .so {
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  font-weight: 900;
+}
+
+.brand .ent {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  color: #aaa;
+}
+
+.brand::after {
+  content: "";
+  margin-top: 6px;
+  width: 40%;
+  height: 2px;
+  background: #d51616;
+}
+
+.nav nav {
+  display: flex;
+  gap: 18px;
 }
 
 .nav a {
-  color: #ccc;
-  margin-left: 20px;
+  position: relative;
+  padding: 8px 10px;
+  color: #aaa;
   text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav a.active {
   color: white;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #d51616;
+  transition: 0.25s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
 }
 
 /* HERO */
@@ -54,37 +104,20 @@ body {
   overflow: hidden;
 }
 
-/* BACKGROUND IMAGE */
 .hero-bg {
   position: absolute;
   inset: 0;
   background: url("bckgnd.svg") center/cover no-repeat;
-
-  /* balanced cinematic look */
-  filter: grayscale(100%) brightness(0.85) contrast(1.05);
+  filter: grayscale(100%) brightness(0.9);
 }
 
-/* FILM GRAIN + LIGHT VIGNETTE */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-
-  background:
-    radial-gradient(circle at center, rgba(0,0,0,0.15), rgba(0,0,0,0.45)),
-    url("data:image/svg+xml,\
-<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'>\
-<filter id='noise'>\
-<feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/>\
-</filter>\
-<rect width='100%' height='100%' filter='url(%23noise)' opacity='0.08'/>\
-</svg>");
-
-  mix-blend-mode: overlay;
-  pointer-events: none;
+  background: radial-gradient(circle, rgba(0,0,0,0.1), rgba(0,0,0,0.45));
 }
 
-/* LOGO */
 .hero-logo {
   position: absolute;
   top: 50%;
@@ -92,309 +125,74 @@ body {
   width: 120vw;
   max-width: 1600px;
   transform: translate(-50%, -50%);
-  z-index: 2;
 }
 
 .hero-logo img {
   width: 100%;
-  display: block;
 }
 
-/* SUBTLE "BREATHING" MOTION */
-.hero-logo img {
-  animation: breathe 6s ease-in-out infinite;
-}
-
-@keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-}
-
-/* MOBILE */
-@media (max-width: 850px) {
-  .hero-logo {
-    width: 180vw;
-  }
-
-  .hero-logo img {
-    transform: scale(1.35);
-    animation: none; /* keep mobile stable */
-  }
-}
-/* BIG LOGO */
-.hero-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120vw;
-  max-width: 1600px;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.hero-logo img {
-  width: 100%;
-  display: block;
-}
-
-/* MOBILE */
-@media (max-width: 850px) {
-  .hero-logo {
-    width: 180vw;
-  }
-
-  .hero-logo img {
-    transform: scale(1.35);
-  }
-}
-/* FEATURED EVENT BARS */
+/* FEATURE BARS */
 .feature-bar {
-  padding: 24px 8%;
+  padding: 22px 8%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 18px;
   flex-wrap: wrap;
-  color: white;
 }
 
-.feature-bar strong {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.feature-bar a {
-  background: white;
-  color: #111;
-  padding: 12px 18px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 900;
-  transition: 0.2s ease;
-}
-
-.feature-bar a:hover {
-  transform: translateY(-2px);
-}
-
-.red {
-  background: #d51616;
-}
-
-.white {
-  background: #ffffff;
-  color: #111;
-  border-top: 1px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6;
-}
+.red { background: #d51616; }
+.white { background: #fff; color: #111; }
 
 .white a {
   background: #111;
   color: white;
 }
 
+.feature-bar a {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: white;
+  color: #111;
+  text-decoration: none;
+  font-weight: 900;
+}
+
 /* INTRO */
 .intro {
-  padding: 90px 6% 75px;
+  padding: 90px 6%;
   text-align: center;
-  background:
-    radial-gradient(circle at top, rgba(213,22,22,0.08), transparent 38%),
-    #0b0b0b;
 }
 
 .intro h1 {
   font-size: clamp(2.4rem, 6vw, 5rem);
-  margin: 0 0 20px;
 }
 
-.intro p {
-  max-width: 900px;
-  margin: auto;
-  color: #ccc;
-  line-height: 1.6;
-}
-
-.buttons {
-  margin-top: 26px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.button {
-  padding: 13px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.2s ease;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-}
-
-.primary {
-  background: #d51616;
-  color: white;
-}
-
-.secondary {
-  border: 1px solid #555;
-  color: white;
-}
-
-/* WHAT WE DO */
-.blocks {
-  padding: 70px 8%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  background: #f5f5f5;
-  color: #111;
-}
-
-.block {
-  background: white;
-  padding: 28px;
-  border-radius: 22px;
-  border: 1px solid #e6e6e6;
-  transition: 0.2s ease;
-}
-
-.block:hover {
-  transform: translateY(-3px);
-}
-
-.block h3 {
-  margin-top: 0;
-}
-
-.block p {
-  color: #555;
-  line-height: 1.6;
-}
-
-/* FESTIVAL STYLE FEATURED ARTISTS */
+/* ARTISTS */
 .artist-strip {
-  padding: 85px 8%;
+  padding: 80px 8%;
   text-align: center;
-  background:
-    linear-gradient(180deg, #0b0b0b, #050505);
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-.artist-strip h2 {
-  font-size: clamp(2.5rem, 7vw, 6rem);
-  line-height: 0.9;
-  margin: 0 0 18px;
-  text-transform: uppercase;
-  letter-spacing: -0.04em;
-}
-
-.artist-subtitle {
-  color: #aaa;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 900;
-  font-size: 0.78rem;
-  margin-bottom: 45px;
 }
 
 .lineup-block {
-  max-width: 1150px;
-  margin: 0 auto 48px;
-  padding: 38px 24px;
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at top left, rgba(213,22,22,0.15), transparent 34%),
-    #111;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.lineup-block:last-child {
-  margin-bottom: 0;
+  margin-bottom: 40px;
 }
 
 .lineup-title {
-  font-size: clamp(1.8rem, 5vw, 4rem);
-  line-height: 0.95;
-  margin: 0 0 22px;
+  font-size: clamp(2rem, 5vw, 4rem);
   text-transform: uppercase;
-  letter-spacing: -0.04em;
-}
-
-.lineup-title.red-title {
-  color: #d51616;
-}
-
-.lineup-title.white-title {
-  color: white;
-}
-
-.lineup-title.frost-title {
-  color: #bcd7ff;
-}
-
-.lineup-note {
-  display: inline-block;
-  margin-bottom: 24px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: #d51616;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 0.72rem;
-  font-weight: 900;
-}
-
-.lineup-note.light-note {
-  background: white;
-  color: #111;
-}
-
-.lineup-note.frost-note {
-  background: #bcd7ff;
-  color: #111;
-}
-
-.artist-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
 }
 
 .artist-links a {
-  padding: 14px 18px;
-  border-radius: 999px;
+  display: inline-block;
+  margin: 6px;
+  padding: 10px 14px;
   background: #f5f5f5;
   color: #111;
+  border-radius: 999px;
   text-decoration: none;
-  font-size: clamp(1rem, 2.2vw, 1.55rem);
   font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  transition: 0.2s ease;
 }
 
-.artist-links a:hover {
-  background: #d51616;
-  color: white;
-  transform: translateY(-3px);
-}
-
-.worm-lineup .artist-links a:hover {
-  background: #111;
-  color: white;
-}
-
-.defrost-lineup .artist-links a:hover {
-  background: #bcd7ff;
-  color: #111;
-}
-
+/* FOOTER */
 .footer {
   padding: 25px;
   background: #050505;
@@ -408,77 +206,23 @@ body {
 
 /* MOBILE */
 @media(max-width:850px){
+
   .nav {
     flex-direction: column;
-    gap: 10px;
-    padding: 14px 5%;
+    text-align: center;
   }
 
-  .nav nav {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .nav a {
-    margin: 0;
-    font-size: 0.9rem;
+  .brand {
+    align-items: center;
   }
 
   .hero-logo {
-    width: 160vw;
-  }
-
-  .hero-logo img {
-    transform: scale(1.2);
+    width: 170vw;
   }
 
   .feature-bar {
+    text-align: center;
     justify-content: center;
-    text-align: center;
-    padding: 22px 5%;
-  }
-
-  .intro {
-    padding: 60px 6%;
-  }
-
-  .intro h1 {
-    font-size: clamp(2.3rem, 12vw, 3.4rem);
-  }
-
-  .buttons {
-    display: grid;
-    gap: 12px;
-  }
-
-  .button {
-    width: min(100%, 320px);
-    margin: auto;
-    text-align: center;
-  }
-
-  .blocks {
-    grid-template-columns: 1fr;
-    padding: 45px 5%;
-  }
-
-  .artist-strip {
-    padding: 65px 5%;
-  }
-
-  .lineup-block {
-    padding: 28px 16px;
-  }
-
-  .artist-links {
-    gap: 9px;
-  }
-
-  .artist-links a {
-    font-size: 0.95rem;
-    padding: 11px 13px;
   }
 }
 </style>
@@ -487,7 +231,11 @@ body {
 <body>
 
 <header class="nav">
-  <strong>SO BELOW ENTERTAINMENT</strong>
+  <div class="brand" onclick="location.href='index.html'">
+    <span class="so">SO BELOW</span>
+    <span class="ent">ENTERTAINMENT</span>
+  </div>
+
   <nav>
     <a href="shows.html">Shows</a>
     <a href="past-shows.html">Past Shows</a>
@@ -499,100 +247,46 @@ body {
 <main class="hero">
   <div class="hero-bg"></div>
   <div class="hero-logo">
-    <img src="logo.svg" alt="So Below Entertainment">
+    <img src="logo.svg">
   </div>
 </main>
 
 <section class="feature-bar red">
-  <div>
-    <strong>State Of The Nation VI</strong> • 29 August • Rumours Lounge
-  </div>
-  <a href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">
-    Phase 1 Tickets
-  </a>
+  <div>State Of The Nation VI • 29 August</div>
+  <a href="https://tickets.koid.co.za/event/state-of-the-nation-vi">Tickets</a>
 </section>
 
 <section class="feature-bar white">
-  <div>
-    <strong>Would You Love Me If I Was a Worm?</strong> • 16 May • Rumours Lounge
-  </div>
-  <a href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
-    Get WYSLMIIWAW Tickets
-  </a>
+  <div>Would You Love Me If I Was a Worm? • 16 May</div>
+  <a href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-">Tickets</a>
 </section>
 
 <section class="intro">
   <h1>Live events with weight.</h1>
-  <p>Alternative, rock and heavy shows built properly.</p>
-
-  <div class="buttons">
-    <a class="button primary" href="shows.html">Shows</a>
-    <a class="button secondary" href="contact.html">Contact</a>
-  </div>
-</section>
-
-<section class="blocks">
-  <div class="block">
-    <h3>Live Shows</h3>
-    <p>Curated alternative, rock, metal events.</p>
-  </div>
-
-  <div class="block">
-    <h3>Proper Sound</h3>
-    <p>Production and atmosphere matter.</p>
-  </div>
-
-  <div class="block">
-    <h3>Real Lineups</h3>
-    <p>Scene-first bookings.</p>
-  </div>
 </section>
 
 <section class="artist-strip">
-  <h2>Featured Artists</h2>
-  <div class="artist-subtitle">Current lineup drops</div>
 
   <div class="lineup-block">
-    <h3 class="lineup-title red-title">State Of The Nation VI</h3>
-    <div class="lineup-note">First Lineup Drop</div>
-
+    <h2 class="lineup-title">State Of The Nation VI</h2>
     <div class="artist-links">
-      <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
-      <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
-      <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+      <a>Moshmallow</a>
+      <a>Walk These Skies</a>
+      <a>Days Without Incident</a>
     </div>
   </div>
 
-  <div class="lineup-block defrost-lineup">
-    <h3 class="lineup-title frost-title">Defrost Fest 2026</h3>
-    <div class="lineup-note frost-note">26 & 27 June • Rumours Lounge</div>
-
+  <div class="lineup-block">
+    <h2 class="lineup-title">Defrost Fest</h2>
     <div class="artist-links">
-      <a href="https://www.instagram.com/theburn_outs/" target="_blank">The Burnouts</a>
-      <a href="https://www.instagram.com/glitterclit_band/" target="_blank">Glitter Clit</a>
-      <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
-      <a href="https://www.instagram.com/after_wonderland/" target="_blank">After Wonderland</a>
-      <a href="https://www.instagram.com/deadly_since_official/" target="_blank">Deadly Since</a>
-      <a href="https://www.instagram.com/sometimes_useless_at_night/" target="_blank">Sometimes Useless At Night</a>
-      <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
-      <a href="https://www.instagram.com/the.thr3.proj3ct/" target="_blank">THE THR3 PROJ3CT</a>
-      <a href="https://www.instagram.com/manasmachine_sa/" target="_blank">Man As Machine</a>
-      <a href="https://www.instagram.com/raptorbabyband/" target="_blank">Raptor Baby</a>
+      <a>The Burnouts</a>
+      <a>Glitter Clit</a>
+      <a>Funk N Kiff</a>
+      <a>After Wonderland</a>
+      <a>Deadly Since</a>
     </div>
   </div>
 
-  <div class="lineup-block worm-lineup">
-    <h3 class="lineup-title white-title">Would You Love Me If I Was a Worm?</h3>
-    <div class="lineup-note light-note">16 May • Rumours Lounge</div>
-
-    <div class="artist-links">
-      <a href="https://www.instagram.com/pandora_band_sa/" target="_blank">Pandora</a>
-      <a href="https://www.instagram.com/kaylinhillx/" target="_blank">Kaylin Hill</a>
-      <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk n Kiff</a>
-      <a href="https://www.instagram.com/atfn012/" target="_blank">All This For Nothing</a>
-      <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
-    </div>
-  </div>
 </section>
 
 <footer class="footer">
