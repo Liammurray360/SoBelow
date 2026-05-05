@@ -19,80 +19,155 @@ body {
   color: #f5f5f5;
 }
 
+/* NAV */
 .nav {
-  padding: 18px 8%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #050505;
+
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  z-index: 100;
 }
 
-.nav strong { letter-spacing: 0.08em; }
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.brand .so {
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  font-weight: 900;
+}
+
+.brand .ent {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  color: #aaa;
+}
+
+.brand::after {
+  content: "";
+  margin-top: 6px;
+  width: 40%;
+  height: 2px;
+  background: #d51616;
+  opacity: 0.8;
+}
+
+.nav nav {
+  display: flex;
+  gap: 18px;
+}
 
 .nav a {
-  color: #ccc;
-  margin-left: 20px;
+  position: relative;
+  padding: 8px 10px;
+  color: #aaa;
   text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: 0.2s ease;
 }
 
-.nav a:hover { color: white; }
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #d51616;
+  transition: 0.25s ease;
+}
 
+.nav a:hover {
+  color: white;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav a.active {
+  color: white;
+}
+
+.nav a.active::after {
+  width: 100%;
+}
+
+/* HERO */
 .hero {
-  padding: 80px 8% 40px;
+  padding: 140px 8% 60px;
+  text-align: center;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  margin: 0 0 20px;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin-bottom: 20px;
+  line-height: 0.95;
 }
 
 .hero p {
   max-width: 700px;
-  color: #ccc;
-  line-height: 1.7;
+  margin: auto;
+  color: #bbb;
+  line-height: 1.6;
 }
 
+/* CONTENT */
 .wrap {
-  padding: 60px 8%;
-  background: #f5f5f5;
-  color: #111;
+  padding: 50px 8% 80px;
   display: grid;
-  grid-template-columns: 0.55fr 1.45fr;
+  grid-template-columns: 1fr 2fr;
   gap: 40px;
 }
 
+/* SIDE BLOCK (FIXED SMALLER) */
 .side {
   background: #111;
-  color: white;
   padding: 22px;
-  border-radius: 20px;
-  align-self: start;
-  position: sticky;
-  top: 30px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  height: fit-content;
 }
 
-.side h2 {
-  font-size: 1.15rem;
+.side h3 {
   margin-top: 0;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .side p {
   color: #bbb;
-  font-size: 0.9rem;
-  line-height: 1.45;
+  font-size: 0.85rem;
   margin: 10px 0;
 }
 
+/* MAIN CONTENT */
 .content {
   display: grid;
-  gap: 24px;
+  gap: 22px;
 }
 
 .card {
-  background: white;
+  background: #f5f5f5;
+  color: #111;
   padding: 28px;
-  border-radius: 24px;
-  border: 1px solid #e6e6e6;
+  border-radius: 22px;
 }
 
 .card p {
@@ -100,15 +175,17 @@ body {
   line-height: 1.7;
 }
 
+/* STATEMENT */
 .statement {
   background: #d51616;
-  color: white;
-  padding: 32px;
-  border-radius: 24px;
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  padding: 30px;
+  border-radius: 22px;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
   font-weight: 900;
+  line-height: 1.1;
 }
 
+/* FOOTER */
 .footer {
   padding: 25px;
   background: #050505;
@@ -120,26 +197,27 @@ body {
   color: #555;
 }
 
+/* MOBILE */
 @media(max-width:850px){
+
   .nav {
     flex-direction: column;
     gap: 10px;
+    padding: 14px 5%;
     text-align: center;
   }
 
+  .brand {
+    align-items: center;
+  }
+
+  .brand::after {
+    width: 60%;
+  }
+
   .nav nav {
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 14px;
-  }
-
-  .nav a {
-    margin: 0;
-  }
-
-  .hero {
-    padding: 55px 5% 30px;
   }
 
   .wrap {
@@ -147,8 +225,8 @@ body {
     padding: 40px 5%;
   }
 
-  .side {
-    position: static;
+  .hero {
+    padding: 110px 6% 40px;
   }
 }
 </style>
@@ -157,12 +235,15 @@ body {
 <body>
 
 <header class="nav">
-  <strong>SO BELOW ENTERTAINMENT</strong>
+  <div class="brand" onclick="location.href='index.html'">
+    <span class="so">SO BELOW</span>
+    <span class="ent">ENTERTAINMENT</span>
+  </div>
+
   <nav>
-    <a href="index.html">Home</a>
     <a href="shows.html">Shows</a>
     <a href="past-shows.html">Past Shows</a>
-    <a href="about.html">About</a>
+    <a href="about.html" class="active">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
@@ -170,17 +251,15 @@ body {
 <section class="hero">
   <h1>Built from the underground.</h1>
   <p>
-    So Below Entertainment started with a few alternative shows, a lot of hard work,
-    and a genuine love for live music. No fancy origin story — just people, bands,
-    rooms and noise.
+    Started with a few shows, a lot of noise, and no intention of slowing down.
   </p>
 </section>
 
 <main class="wrap">
 
   <aside class="side">
-    <h2>So Below</h2>
-    <p>Alternative • Rock • Metal • Live Events</p>
+    <h3>So Below</h3>
+    <p>Alternative • Rock • Metal</p>
     <p><strong>Established:</strong> 2022</p>
     <p><strong>Home:</strong> Johannesburg</p>
     <p><strong>Flagship:</strong> State Of The Nation</p>
@@ -191,17 +270,18 @@ body {
     <div class="card">
       <h2>Where It Started</h2>
       <p>
-        So Below Entertainment officially kicked off in 2022. Nothing fancy — just a few alternative shows, a lot of hard work, and a genuine love for live music.
+        So Below Entertainment kicked off in 2022. No big plan — just putting on shows that actually felt right.
       </p>
       <p>
-        Not long after, we launched State Of The Nation, which became our biggest show brand and helped cement our place in the metal scene.
+        From there, State Of The Nation took shape and became the flagship — louder, heavier, and bigger every time.
       </p>
     </div>
 
     <div class="card">
       <h2>Scene First</h2>
       <p>
-        We’ve always been about the scene first. Good shows, solid sound, proper lighting, fair treatment of bands, and an environment where people actually want to come back.
+        The focus has always been the same — build shows people actually want to be at.
+        Good sound, proper production, strong lineups, and a crowd that’s there for the music.
       </p>
     </div>
 
@@ -212,16 +292,16 @@ body {
     <div class="card">
       <h2>More Space To Grow</h2>
       <p>
-        We’re opening things up to more genres, more sounds, more venues and more artists across the country.
+        More genres, more artists, more venues — opening things up while keeping the same energy.
       </p>
     </div>
 
     <div class="card">
       <h2>The Goal</h2>
       <p>
-        Build something sustainable, exciting, and real.
+        Build something real, sustainable, and loud enough to matter.
       </p>
-      <p><strong>Put on great events and support the people who make live music what it is.</strong></p>
+      <p><strong>Support the scene. Put on great shows. Keep it moving.</strong></p>
     </div>
 
   </section>
