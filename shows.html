@@ -3,35 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>So Below Entertainment | Live Music Events Johannesburg</title>
+<title>Shows | So Below Entertainment</title>
 
-<meta name="description" content="So Below Entertainment puts on alternative, rock and metal shows in Johannesburg. Proper lineups, proper sound, rooms that feel alive.">
+<meta name="description" content="Upcoming So Below Entertainment shows including alternative, rock and metal events in Johannesburg.">
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
 <style>
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #050505;
-  color: #f5f5f5;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 999;
-  opacity: 0.035;
-  background-image:
-    radial-gradient(circle at 20% 20%, white 0 1px, transparent 1px),
-    radial-gradient(circle at 80% 70%, white 0 1px, transparent 1px);
-  background-size: 38px 38px, 54px 54px;
+  background: #f5f5f5;
+  color: #111;
 }
 
 /* NAV */
@@ -101,390 +86,194 @@ body::before {
   color: white;
 }
 
-/* HERO */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
+/* PAGE */
+.page {
+  padding: 140px 8% 70px;
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: url("bckgnd.svg") center/cover no-repeat;
-  filter: grayscale(100%) brightness(0.98) contrast(1.05);
-  transform: scale(1.03);
+.page h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin: 0 0 30px;
+  line-height: 0.95;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 26%),
-    radial-gradient(circle at 18% 30%, rgba(213,22,22,0.16), transparent 22%);
-  mix-blend-mode: screen;
-  z-index: 1;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(0,0,0,0.04), rgba(0,0,0,0.42)),
-    linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.5));
-  z-index: 1;
-}
-
-.hero-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 122vw;
-  max-width: 1650px;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.hero-logo img {
-  width: 100%;
-  display: block;
-  animation: breathe 7s ease-in-out infinite;
-}
-
-.hero-tagline {
-  position: absolute;
-  left: 50%;
-  bottom: 70px;
-  transform: translateX(-50%);
-  z-index: 3;
-  color: rgba(255,255,255,0.86);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.78rem;
-  font-weight: 900;
-  text-align: center;
-  width: 90%;
-}
-
-@keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.018); }
-}
-
-/* MARQUEE */
-.marquee {
-  overflow: hidden;
-  background: #050505;
-  color: white;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  width: 100%;
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 40s linear infinite;
-}
-
-.marquee-group {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.marquee span {
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  white-space: nowrap;
-  font-size: 0.78rem;
-}
-
-.marquee-text {
-  padding: 14px 0;
-}
-
-.marquee-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.45);
-  margin: 0 26px;
-  flex-shrink: 0;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* FEATURE BARS */
-.feature-bar {
-  padding: 24px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-  color: white;
-}
-
-.feature-bar strong {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 1.1rem;
-}
-
-.feature-bar a {
-  padding: 12px 18px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 900;
-  transition: 0.2s ease;
-}
-
-.feature-bar a:hover { transform: translateY(-2px); }
-
-.red { background: #d51616; }
-.red a { background: white; color: #111; }
-
-.white {
-  background: white;
-  color: #111;
-}
-
-.white a {
-  background: #111;
-  color: white;
-}
-
-.dark {
-  background: #111;
-  color: white;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-.dark a {
-  background: #d51616;
-  color: white;
-}
-
-/* INTRO */
-.intro {
-  padding: 95px 6% 80px;
-  text-align: center;
-  background:
-    radial-gradient(circle at top, rgba(213,22,22,0.12), transparent 38%),
-    #0b0b0b;
-}
-
-.intro h1 {
-  font-size: clamp(2.7rem, 7vw, 6.5rem);
-  line-height: 0.9;
-  margin: 0 0 24px;
-  text-transform: uppercase;
-  letter-spacing: -0.05em;
-}
-
-.intro p {
-  max-width: 900px;
-  margin: auto;
-  color: #ccc;
-  line-height: 1.6;
-  font-size: 1.1rem;
-}
-
-.buttons {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.button {
-  padding: 14px 22px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 900;
-  transition: 0.2s ease;
-}
-
-.button:hover { transform: translateY(-3px); }
-
-.primary { background: #d51616; color: white; }
-.secondary { border: 1px solid #555; color: white; }
-
-/* BLOCKS */
-.blocks {
-  padding: 75px 8%;
+.show-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  background: #f5f5f5;
-  color: #111;
+  gap: 34px;
 }
 
-.block {
+/* SHOW CARDS */
+.show-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
   background: white;
-  padding: 30px;
-  border-radius: 24px;
+  border-radius: 26px;
+  padding: 24px;
   border: 1px solid #e6e6e6;
-  box-shadow: 0 16px 35px rgba(0,0,0,0.055);
-  transition: 0.2s ease;
-}
-
-.block:hover { transform: translateY(-4px); }
-
-.block h3 {
-  margin: 0 0 10px;
-  font-size: 1.45rem;
-}
-
-.block p {
-  color: #555;
-  line-height: 1.6;
-}
-
-/* FEATURED SHOWS */
-.featured-shows {
-  padding: 95px 8%;
-  text-align: center;
-  background:
-    radial-gradient(circle at top left, rgba(213,22,22,0.12), transparent 30%),
-    linear-gradient(180deg, #0b0b0b, #050505);
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-.featured-shows h2 {
-  font-size: clamp(3rem, 8vw, 7rem);
-  line-height: 0.86;
-  margin: 0 0 16px;
-  text-transform: uppercase;
-  letter-spacing: -0.06em;
-}
-
-.featured-subtitle {
-  color: #aaa;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-weight: 900;
-  font-size: 0.78rem;
-  margin-bottom: 52px;
-}
-
-.show-poster-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-  max-width: 1250px;
-  margin: auto;
-}
-
-.show-poster-card {
-  display: block;
-  background: #111;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 28px;
-  padding: 18px;
-  text-align: left;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.24);
-  transition: 0.22s ease;
-  text-decoration: none;
-  color: inherit;
-}
-
-.show-poster-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 26px 70px rgba(213,22,22,0.18);
-  border-color: rgba(213,22,22,0.35);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.06);
 }
 
 .poster-link {
   display: block;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 18px;
 }
 
-.show-poster-card img {
+.poster {
   width: 100%;
-  display: block;
-  border-radius: 20px;
+  border-radius: 18px;
   transition: 0.3s ease;
+  display: block;
 }
 
-.show-poster-card:hover img {
+.poster-link:hover .poster {
   transform: scale(1.04);
 }
 
-.show-poster-card h3 {
-  margin: 18px 0 8px;
-  font-size: clamp(1.35rem, 2.5vw, 2rem);
-  line-height: 0.95;
-  text-transform: uppercase;
-  letter-spacing: -0.035em;
-  color: white;
+.show-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.show-poster-card:hover h3 {
+.date {
   color: #d51616;
-}
-
-.show-poster-card p {
-  color: #aaa;
-  margin: 0 0 16px;
-  line-height: 1.4;
-}
-
-.card-button {
-  display: inline-block;
-  padding: 10px 15px;
-  border-radius: 999px;
-  background: white;
-  color: #111;
-  text-decoration: none;
   font-weight: 900;
   text-transform: uppercase;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
 }
 
-.show-poster-card:hover .card-button {
+.show-content h2 {
+  margin: 10px 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 0.98;
+}
+
+.hype {
+  color: #d51616;
+  font-weight: 900;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.description {
+  color: #444;
+  line-height: 1.6;
+}
+
+.lineup {
+  margin: 18px 0;
+}
+
+.lineup strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.lineup span,
+.lineup a {
+  display: inline-block;
+  margin: 4px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eee;
+  text-decoration: none;
+  color: #111;
+  transition: 0.2s ease;
+}
+
+.lineup a:hover {
   background: #d51616;
   color: white;
 }
 
-/* REVEAL ANIMATIONS */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: 0.7s ease;
+.ticket-box {
+  margin: 16px 0;
+  padding: 14px;
+  border-radius: 16px;
+  background: #f5f5f5;
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.ticket-box p {
+  margin: 6px 0;
+}
+
+.ticket-box strong {
+  color: #d51616;
+}
+
+.button {
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: #d51616;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  transition: 0.2s ease;
+  font-weight: 800;
+  text-align: center;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+/* WEEKLY EVENTS */
+.small-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+}
+
+.small-card {
+  background: white;
+  border-radius: 22px;
+  padding: 22px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.045);
+}
+
+.small-card img {
+  width: 100%;
+  border-radius: 14px;
+  transition: 0.3s ease;
+  display: block;
+}
+
+.small-card img:hover {
+  transform: scale(1.04);
+}
+
+.small-card h3 {
+  margin: 16px 0 8px;
+  font-size: 1.5rem;
+}
+
+.small-card p {
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* FOOTER */
 .footer {
   padding: 25px;
   background: #050505;
-  border-top: 1px solid rgba(255,255,255,0.06);
   text-align: center;
 }
 
-.footer-copy {
+.secret {
   font-size: 0.7rem;
   color: #555;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 /* MOBILE */
-@media(max-width:850px){
+@media (max-width: 900px) {
   .nav {
     position: sticky;
     top: 0;
@@ -514,7 +303,6 @@ body::before {
     justify-content: center;
     gap: 10px;
     flex-wrap: nowrap;
-    padding-top: 6px;
   }
 
   .nav a {
@@ -522,54 +310,17 @@ body::before {
     letter-spacing: 0.06em;
   }
 
-  .hero {
-    min-height: 82vh;
+  .page {
+    padding: 35px 5% 50px;
   }
 
-  .hero-logo {
-    width: 178vw;
-  }
-
-  .hero-logo img {
-    animation: none;
-  }
-
-  .hero-tagline {
-    bottom: 34px;
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-  }
-
-  .feature-bar {
-    justify-content: center;
-    text-align: center;
-    padding: 22px 5%;
-  }
-
-  .feature-bar strong {
-    font-size: 1rem;
-  }
-
-  .intro {
-    padding: 65px 6%;
-  }
-
-  .blocks {
+  .show-card {
     grid-template-columns: 1fr;
-    padding: 48px 5%;
-  }
-
-  .featured-shows {
-    padding: 70px 5%;
-  }
-
-  .show-poster-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .show-poster-card {
     padding: 16px;
+  }
+
+  .small-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -584,179 +335,189 @@ body::before {
   </div>
 
   <nav>
-    <a href="shows.html">Shows</a>
+    <a href="shows.html" class="active">Shows</a>
     <a href="past-shows.html">Past Shows</a>
     <a href="/about/">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<main class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-logo">
-    <img src="logo.svg" alt="So Below Entertainment">
-  </div>
-  <div class="hero-tagline">Built for loud rooms and real crowds.</div>
+<main class="page">
+
+  <h1>Shows</h1>
+
+  <section class="show-grid">
+
+    <!-- WORM -->
+    <article class="show-card">
+      <a class="poster-link" href="WYLMIIWAW.png" target="_blank">
+        <img class="poster" src="WYLMIIWAW.png" alt="Would You Love Me If I Was a Worm poster">
+      </a>
+
+      <div class="show-content">
+        <div class="date">16 May • Doors 17:00 • R100</div>
+        <h2>Would You Love Me If I Was a Worm?</h2>
+
+        <p class="description">
+          Cool. Normal question. Totally chill. Definitely not existential at all.
+        </p>
+
+        <p class="description">
+          On May 16, we're putting that question to the test at Rumours Lounge with a night that wriggles between genres, vibes, and emotional damage.
+        </p>
+
+        <div class="lineup">
+          <a href="https://www.instagram.com/pandora_band_sa/" target="_blank">Pandora</a>
+          <a href="https://www.instagram.com/kaylinhillx/" target="_blank">Kaylin Hill</a>
+          <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
+          <a href="https://www.instagram.com/atfn012/" target="_blank">All This For Nothing</a>
+          <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+        </div>
+
+        <a class="button" href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
+          Get Tickets
+        </a>
+      </div>
+    </article>
+
+    <!-- DEFROST FEST -->
+    <article class="show-card">
+      <a class="poster-link" href="defrost-fest.jpeg" target="_blank">
+        <img class="poster" src="defrost-fest.jpeg" alt="Defrost Fest 2026 poster">
+      </a>
+
+      <div class="show-content">
+        <div class="date">26 & 27 June • Rumours Lounge</div>
+        <h2>Defrost Fest 2026</h2>
+
+        <div class="hype">Two nights • winter riffs • no fluff</div>
+
+        <p class="description">
+          Winter doesn't kill the scene. Defrost Fest is here. Two nights of raw energy, distortion, sweat, and everything that refuses to stay quiet.
+        </p>
+
+        <p class="description">
+          This isn't background music. This is the sound of a city thawing out.
+        </p>
+
+        <div class="lineup">
+          <strong>Friday // 26 June</strong>
+          <a href="https://www.instagram.com/theburn_outs/" target="_blank">The Burnouts</a>
+          <a href="https://www.instagram.com/glitterclit_band/" target="_blank">Glitter Clit</a>
+          <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
+          <a href="https://www.instagram.com/after_wonderland/" target="_blank">After Wonderland</a>
+          <a href="https://www.instagram.com/deadly_since_official/" target="_blank">Deadly Since</a>
+        </div>
+
+        <div class="lineup">
+          <strong>Saturday // 27 June</strong>
+          <a href="https://www.instagram.com/sometimes_useless_at_night/" target="_blank">Sometimes Useless At Night</a>
+          <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+          <a href="https://www.instagram.com/the.thr3.proj3ct/" target="_blank">THE THR3 PROJ3CT</a>
+          <a href="https://www.instagram.com/manasmachine_sa/" target="_blank">Man As Machine</a>
+          <a href="https://www.instagram.com/raptorbabyband/" target="_blank">Raptor Baby</a>
+        </div>
+
+        <div class="ticket-box">
+          <p><strong>Tickets:</strong></p>
+          <p>R100 per day</p>
+          <p>R150 weekend pass</p>
+        </div>
+
+        <p class="description">
+          Expect heavy riffs, unpredictable sets, and a crowd that actually came for the music.
+          Pull through. Bring your people. Lose your voice.
+        </p>
+
+        <a class="button" href="https://tickets.koid.co.za/event/defrost-fest-2026-" target="_blank">
+          Get Tickets
+        </a>
+      </div>
+    </article>
+
+    <!-- SOTN -->
+    <article class="show-card">
+      <a class="poster-link" href="SOTNVI-2nd.png" target="_blank">
+        <img class="poster" src="SOTNVI-2nd.png" alt="State Of The Nation VI second lineup announcement">
+      </a>
+
+      <div class="show-content">
+        <div class="date">29 August • Rumours Lounge</div>
+        <h2>State Of The Nation VI</h2>
+
+        <div class="hype">
+          14 bands • 2 stages • indoor + outdoor • powered by As Above Audio
+        </div>
+
+        <p class="description">
+          This one's for the heavy.
+        </p>
+
+        <p class="description">
+          14 bands. Two stages. From early afternoon, it's a constant rotation of noise, energy, and zero downtime.
+          Inside and outside stages running back-to-back, with the outdoor stage powered by As Above Audio, keeping the pressure on from start to finish.
+        </p>
+
+        <p class="description">
+          No filler, no slowing down, just band after band bringing it harder than the last.
+        </p>
+
+        <div class="lineup">
+          <strong>Second Announcement</strong>
+          <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+          <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+          <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+          <a href="https://www.instagram.com/humannebula/" target="_blank">Human Nebula</a>
+          <a href="https://www.instagram.com/disorderdiverted/" target="_blank">Diverted Disorder</a>
+          <a href="https://www.instagram.com/diegemeente.za/" target="_blank">Die Gemeente</a>
+          <a href="https://www.instagram.com/grift.hxc/" target="_blank">Grift</a>
+        </div>
+
+        <div class="ticket-box">
+          <p><strong>Tickets:</strong></p>
+          <p>Phase 1 — R150</p>
+          <p>Phase 2 — R200</p>
+          <p>Phase 3 — R250</p>
+          <p>Door — R300</p>
+        </div>
+
+        <p class="description">
+          Pull up early and settle in. State Of The Nation VI is built to be loud, heavy, and all day long.
+        </p>
+
+        <a class="button" href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">
+          Get Tickets
+        </a>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="small-grid">
+
+    <div class="small-card">
+      <a href="JamNight.png" target="_blank">
+        <img src="JamNight.png" alt="Jam Night poster">
+      </a>
+      <h3>Jam Night</h3>
+      <p>Every Wednesday • Free</p>
+    </div>
+
+    <div class="small-card">
+      <a href="OpenMic.png" target="_blank">
+        <img src="OpenMic.png" alt="Open Mic poster">
+      </a>
+      <h3>Open Mic</h3>
+      <p>Every Thursday • Free</p>
+    </div>
+
+  </section>
+
 </main>
-
-<section class="marquee">
-  <div class="marquee-track">
-
-    <div class="marquee-group">
-      <span class="marquee-text">Live shows with weight</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Alternative • Rock • Metal</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Johannesburg</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Scene first</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Proper sound</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Real lineups</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Loud rooms</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Real crowds</span>
-      <span class="marquee-dot"></span>
-    </div>
-
-    <div class="marquee-group" aria-hidden="true">
-      <span class="marquee-text">Live shows with weight</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Alternative • Rock • Metal</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Johannesburg</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Scene first</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Proper sound</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Real lineups</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Loud rooms</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-text">Real crowds</span>
-      <span class="marquee-dot"></span>
-    </div>
-
-  </div>
-</section>
-
-<section class="feature-bar red reveal">
-  <div>
-    <strong>State Of The Nation VI</strong> • 29 August • Rumours Lounge
-  </div>
-  <a href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">
-    Get Tickets
-  </a>
-</section>
-
-<section class="feature-bar dark reveal">
-  <div>
-    <strong>Defrost Fest 2026</strong> • 26 & 27 June • Rumours Lounge
-  </div>
-  <a href="https://tickets.koid.co.za/event/defrost-fest-2026-" target="_blank">
-    Get Tickets
-  </a>
-</section>
-
-<section class="feature-bar white reveal">
-  <div>
-    <strong>Would You Love Me If I Was a Worm?</strong> • 16 May • Rumours Lounge
-  </div>
-  <a href="https://tickets.koid.co.za/event/would-you-still-love-me-if-i-was-a-worm-rumours-lounge-" target="_blank">
-    Get Tickets
-  </a>
-</section>
-
-<section class="intro reveal">
-  <h1>Live Events With Weight.</h1>
-  <p>
-    So Below Entertainment builds alternative, rock and heavy shows with proper lineups,
-    proper sound, and rooms that feel alive.
-  </p>
-
-  <div class="buttons">
-    <a class="button primary" href="shows.html">Upcoming Shows</a>
-    <a class="button secondary" href="past-shows.html">Past Shows</a>
-  </div>
-</section>
-
-<section class="blocks reveal">
-  <div class="block">
-    <h3>Live Shows</h3>
-    <p>Curated alternative, rock and metal events built around energy, flow and proper lineups.</p>
-  </div>
-
-  <div class="block">
-    <h3>Proper Sound</h3>
-    <p>Production and atmosphere matter. The room should feel good before the first note hits.</p>
-  </div>
-
-  <div class="block">
-    <h3>Real Lineups</h3>
-    <p>Scene-first bookings, heavy hitters, fresh artists and shows people actually want to come back to.</p>
-  </div>
-</section>
-
-<section class="featured-shows reveal">
-  <h2>Featured Shows</h2>
-  <div class="featured-subtitle">Current events on the radar</div>
-
-  <div class="show-poster-grid">
-
-    <a class="show-poster-card" href="shows.html">
-      <span class="poster-link">
-        <img src="SOTNVI-2nd.png" alt="State Of The Nation VI second announcement poster">
-      </span>
-      <h3>State Of The Nation VI</h3>
-      <p>29 August • Rumours Lounge</p>
-      <span class="card-button">View Show</span>
-    </a>
-
-    <a class="show-poster-card" href="shows.html">
-      <span class="poster-link">
-        <img src="defrost-fest.jpeg" alt="Defrost Fest 2026 poster">
-      </span>
-      <h3>Defrost Fest 2026</h3>
-      <p>26 & 27 June • Rumours Lounge</p>
-      <span class="card-button">View Show</span>
-    </a>
-
-    <a class="show-poster-card" href="shows.html">
-      <span class="poster-link">
-        <img src="WYLMIIWAW.png" alt="Would You Love Me If I Was a Worm poster">
-      </span>
-      <h3>Would You Love Me If I Was a Worm?</h3>
-      <p>16 May • Rumours Lounge</p>
-      <span class="card-button">View Show</span>
-    </a>
-
-  </div>
-</section>
 
 <footer class="footer">
   <div class="secret">A division of Secret Sauce</div>
 </footer>
-
-<script>
-const revealElements = document.querySelectorAll(".reveal");
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, {
-  threshold: 0.12
-});
-
-revealElements.forEach(element => {
-  revealObserver.observe(element);
-});
-</script>
 
 </body>
 </html>
