@@ -272,6 +272,29 @@ body::before {
   color: white;
 }
 
+.bar-buttons {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.bar-link {
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 900;
+  transition: 0.2s ease;
+  border: 2px solid rgba(255,255,255,0.4);
+  color: white;
+}
+
+.red .bar-link {
+  border-color: rgba(0,0,0,0.2);
+  color: #111;
+}
+
+.bar-link:hover { transform: translateY(-2px); }
+
 /* INTRO */
 .intro {
   padding: 95px 6% 80px;
@@ -547,6 +570,15 @@ body::before {
     flex-direction: column;
   }
 
+  .feature-bar div {
+    font-size: 0.78rem;
+  }
+
+  .feature-bar div a {
+    display: block;
+    word-break: break-word;
+  }
+
   .feature-bar strong {
     font-size: 1rem;
   }
@@ -646,24 +678,22 @@ body::before {
 
 <section class="feature-bar dark reveal">
   <div>
-    <a href="shows.html" style="color:inherit;text-decoration:none;">
-      <strong>Defrost Fest 2026</strong> • 26 & 27 June • Rumours Lounge
-    </a>
+    <strong>Defrost Fest 2026</strong> • 26 & 27 June • Rumours Lounge
   </div>
-  <a href="https://tickets.koid.co.za/event/defrost-fest-2026-" target="_blank">
-    Get Tickets
-  </a>
+  <div class="bar-buttons">
+    <a href="shows.html" class="bar-link">View Show</a>
+    <a href="https://tickets.koid.co.za/event/defrost-fest-2026-" target="_blank">Get Tickets</a>
+  </div>
 </section>
 
 <section class="feature-bar red reveal">
   <div>
-    <a href="shows.html" style="color:#111;text-decoration:none;">
-      <strong>State Of The Nation VI</strong> • 29 August • Rumours Lounge
-    </a>
+    <strong>State Of The Nation VI</strong> • 29 August • Rumours Lounge
   </div>
-  <a href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">
-    Get Tickets
-  </a>
+  <div class="bar-buttons">
+    <a href="shows.html" class="bar-link">View Show</a>
+    <a href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">Get Tickets</a>
+  </div>
 </section>
 
 <section class="intro reveal">
