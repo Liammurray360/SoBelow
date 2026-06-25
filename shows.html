@@ -7,83 +7,21 @@
 
 <meta name="description" content="Upcoming So Below Entertainment shows including alternative, rock and metal events in Johannesburg.">
 
+<!-- Open Graph / Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sobelow.co.za/shows.html">
+<meta property="og:title" content="Shows | So Below Entertainment">
+<meta property="og:description" content="Upcoming alternative, rock and metal shows in Johannesburg.">
+<meta property="og:image" content="https://sobelow.co.za/sotnvi_Final.png">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="stylesheet" href="sobelow.css">
 
 <style>
-* { box-sizing: border-box; }
-
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
   background: #f5f5f5;
   color: #111;
-}
-
-/* NAV */
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 14px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(5,5,5,0.86);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  z-index: 100;
-}
-
-.brand {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-  cursor: pointer;
-  color: white;
-  flex-shrink: 0;
-}
-
-.brand .so {
-  font-size: 1rem;
-  letter-spacing: 0.18em;
-  font-weight: 900;
-}
-
-.brand .ent {
-  font-size: 0.65rem;
-  letter-spacing: 0.28em;
-  color: #aaa;
-}
-
-.brand::after {
-  content: "";
-  margin-top: 6px;
-  width: 42%;
-  height: 2px;
-  background: #d51616;
-}
-
-.nav nav {
-  display: flex;
-  gap: 14px;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-
-.nav a {
-  position: relative;
-  color: #aaa;
-  text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.nav a:hover,
-.nav a.active {
-  color: white;
 }
 
 /* PAGE */
@@ -112,6 +50,7 @@ body {
   padding: 24px;
   border: 1px solid #e6e6e6;
   box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+  scroll-margin-top: 90px;
 }
 
 .poster-link {
@@ -260,56 +199,8 @@ body {
   margin: 0;
 }
 
-/* FOOTER */
-.footer {
-  padding: 25px;
-  background: #050505;
-  text-align: center;
-}
-
-.secret {
-  font-size: 0.7rem;
-  color: #555;
-}
-
 /* MOBILE */
 @media (max-width: 900px) {
-  .nav {
-    position: sticky;
-    top: 0;
-    padding: 12px 4%;
-    gap: 10px;
-    flex-direction: column;
-  }
-
-  .brand {
-    align-items: center;
-  }
-
-  .brand .so {
-    font-size: 0.9rem;
-  }
-
-  .brand .ent {
-    font-size: 0.55rem;
-  }
-
-  .brand::after {
-    width: 60%;
-  }
-
-  .nav nav {
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: nowrap;
-  }
-
-  .nav a {
-    font-size: 0.62rem;
-    letter-spacing: 0.06em;
-  }
-
   .page {
     padding: 35px 5% 50px;
   }
@@ -329,15 +220,15 @@ body {
 <body>
 
 <header class="nav">
-  <div class="brand" onclick="location.href='index.html'">
+  <a class="brand" href="index.html">
     <span class="so">SO BELOW</span>
     <span class="ent">ENTERTAINMENT</span>
-  </div>
+  </a>
 
   <nav>
     <a href="shows.html" class="active">Shows</a>
     <a href="past-shows.html">Past Shows</a>
-    <a href="/about/">About</a>
+    <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
@@ -349,7 +240,7 @@ body {
   <section class="show-grid">
 
     <!-- DEFROST FEST -->
-    <article class="show-card">
+    <article class="show-card" id="defrost-fest">
       <a class="poster-link" href="defrost-fest.jpeg" target="_blank">
         <img class="poster" src="defrost-fest.jpeg" alt="Defrost Fest 2026 poster">
       </a>
@@ -404,7 +295,7 @@ body {
     </article>
 
     <!-- DWI EP LAUNCH -->
-    <article class="show-card">
+    <article class="show-card" id="dwi-ep-launch">
       <a class="poster-link" href="DWI_EP_1920x1005.png" target="_blank">
         <img class="poster" src="DWI_EP_1920x1005.png" alt="Days Without Incident Paid In Blood EP launch poster">
       </a>
@@ -442,8 +333,8 @@ body {
       </div>
     </article>
 
-    <!-- SOTN -->
-    <article class="show-card">
+    <!-- SOTN VI -->
+    <article class="show-card" id="state-of-the-nation-vi">
       <a class="poster-link" href="sotnvi_Final.png" target="_blank">
         <img class="poster" src="sotnvi_Final.png" alt="State Of The Nation VI final poster">
       </a>
@@ -531,7 +422,7 @@ body {
 </main>
 
 <footer class="footer">
-  <div class="secret">A division of Secret Sauce</div>
+  <div class="footer-copy">A division of Secret Sauce</div>
 </footer>
 
 </body>
