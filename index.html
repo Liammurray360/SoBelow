@@ -7,20 +7,18 @@
 
 <meta name="description" content="So Below Entertainment puts on alternative, rock and metal shows in Johannesburg. Proper lineups, proper sound, rooms that feel alive.">
 
+<!-- Open Graph / Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sobelow.co.za/">
+<meta property="og:title" content="So Below Entertainment | Live Music Events Johannesburg">
+<meta property="og:description" content="Alternative, rock and metal shows in Johannesburg. Proper lineups, proper sound, rooms that feel alive.">
+<meta property="og:image" content="https://sobelow.co.za/sotnvi_Final.png">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="stylesheet" href="sobelow.css">
 
 <style>
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #050505;
-  color: #f5f5f5;
-}
-
 body::before {
   content: "";
   position: fixed;
@@ -32,73 +30,6 @@ body::before {
     radial-gradient(circle at 20% 20%, white 0 1px, transparent 1px),
     radial-gradient(circle at 80% 70%, white 0 1px, transparent 1px);
   background-size: 38px 38px, 54px 54px;
-}
-
-/* NAV */
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 14px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(5,5,5,0.86);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  z-index: 100;
-}
-
-.brand {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-  cursor: pointer;
-  color: white;
-  flex-shrink: 0;
-}
-
-.brand .so {
-  font-size: 1rem;
-  letter-spacing: 0.18em;
-  font-weight: 900;
-}
-
-.brand .ent {
-  font-size: 0.65rem;
-  letter-spacing: 0.28em;
-  color: #aaa;
-}
-
-.brand::after {
-  content: "";
-  margin-top: 6px;
-  width: 42%;
-  height: 2px;
-  background: #d51616;
-}
-
-.nav nav {
-  display: flex;
-  gap: 14px;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-
-.nav a {
-  position: relative;
-  color: #aaa;
-  text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.nav a:hover,
-.nav a.active {
-  color: white;
 }
 
 /* HERO */
@@ -491,60 +422,8 @@ body::before {
   transform: translateY(0);
 }
 
-/* FOOTER */
-.footer {
-  padding: 25px;
-  background: #050505;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  text-align: center;
-}
-
-.footer-copy {
-  font-size: 0.7rem;
-  color: #555;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
 /* MOBILE */
 @media(max-width:850px){
-  .nav {
-    position: sticky;
-    top: 0;
-    padding: 12px 4%;
-    gap: 10px;
-    flex-direction: column;
-  }
-
-  .brand {
-    align-items: center;
-  }
-
-  .brand .so {
-    font-size: 0.9rem;
-  }
-
-  .brand .ent {
-    font-size: 0.55rem;
-  }
-
-  .brand::after {
-    width: 60%;
-  }
-
-  .nav nav {
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: nowrap;
-    padding-top: 6px;
-  }
-
-  .nav a {
-    font-size: 0.62rem;
-    letter-spacing: 0.06em;
-  }
-
   .hero {
     min-height: 82vh;
   }
@@ -611,15 +490,15 @@ body::before {
 <body>
 
 <header class="nav">
-  <div class="brand" onclick="location.href='index.html'">
+  <a class="brand" href="index.html">
     <span class="so">SO BELOW</span>
     <span class="ent">ENTERTAINMENT</span>
-  </div>
+  </a>
 
   <nav>
     <a href="shows.html">Shows</a>
     <a href="past-shows.html">Past Shows</a>
-    <a href="/about/">About</a>
+    <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
@@ -676,12 +555,13 @@ body::before {
   </div>
 </section>
 
+<!-- Feature bars ordered by date: soonest first -->
 <section class="feature-bar dark reveal">
   <div>
     <strong>Defrost Fest 2026</strong> • 26 & 27 June • Rumours Lounge
   </div>
   <div class="bar-buttons">
-    <a href="shows.html" class="bar-link">View Show</a>
+    <a href="shows.html#defrost-fest" class="bar-link">View Show</a>
     <a href="https://tickets.koid.co.za/event/defrost-fest-2026-" target="_blank">Get Tickets</a>
   </div>
 </section>
@@ -691,7 +571,7 @@ body::before {
     <strong>Days Without Incident — Paid In Blood EP Launch</strong> • 7 August • Sognage
   </div>
   <div class="bar-buttons">
-    <a href="shows.html" class="bar-link">View Show</a>
+    <a href="shows.html#dwi-ep-launch" class="bar-link">View Show</a>
     <a href="https://tickets.koid.co.za/event/days-without-incident-" target="_blank">Get Tickets</a>
   </div>
 </section>
@@ -701,7 +581,7 @@ body::before {
     <strong>State Of The Nation VI</strong> • 29 August • Rumours Lounge
   </div>
   <div class="bar-buttons">
-    <a href="shows.html" class="bar-link">View Show</a>
+    <a href="shows.html#state-of-the-nation-vi" class="bar-link">View Show</a>
     <a href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">Get Tickets</a>
   </div>
 </section>
@@ -740,27 +620,10 @@ body::before {
   <h2>Featured Shows</h2>
   <div class="featured-subtitle">Current events on the radar</div>
 
+  <!-- Ordered chronologically: soonest first -->
   <div class="show-poster-grid">
 
-    <a class="show-poster-card" href="shows.html">
-      <span class="poster-link">
-        <img src="DWI_EP_1920x1005.png" alt="Days Without Incident Paid In Blood EP launch poster">
-      </span>
-      <h3>Paid In Blood EP Launch</h3>
-      <p>7 August • Sognage</p>
-      <span class="card-button">View Show</span>
-    </a>
-
-    <a class="show-poster-card" href="shows.html">
-      <span class="poster-link">
-        <img src="sotnvi_Final.png" alt="State Of The Nation VI final poster">
-      </span>
-      <h3>State Of The Nation VI</h3>
-      <p>29 August • Rumours Lounge</p>
-      <span class="card-button">View Show</span>
-    </a>
-
-    <a class="show-poster-card" href="shows.html">
+    <a class="show-poster-card" href="shows.html#defrost-fest">
       <span class="poster-link">
         <img src="defrost-fest.jpeg" alt="Defrost Fest 2026 poster">
       </span>
@@ -769,11 +632,29 @@ body::before {
       <span class="card-button">View Show</span>
     </a>
 
+    <a class="show-poster-card" href="shows.html#dwi-ep-launch">
+      <span class="poster-link">
+        <img src="DWI_EP_1920x1005.png" alt="Days Without Incident Paid In Blood EP launch poster">
+      </span>
+      <h3>Paid In Blood EP Launch</h3>
+      <p>7 August • Sognage</p>
+      <span class="card-button">View Show</span>
+    </a>
+
+    <a class="show-poster-card" href="shows.html#state-of-the-nation-vi">
+      <span class="poster-link">
+        <img src="sotnvi_Final.png" alt="State Of The Nation VI final poster">
+      </span>
+      <h3>State Of The Nation VI</h3>
+      <p>29 August • Rumours Lounge</p>
+      <span class="card-button">View Show</span>
+    </a>
+
   </div>
 </section>
 
 <footer class="footer">
-  <div class="secret">A division of Secret Sauce</div>
+  <div class="footer-copy">A division of Secret Sauce</div>
 </footer>
 
 <script>
