@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shows | So Below Entertainment</title>
+<title>Past Shows | So Below Entertainment</title>
 
-<meta name="description" content="Upcoming So Below Entertainment shows including alternative, rock and metal events in Johannesburg.">
+<meta name="description" content="Past So Below Entertainment shows including State Of The Nation, Dawn Of The Titans and alternative events in Johannesburg.">
 
-<!-- Open Graph / Social sharing -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sobelow.co.za/shows.html">
-<meta property="og:title" content="Shows | So Below Entertainment">
-<meta property="og:description" content="Upcoming alternative, rock and metal shows in Johannesburg.">
+<meta property="og:url" content="https://sobelow.co.za/past-shows.html">
+<meta property="og:title" content="Past Shows | So Below Entertainment">
+<meta property="og:description" content="A look back at the shows, chaos, lineups and loud rooms that helped build So Below Entertainment.">
 <meta property="og:image" content="https://sobelow.co.za/sotnvi_Final.png">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -19,200 +18,188 @@
 <link rel="stylesheet" href="sobelow.css">
 
 <style>
-body {
-  background: #f5f5f5;
-  color: #111;
-}
+body { background: #f5f5f5; color: #111; }
 
-/* PAGE */
-.page {
-  padding: 140px 8% 70px;
-}
+.page { padding: 140px 8% 70px; }
 
 .page h1 {
   font-size: clamp(2.8rem, 6vw, 5rem);
-  margin: 0 0 30px;
+  margin: 0 0 12px;
   line-height: 0.95;
 }
 
-.show-grid {
-  display: grid;
-  gap: 34px;
-}
+.intro { color: #666; max-width: 760px; margin-bottom: 40px; line-height: 1.6; }
 
-/* SHOW CARDS */
-.show-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  background: white;
-  border-radius: 26px;
-  padding: 24px;
-  border: 1px solid #e6e6e6;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.06);
-  scroll-margin-top: 90px;
-}
+.grid { column-count: 3; column-gap: 26px; }
 
-.poster-link {
-  display: block;
-  overflow: hidden;
-  border-radius: 18px;
-}
-
-.poster {
-  width: 100%;
-  border-radius: 18px;
-  transition: 0.3s ease;
-  display: block;
-}
-
-.poster-link:hover .poster {
-  transform: scale(1.04);
-}
-
-.show-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.date {
-  color: #d51616;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-}
-
-.show-content h2 {
-  margin: 10px 0;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  line-height: 0.98;
-}
-
-.hype {
-  color: #d51616;
-  font-weight: 900;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.description {
-  color: #444;
-  line-height: 1.6;
-}
-
-.lineup {
-  margin: 18px 0;
-}
-
-.lineup strong {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.lineup span,
-.lineup a {
+.card {
   display: inline-block;
-  margin: 4px;
+  width: 100%;
+  break-inside: avoid;
+  margin: 0 0 26px;
+  background: white;
+  border-radius: 22px;
+  padding: 18px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.poster-link { display: block; overflow: hidden; border-radius: 14px; }
+.card img { width: 100%; display: block; border-radius: 14px; transition: 0.3s ease; }
+.poster-link:hover img { transform: scale(1.04); }
+.card h3 { margin: 14px 0 6px; font-size: 1.3rem; }
+.card p { margin: 0; color: #555; line-height: 1.5; }
+
+.tag {
+  display: inline-block;
+  margin-top: 12px;
   padding: 6px 10px;
   border-radius: 999px;
   background: #eee;
-  text-decoration: none;
-  color: #111;
-  transition: 0.2s ease;
-}
-
-.lineup a:hover {
-  background: #d51616;
-  color: white;
-}
-
-.ticket-box {
-  margin: 16px 0;
-  padding: 14px;
-  border-radius: 16px;
-  background: #f5f5f5;
-}
-
-.ticket-box p {
-  margin: 6px 0;
-}
-
-.ticket-box strong {
   color: #d51616;
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
-.button {
-  padding: 12px 18px;
+.band-list { margin-top: 14px; }
+
+.band-list strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #444;
+}
+
+.band-list a {
+  display: inline-block;
+  margin: 4px 3px;
+  padding: 6px 9px;
   border-radius: 999px;
-  background: #d51616;
+  background: #111;
   color: white;
   text-decoration: none;
-  display: inline-block;
-  margin-top: 10px;
+  font-size: 0.72rem;
+  font-weight: 900;
   transition: 0.2s ease;
-  font-weight: 800;
+}
+
+.band-list a:hover { background: #d51616; transform: translateY(-2px); }
+
+.gallery { margin-top: 18px; border-top: 1px solid #eee; padding-top: 16px; }
+
+.gallery summary {
+  cursor: pointer;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #d51616;
+  margin-bottom: 14px;
+}
+
+.gallery summary::after { content: " ↓"; }
+.gallery[open] summary::after { content: " ↑"; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.gallery-grid button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.25s ease;
+}
+
+.gallery-grid button:hover img { transform: scale(1.06); }
+
+.photo-credit { margin-top: 12px; font-size: 0.75rem; color: #777; }
+.photo-credit a { color: #d51616; text-decoration: none; font-weight: 900; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 24px;
+}
+
+.lightbox.active { display: flex; }
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 82vh;
+  border-radius: 14px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.75);
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  border: 0;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+  transition: 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover { background: #d51616; }
+
+.lightbox-close { top: 22px; right: 22px; width: 44px; height: 44px; border-radius: 999px; font-size: 1.4rem; }
+
+.lightbox-prev,
+.lightbox-next { top: 50%; transform: translateY(-50%); width: 52px; height: 52px; border-radius: 999px; font-size: 1.8rem; }
+
+.lightbox-prev { left: 22px; }
+.lightbox-next { right: 22px; }
+
+.lightbox-credit {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #aaa;
+  font-size: 0.78rem;
   text-align: center;
 }
 
-.button:hover {
-  transform: translateY(-2px);
-}
+.lightbox-credit a { color: white; font-weight: 900; text-decoration: none; }
 
-/* WEEKLY EVENTS */
-.small-grid {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 26px;
-}
-
-.small-card {
-  background: white;
-  border-radius: 22px;
-  padding: 22px;
-  border: 1px solid #e6e6e6;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.045);
-}
-
-.small-card img {
-  width: 100%;
-  border-radius: 14px;
-  transition: 0.3s ease;
-  display: block;
-}
-
-.small-card img:hover {
-  transform: scale(1.04);
-}
-
-.small-card h3 {
-  margin: 16px 0 8px;
-  font-size: 1.5rem;
-}
-
-.small-card p {
-  color: #555;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-  .page {
-    padding: 35px 5% 50px;
-  }
-
-  .show-card {
-    grid-template-columns: 1fr;
-    padding: 16px;
-  }
-
-  .small-grid {
-    grid-template-columns: 1fr;
-  }
+@media(max-width: 900px) {
+  .page { padding: 35px 5% 50px; }
+  .page h1 { font-size: 2.8rem; line-height: 1; }
+  .intro { margin-bottom: 30px; }
+  .grid { column-count: 1; column-gap: 0; }
+  .card { display: block; margin-bottom: 18px; padding: 16px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .lightbox { padding: 12px; }
+  .lightbox img { max-width: 94vw; max-height: 76vh; }
+  .lightbox-prev, .lightbox-next { width: 42px; height: 42px; font-size: 1.4rem; }
+  .lightbox-prev { left: 10px; }
+  .lightbox-next { right: 10px; }
+  .lightbox-close { top: 12px; right: 12px; }
 }
 </style>
 </head>
@@ -224,10 +211,9 @@ body {
     <span class="so">SO BELOW</span>
     <span class="ent">ENTERTAINMENT</span>
   </a>
-
   <nav>
-    <a href="shows.html" class="active">Shows</a>
-    <a href="past-shows.html">Past Shows</a>
+    <a href="shows.html">Shows</a>
+    <a href="past-shows.html" class="active">Past Shows</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -235,195 +221,550 @@ body {
 
 <main class="page">
 
-  <h1>Shows</h1>
+  <h1>Past Shows</h1>
 
-  <section class="show-grid">
+  <p class="intro">
+    A look back at the shows, chaos, lineups and loud rooms that helped build So Below Entertainment.
+  </p>
 
-    <!-- DEFROST FEST -->
-    <article class="show-card" id="defrost-fest">
+  <section class="grid">
+
+    <!-- DEFROST FEST — moved from upcoming -->
+    <div class="card">
       <a class="poster-link" href="defrost-fest.jpeg" target="_blank">
-        <img class="poster" src="defrost-fest.jpeg" alt="Defrost Fest 2026 poster">
+        <img src="defrost-fest.jpeg" alt="Defrost Fest 2026 poster">
       </a>
+      <h3>Defrost Fest 2026</h3>
+      <p>26 & 27 June • Rumours Lounge</p>
+      <span class="tag">Past Show</span>
 
-      <div class="show-content">
-        <div class="date">26 & 27 June • Rumours Lounge</div>
-        <h2>Defrost Fest 2026</h2>
-
-        <div class="hype">Two nights • winter riffs • no fluff</div>
-
-        <p class="description">
-          Winter doesn't kill the scene. Defrost Fest is here. Two nights of raw energy, distortion, sweat, and everything that refuses to stay quiet.
-        </p>
-
-        <p class="description">
-          This isn't background music. This is the sound of a city thawing out.
-        </p>
-
-        <div class="lineup">
-          <strong>Friday // 26 June</strong>
-          <a href="https://www.instagram.com/theburn_outs/" target="_blank">The Burnouts</a>
-          <a href="https://www.instagram.com/glitterclit_band/" target="_blank">Glitter Clit</a>
-          <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
-          <a href="https://www.instagram.com/after_wonderland/" target="_blank">After Wonderland</a>
-          <a href="https://www.instagram.com/deadly_since_official/" target="_blank">Deadly Since</a>
-        </div>
-
-        <div class="lineup">
-          <strong>Saturday // 27 June</strong>
-          <a href="https://www.instagram.com/sometimes_useless_at_night/" target="_blank">Sometimes Useless At Night</a>
-          <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
-          <a href="https://www.instagram.com/the.thr3.proj3ct/" target="_blank">THE THR3 PROJ3CT</a>
-          <a href="https://www.instagram.com/manasmachine_sa/" target="_blank">Man As Machine</a>
-          <a href="https://www.instagram.com/raptorbabyband/" target="_blank">Raptorbaby</a>
-        </div>
-
-        <div class="ticket-box">
-          <p><strong>Tickets:</strong></p>
-          <p>R100 per day</p>
-          <p>R150 weekend pass</p>
-        </div>
-
-        <p class="description">
-          Expect heavy riffs, unpredictable sets, and a crowd that actually came for the music.
-          Pull through. Bring your people. Lose your voice.
-        </p>
-
-        <a class="button" href="https://tickets.koid.co.za/event/defrost-fest-2026-" target="_blank">
-          Get Tickets
-        </a>
+      <div class="band-list">
+        <strong>Friday // 26 June</strong>
+        <a href="https://www.instagram.com/theburn_outs/" target="_blank">The Burnouts</a>
+        <a href="https://www.instagram.com/glitterclit_band/" target="_blank">Glitter Clit</a>
+        <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
+        <a href="https://www.instagram.com/after_wonderland/" target="_blank">After Wonderland</a>
+        <a href="https://www.instagram.com/deadly_since_official/" target="_blank">Deadly Since</a>
       </div>
-    </article>
 
-    <!-- DWI EP LAUNCH -->
-    <article class="show-card" id="dwi-ep-launch">
-      <a class="poster-link" href="DWI_EP_1920x1005.png" target="_blank">
-        <img class="poster" src="DWI_EP_1920x1005.png" alt="Days Without Incident Paid In Blood EP launch poster">
-      </a>
-
-      <div class="show-content">
-        <div class="date">7 August • Sognage • Doors 5PM</div>
-        <h2>Days Without Incident — Paid In Blood EP Launch</h2>
-
-        <div class="hype">Six years of silence. One night to break it.</div>
-
-        <p class="description">
-          Days Without Incident haven't released anything new since 2020 — until now. Paid in Blood is here, and it's coming out loud.
-        </p>
-
-        <div class="lineup">
-          <strong>Lineup</strong>
-          <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
-          <a href="https://www.instagram.com/manasmachine_sa/" target="_blank">Man As Machine</a>
-          <a href="https://www.instagram.com/indiedogband/" target="_blank">Indie Dog</a>
-          <a href="https://www.instagram.com/jasper_dan_sa/" target="_blank">Jasper Dan</a>
-          <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
-          <a href="https://www.instagram.com/diehede/" target="_blank">Die Hede</a>
-        </div>
-
-        <div class="ticket-box">
-          <p><strong>Tickets:</strong></p>
-          <p>Phase 1 — R150</p>
-          <p>Phase 2 — R200</p>
-          <p>General — R250</p>
-        </div>
-
-        <a class="button" href="https://tickets.koid.co.za/event/days-without-incident-" target="_blank">
-          Get Tickets
-        </a>
+      <div class="band-list">
+        <strong>Saturday // 27 June</strong>
+        <a href="https://www.instagram.com/sometimes_useless_at_night/" target="_blank">Sometimes Useless At Night</a>
+        <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+        <a href="https://www.instagram.com/the.thr3.proj3ct/" target="_blank">THE THR3 PROJ3CT</a>
+        <a href="https://www.instagram.com/manasmachine_sa/" target="_blank">Man As Machine</a>
+        <a href="https://www.instagram.com/raptorbabyband/" target="_blank">Raptorbaby</a>
       </div>
-    </article>
-
-    <!-- SOTN VI -->
-    <article class="show-card" id="state-of-the-nation-vi">
-      <a class="poster-link" href="sotnvi_Final.png" target="_blank">
-        <img class="poster" src="sotnvi_Final.png" alt="State Of The Nation VI final poster">
-      </a>
-
-      <div class="show-content">
-        <div class="date">29 August • Rumours Lounge</div>
-        <h2>State Of The Nation VI</h2>
-
-        <div class="hype">
-          15 bands • 2 stages • indoor + outdoor • powered by As Above Audio
-        </div>
-
-        <p class="description">
-          This one's for the heavy.
-        </p>
-
-        <p class="description">
-          15 bands. Two stages. From early afternoon, it's a constant rotation of noise, energy, and zero downtime.
-          Inside and outside stages running back-to-back, with the outdoor stage powered by As Above Audio, keeping the pressure on from start to finish.
-        </p>
-
-        <p class="description">
-          No filler, no slowing down, just band after band bringing it harder than the last.
-        </p>
-
-        <div class="lineup">
-          <strong>Full Lineup</strong>
-          <a href="https://www.instagram.com/raptorbabyband/" target="_blank">Raptorbaby</a>
-          <a href="https://www.instagram.com/boargazmofficial/" target="_blank">Boargazm</a>
-          <a href="https://www.instagram.com/official_blacknature/" target="_blank">Black Nature</a>
-          <a href="https://www.instagram.com/humannebula/" target="_blank">Human Nebula</a>
-          <a href="https://www.instagram.com/disorderdiverted/" target="_blank">Diverted Disorder</a>
-          <a href="https://www.instagram.com/diegemeente.za/" target="_blank">Die Gemeente</a>
-          <a href="https://www.instagram.com/grift.hxc/" target="_blank">Grift</a>
-          <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
-          <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
-          <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
-          <a href="https://www.instagram.com/sunken_state/" target="_blank">Sunken State</a>
-          <a href="https://www.instagram.com/facingthegallows/" target="_blank">Facing The Gallows</a>
-          <a href="https://www.instagram.com/noclosure.hc/" target="_blank">No Closure</a>
-          <a href="https://www.instagram.com/freedom_for_your_life/" target="_blank">Freedom For Your Life</a>
-          <a href="https://www.instagram.com/among_the_absence_official/" target="_blank">Among The Absence</a>
-        </div>
-
-        <div class="ticket-box">
-          <p><strong>Tickets:</strong></p>
-          <p><s>Phase 1 — R150</s> <strong style="color:#d51616;">SOLD OUT</strong></p>
-          <p>Phase 2 — R200</p>
-          <p>Phase 3 — R250</p>
-          <p>Door — R300</p>
-        </div>
-
-        <p class="description">
-          Pull up early and settle in. State Of The Nation VI is built to be loud, heavy, and all day long.
-        </p>
-
-        <a class="button" href="https://tickets.koid.co.za/event/state-of-the-nation-vi" target="_blank">
-          Get Tickets
-        </a>
-      </div>
-    </article>
-
-  </section>
-
-  <section class="small-grid">
-
-    <div class="small-card">
-      <a href="JamNight.png" target="_blank">
-        <img src="JamNight.png" alt="Jam Night poster">
-      </a>
-      <h3>Jam Night</h3>
-      <p>Every Wednesday • Free</p>
     </div>
 
-    <div class="small-card">
-      <a href="OpenMic.png" target="_blank">
-        <img src="OpenMic.png" alt="Open Mic poster">
+    <div class="card">
+      <a class="poster-link" href="Rent_Party.png" target="_blank">
+        <img src="Rent_Party.png" alt="Rent Party fundraiser poster">
       </a>
-      <h3>Open Mic</h3>
-      <p>Every Thursday • Free</p>
+      <h3>Rent Party</h3>
+      <p>12 June • Rumours Lounge</p>
+      <span class="tag">Fundraiser</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
+        <a href="https://www.instagram.com/afteragathaband/" target="_blank">After Agatha</a>
+        <a href="https://www.instagram.com/noclosure.hc/" target="_blank">No Closure</a>
+        <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="WYLMIIWAW.png" target="_blank">
+        <img src="WYLMIIWAW.png" alt="Would You Love Me If I Was a Worm? poster">
+      </a>
+      <h3>Would You Love Me If I Was a Worm?</h3>
+      <p>16 May • Rumours Lounge</p>
+      <span class="tag">Past Show</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/pandora_band_sa/" target="_blank">Pandora</a>
+        <a href="https://www.instagram.com/kaylinhillx/" target="_blank">Kaylin Hill</a>
+        <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
+        <a href="https://www.instagram.com/atfn012/" target="_blank">All This For Nothing</a>
+        <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+      </div>
+      <details class="gallery">
+        <summary>View WYLMIIWAW Photos</summary>
+        <div class="gallery-grid" data-gallery="worm"></div>
+        <div class="photo-credit">Photos by <a href="https://www.instagram.com/sobelow.entertainment/" target="_blank">So Below</a></div>
+      </details>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="Dawn-1.jpg" target="_blank">
+        <img src="Dawn-1.jpg" alt="Dawn Of The Titans I poster">
+      </a>
+      <h3>Dawn Of The Titans I</h3>
+      <p>The first strike in the Dawn Of The Titans run.</p>
+      <span class="tag">Dawn Of The Titans</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+        <a href="https://www.instagram.com/disorderdiverted/" target="_blank">Diverted Disorder</a>
+        <a href="https://www.instagram.com/yourcynicalsanity/" target="_blank">Your Cynical Sanity</a>
+        <a href="https://www.instagram.com/vulvodyniaofficial/" target="_blank">Vulvodynia</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="Dawn-2.jpg" target="_blank">
+        <img src="Dawn-2.jpg" alt="Dawn Of The Titans II poster">
+      </a>
+      <h3>Dawn Of The Titans II</h3>
+      <p>The second chapter of the Titans series.</p>
+      <span class="tag">Dawn Of The Titans</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+        <a href="https://www.instagram.com/disorderdiverted/" target="_blank">Diverted Disorder</a>
+        <a href="https://www.instagram.com/yourcynicalsanity/" target="_blank">Your Cynical Sanity</a>
+        <a href="https://www.instagram.com/sunken_state/" target="_blank">Sunken State</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="Dawn-3.jpg" target="_blank">
+        <img src="Dawn-3.jpg" alt="Dawn Of The Titans III poster">
+      </a>
+      <h3>Dawn Of The Titans III</h3>
+      <p>The Titans kept rising, louder and heavier.</p>
+      <span class="tag">Dawn Of The Titans</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+        <a href="https://www.instagram.com/fading_gray_band/" target="_blank">Fading Gray</a>
+        <a href="https://www.instagram.com/yourcynicalsanity/" target="_blank">Your Cynical Sanity</a>
+        <a href="https://www.instagram.com/humannebula/" target="_blank">Human Nebula</a>
+        <a href="https://www.instagram.com/ghast_band/" target="_blank">Ghast</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="Dawn-4.jpg" target="_blank">
+        <img src="Dawn-4.jpg" alt="Dawn Of The Titans IV poster">
+      </a>
+      <h3>Dawn Of The Titans IV</h3>
+      <p>The fourth Dawn Of The Titans event.</p>
+      <span class="tag">Dawn Of The Titans</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/surdus_metal/" target="_blank">Surdus</a>
+        <a href="https://www.instagram.com/fading_gray_band/" target="_blank">Fading Gray</a>
+        <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+        <a href="https://www.instagram.com/yourcynicalsanity/" target="_blank">Your Cynical Sanity</a>
+        <a href="https://www.instagram.com/ghast_band/" target="_blank">Ghast</a>
+        <a href="https://www.instagram.com/sunken_state/" target="_blank">Sunken State</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="alt-night-1.jpg" target="_blank">
+        <img src="alt-night-1.jpg" alt="Alt Night I poster">
+      </a>
+      <h3>Alt Night I</h3>
+      <p>One of the early alternative nights.</p>
+      <span class="tag">Past Show</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/screamincolours/" target="_blank">Scream In Colours</a>
+        <a href="https://www.instagram.com/youmeandtheharmony/" target="_blank">You, Me and the Harmony</a>
+        <a href="https://www.instagram.com/farfromwhoweare_band/" target="_blank">Far From Who We Are</a>
+        <a href="https://www.instagram.com/indiedogband/" target="_blank">Indie Dog</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="alt-night-2.jpg" target="_blank">
+        <img src="alt-night-2.jpg" alt="Alt Night II poster">
+      </a>
+      <h3>Alt Night II</h3>
+      <p>Round two of Alt Night energy.</p>
+      <span class="tag">Past Show</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/sidewalkcircus/" target="_blank">Sidewalk Circus</a>
+        <a href="https://www.instagram.com/stand.58_band/" target="_blank">Stand 50</a>
+        <span>Parts X Fiction</span>
+        <a href="https://www.instagram.com/dirtymoonshine/" target="_blank">Dirty Moonshine</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="alt-night.jpg" target="_blank">
+        <img src="alt-night.jpg" alt="Alt Night poster">
+      </a>
+      <h3>Alt Night</h3>
+      <p>Another chapter in the Alt Night run.</p>
+      <span class="tag">Past Show</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+        <a href="https://www.instagram.com/the.aviary.band/" target="_blank">Evert Snyman and the Aviary</a>
+        <a href="https://www.instagram.com/farfromfamiliarofficial/" target="_blank">Far From Familiar</a>
+        <a href="https://www.instagram.com/screamincolours/" target="_blank">Scream In Colours</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="helluvabash.jpg" target="_blank">
+        <img src="helluvabash.jpg" alt="Helluvabash poster">
+      </a>
+      <h3>Helluvabash</h3>
+      <p>A loud one from the archive.</p>
+      <span class="tag">Past Show</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/screamincolours/" target="_blank">Scream In Colours</a>
+        <a href="https://www.instagram.com/indiedogband/" target="_blank">Indie Dog</a>
+        <a href="https://www.instagram.com/maybeinthesequalband/" target="_blank">Maybe in the Sequel</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-1.jpg" target="_blank">
+        <img src="sotn-1.jpg" alt="State Of The Nation I poster">
+      </a>
+      <h3>SOTN I</h3>
+      <p>The beginning of the flagship show.</p>
+      <span class="tag">SOTN</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/sunken_state/" target="_blank">Sunken State</a>
+        <a href="https://www.instagram.com/middlegroundsband/" target="_blank">Middle Grounds</a>
+        <a href="https://www.instagram.com/state_dependancy/" target="_blank">State Dependency</a>
+        <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+        <a href="https://www.instagram.com/maybeinthesequalband/" target="_blank">Maybe in the Sequel</a>
+        <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-2.jpg" target="_blank">
+        <img src="sotn-2.jpg" alt="State Of The Nation II poster">
+      </a>
+      <h3>SOTN II</h3>
+      <p>The second chapter.</p>
+      <span class="tag">SOTN</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/facingthegallows/" target="_blank">Facing The Gallows</a>
+        <a href="https://www.instagram.com/middlegroundsband/" target="_blank">Middle Grounds</a>
+        <a href="https://www.instagram.com/manasmachine_sa/" target="_blank">Man As Machine</a>
+        <a href="https://www.instagram.com/sunken_state/" target="_blank">Sunken State</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-3.jpg" target="_blank">
+        <img src="sotn-3.jpg" alt="State Of The Nation III poster">
+      </a>
+      <h3>SOTN III</h3>
+      <p>Growing louder.</p>
+      <span class="tag">SOTN</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/sunken_state/" target="_blank">Sunken State</a>
+        <a href="https://www.instagram.com/noclosure.hc/" target="_blank">No Closure</a>
+        <a href="https://www.instagram.com/moshmallowband/" target="_blank">Moshmallow</a>
+        <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+        <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+      </div>
+      <details class="gallery">
+        <summary>View SOTN III Photos</summary>
+        <div class="gallery-grid" data-gallery="sotn3"></div>
+        <div class="photo-credit">Photos by <a href="https://www.instagram.com/mediaproductions_/" target="_blank">Media Productions</a></div>
+      </details>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-4.jpg" target="_blank">
+        <img src="sotn-4.jpg" alt="State Of The Nation IV poster">
+      </a>
+      <h3>SOTN IV</h3>
+      <p>Another heavy chapter.</p>
+      <span class="tag">SOTN</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+        <a href="https://www.instagram.com/sunken_state/" target="_blank">Sunken State</a>
+        <a href="https://www.instagram.com/lefokolodi/" target="_blank">Lefokolodi</a>
+        <a href="https://www.instagram.com/crashandthevoid/" target="_blank">Crash And The Void</a>
+        <a href="https://www.instagram.com/humannebula/" target="_blank">Human Nebula</a>
+      </div>
+      <details class="gallery">
+        <summary>View SOTN IV Photos</summary>
+        <div class="gallery-grid" data-gallery="sotn4"></div>
+        <div class="photo-credit">Photos by <a href="https://www.instagram.com/blackrock_studio/" target="_blank">Black Rock Studio</a></div>
+      </details>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="sotn-5.jpg" target="_blank">
+        <img src="sotn-5.jpg" alt="State Of The Nation V poster">
+      </a>
+      <h3>SOTN V</h3>
+      <p>Flagship energy continues.</p>
+      <span class="tag">SOTN</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/vulvodyniaofficial/" target="_blank">Vulvodynia</a>
+        <a href="https://www.instagram.com/noclosure.hc/" target="_blank">No Closure</a>
+        <a href="https://www.instagram.com/sunken_state/" target="_blank">Sunken State</a>
+        <a href="https://www.instagram.com/walk_these_skies/" target="_blank">Walk These Skies</a>
+        <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+      </div>
+      <details class="gallery">
+        <summary>View SOTN V Photos</summary>
+        <div class="gallery-grid" data-gallery="sotn5"></div>
+        <div class="photo-credit">Photos by <a href="https://www.instagram.com/midnightenergy_prod/" target="_blank">Midnight Energy</a></div>
+      </details>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="tbdc-launch.jpg" target="_blank">
+        <img src="tbdc-launch.jpg" alt="TBDC Launch poster">
+      </a>
+      <h3>TBDC Launch</h3>
+      <p>A launch night from the archive.</p>
+      <span class="tag">Launch</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/funknkiff/" target="_blank">Funk N Kiff</a>
+        <a href="https://www.instagram.com/indiedogband/" target="_blank">Indie Dog</a>
+        <a href="https://www.instagram.com/afteragathaband/" target="_blank">After Agatha</a>
+        <a href="https://www.instagram.com/screamincolours/" target="_blank">Scream In Colours</a>
+        <a href="https://www.instagram.com/stereoclubsa/" target="_blank">Stereo Club</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="the-last-straw.jpg" target="_blank">
+        <img src="the-last-straw.jpg" alt="The Last Straw poster">
+      </a>
+      <h3>The Last Straw</h3>
+      <p>Another moment from the vault.</p>
+      <span class="tag">Past Show</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+        <a href="https://www.instagram.com/screamincolours/" target="_blank">Scream In Colours</a>
+        <a href="https://www.instagram.com/indiedogband/" target="_blank">Indie Dog</a>
+      </div>
+      <details class="gallery">
+        <summary>View The Last Straw Photos</summary>
+        <div class="gallery-grid" data-gallery="laststraw"></div>
+        <div class="photo-credit">Photos by <a href="https://www.instagram.com/mediaproductions_/" target="_blank">Media Productions</a></div>
+      </details>
+    </div>
+
+    <div class="card">
+      <a class="poster-link" href="we-are-so-back.jpg" target="_blank">
+        <img src="we-are-so-back.jpg" alt="We Are So Back poster">
+      </a>
+      <h3>We Are So Back</h3>
+      <p>Comeback energy.</p>
+      <span class="tag">Past Show</span>
+      <div class="band-list">
+        <strong>Lineup</strong>
+        <a href="https://www.instagram.com/jasper_dan_sa/" target="_blank">Jasper Dan</a>
+        <a href="https://www.instagram.com/dwidayswithoutincident/" target="_blank">Days Without Incident</a>
+        <a href="https://www.instagram.com/drunkwizardband/" target="_blank">Drunk Wizard</a>
+        <a href="https://www.instagram.com/youmeandtheharmony/" target="_blank">You, Me and the Harmony</a>
+      </div>
     </div>
 
   </section>
 
 </main>
 
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">×</button>
+  <button class="lightbox-prev" id="lightboxPrev">‹</button>
+  <img id="lightboxImage" src="" alt="Live show photo">
+  <button class="lightbox-next" id="lightboxNext">›</button>
+  <div class="lightbox-credit" id="lightboxCredit"></div>
+</div>
+
 <footer class="footer">
   <div class="footer-copy">A division of Secret Sauce</div>
 </footer>
+
+<script>
+const galleries = {
+  worm: {
+    creditName: "So Below",
+    creditUrl: "https://www.instagram.com/sobelow.entertainment/",
+    images: [
+      "DSC05069.JPG","DSC05080.JPG","DSC05122.JPG","DSC05129.JPG","DSC05131.JPG","DSC05133.JPG",
+      "DSC05137.JPG","DSC05139.JPG","DSC05148.JPG","DSC05150.JPG","DSC05185.JPG","DSC05209.JPG",
+      "DSC05268.JPG","DSC05292.JPG","DSC05345.JPG","DSC05346.JPG","DSC05350.JPG","DSC05351.JPG",
+      "DSC05356.JPG","DSC05472.JPG","DSC05515.JPG","DSC05529.JPG","DSC05536.JPG","DSC05584.JPG",
+      "DSC05596.JPG","DSC05616.JPG","DSC05617.JPG","DSC05663.JPG","DSC05681.JPG","DSC05683.JPG",
+      "DSC05685.JPG","DSC05687.JPG","DSC05689.JPG","DSC05707.JPG","DSC05710.JPG","DSC05718.JPG",
+      "DSC05726.JPG","DSC05740.JPG","DSC05765.JPG","DSC05771.JPG","DSC05823.JPG","DSC05831.JPG",
+      "DSC05832.JPG","DSC05834.JPG","DSC06106.JPG","DSC06128.JPG","DSC06168.JPG",
+      "DSC06178.JPG","DSC06183.JPG","DSC06192.JPG","DSC06204.JPG","DSC06250.JPG","DSC06313.JPG",
+      "DSC06318.JPG","DSC06372.JPG","DSC06389.JPG","DSC06454.JPG","DSC06455.JPG","DSC06514.JPG",
+      "DSC06527.JPG","DSC06571.JPG"
+    ]
+  },
+  laststraw: {
+    creditName: "Media Productions",
+    creditUrl: "https://www.instagram.com/mediaproductions_/",
+    images: [
+      "BSS02588.jpg","JFS_0010.jpg","JFS_0083.jpg","JFS_0095-3.jpg","JFS_0106.jpg",
+      "JFS_0168-Enhanced-NR.jpg","JFS_0173.jpg","JFS_0193.jpg","JFS_0212-Enhanced-NR.jpg",
+      "JFS_0263.jpg","JFS_0317.jpg","JFS_0367.jpg","JFS_0436.jpg","JFS_0642.jpg",
+      "JFS_0679.jpg","JFS_0739-4.jpg","JFS_0846-Enhanced-NR.jpg","JFS_1090.jpg",
+      "JFS_1198.jpg","JFS_1239.jpg","JFS_1289.jpg","JFS_1304.jpg","JFS_1343.jpg",
+      "JFS_1492-Enhanced-NR.jpg","JFS_9355.jpg","JFS_9364.jpg","JFS_9374.jpg",
+      "JFS_9384.jpg","JFS_9407.jpg","JFS_9493-Enhanced-NR.jpg","JFS_9581.jpg",
+      "JFS_9605.jpg","JFS_9712-Enhanced-NR.jpg","JFS_9869.jpg"
+    ]
+  },
+  sotn3: {
+    creditName: "Media Productions",
+    creditUrl: "https://www.instagram.com/mediaproductions_/",
+    images: [
+      "469848292_122127338606545830_3987612754779190189_n.jpg",
+      "469863081_122127338834545830_4452461668328611829_n.jpg",
+      "469874753_122127338888545830_7416888791338845071_n.jpg",
+      "469905410_122127338900545830_1173613266022465084_n.jpg",
+      "470198933_122127338438545830_6829791930326711514_n.jpg",
+      "470227839_122128553246545830_7436921422092326399_n.jpg",
+      "470522082_122128779758545830_5362981050841619441_n.jpg",
+      "470568318_122128553270545830_2500447699291216258_n.jpg",
+      "470581916_122128553234545830_7473633988436481909_n.jpg",
+      "470656336_122128779392545830_6549770933220396978_n.jpg",
+      "470679482_122128779752545830_9002411955589565095_n.jpg",
+      "470796122_122128767692545830_5505332678134907458_n.jpg",
+      "470808629_122128767572545830_1154309213050293376_n.jpg",
+      "470865804_122128779764545830_8536400518937221899_n.jpg",
+      "470879473_122128779560545830_7611524922891793994_n.jpg",
+      "470881186_122128779410545830_6056702806248344364_n.jpg",
+      "470891616_122128767590545830_6188781686041358655_n.jpg",
+      "470991431_122128767584545830_5718530704424359480_n.jpg",
+      "471053519_122128779728545830_8218697310889523004_n.jpg",
+      "471077650_122128767608545830_4053351847112317047_n.jpg",
+      "472017132_122132076650545830_6124947371486269374_n.jpg",
+      "472208256_122132076308545830_5767674553782303380_n.jpg",
+      "472209299_122132076500545830_553093756736354399_n.jpg",
+      "472209447_122132076782545830_7221272855301355224_n.jpg",
+      "472570517_122132076704545830_7105948849694581780_n.jpg"
+    ]
+  },
+  sotn4: {
+    creditName: "Black Rock Studio",
+    creditUrl: "https://www.instagram.com/blackrock_studio/",
+    images: [
+      "473359850_122134380800545830_8458779569868368804_n.jpg",
+      "473617450_122134380692545830_6003143334335795702_n.jpg",
+      "473672159_122134558958545830_2195034657465815580_n.jpg",
+      "473696088_122134558970545830_5614106574806555280_n.jpg",
+      "473705364_122134380788545830_613915547455778204_n.jpg",
+      "473713994_122134380854545830_1531632696386129692_n.jpg",
+      "473714995_122134558952545830_8842073604580945428_n.jpg",
+      "473716440_122134558940545830_5040239897800030310_n.jpg",
+      "473730862_122134558946545830_4518243250098078142_n.jpg",
+      "473758280_122134558964545830_8938398765875311647_n.jpg",
+      "475467768_122138295050545830_5909153429300537835_n.jpg",
+      "475572080_122138295812545830_5303895384276579728_n.jpg",
+      "475779104_122138294924545830_8409553099035264624_n.jpg",
+      "476094716_122138294858545830_7382396271113007667_n.jpg",
+      "476118694_122138294768545830_5953001325817821608_n.jpg",
+      "479492805_17868141075317121_7253260576439556074_n.jpg",
+      "479901062_17868141066317121_680809316565598486_n.jpg",
+      "479916006_17868141084317121_40590207394703584_n.jpg",
+      "479962868_17868141093317121_8862869189328473271_n.jpg",
+      "479965195_17868238710317121_9010257848429786449_n.jpg",
+      "480393741_17868238737317121_376409603998714515_n.jpg",
+      "480419517_17868238728317121_914548487806997819_n.jpg"
+    ]
+  },
+  sotn5: {
+    creditName: "Midnight Energy",
+    creditUrl: "https://www.instagram.com/midnightenergy_prod/",
+    images: [
+      "DSCF0010.jpg","DSCF0067 (1).jpg","DSCF0067.jpg","DSCF0086.jpg","DSCF0137.jpg",
+      "DSCF9723.jpg","DSCF9725.jpg","DSCF9776.jpg","DSCF9784.jpg","DSCF9796.jpg",
+      "DSCF9837.jpg","DSCF9840.jpg","DSCF9845.jpg","DSCF9925.jpg","DSCF9958.jpg",
+      "DSCF9977.jpg","SOTN-023.jpg"
+    ]
+  }
+};
+
+let currentGallery = "sotn5";
+let currentImage = 0;
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCredit = document.getElementById("lightboxCredit");
+const closeBtn = document.getElementById("lightboxClose");
+const prevBtn = document.getElementById("lightboxPrev");
+const nextBtn = document.getElementById("lightboxNext");
+
+function renderGalleries() {
+  document.querySelectorAll("[data-gallery]").forEach(grid => {
+    const galleryName = grid.dataset.gallery;
+    const gallery = galleries[galleryName];
+    gallery.images.forEach((imageName, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.addEventListener("click", () => openLightbox(galleryName, index));
+      const image = document.createElement("img");
+      image.src = imageName;
+      image.alt = galleryName.toUpperCase() + " live photo";
+      button.appendChild(image);
+      grid.appendChild(button);
+    });
+  });
+}
+
+function openLightbox(galleryName, index) {
+  currentGallery = galleryName;
+  currentImage = index;
+  const gallery = galleries[currentGallery];
+  lightboxImage.src = gallery.images[currentImage];
+  lightboxCredit.innerHTML = `Photos by <a href="${gallery.creditUrl}" target="_blank">${gallery.creditName}</a>`;
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function showNext() {
+  const gallery = galleries[currentGallery];
+  currentImage = (currentImage + 1) % gallery.images.length;
+  lightboxImage.src = gallery.images[currentImage];
+}
+
+function showPrev() {
+  const gallery = galleries[currentGallery];
+  currentImage = (currentImage - 1 + gallery.images.length) % gallery.images.length;
+  lightboxImage.src = gallery.images[currentImage];
+}
+
+closeBtn.addEventListener("click", closeLightbox);
+nextBtn.addEventListener("click", showNext);
+prevBtn.addEventListener("click", showPrev);
+lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener("keydown", (e) => {
+  if (!lightbox.classList.contains("active")) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowRight") showNext();
+  if (e.key === "ArrowLeft") showPrev();
+});
+
+renderGalleries();
+</script>
 
 </body>
 </html>
