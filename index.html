@@ -7,7 +7,6 @@
 
 <meta name="description" content="So Below Entertainment puts on alternative, rock and metal shows in Johannesburg. Proper lineups, proper sound, rooms that feel alive.">
 
-<!-- Open Graph / Social sharing -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sobelow.co.za/">
 <meta property="og:title" content="So Below Entertainment | Live Music Events Johannesburg">
@@ -32,7 +31,6 @@ body::before {
   background-size: 38px 38px, 54px 54px;
 }
 
-/* HERO */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -104,7 +102,6 @@ body::before {
   50% { transform: scale(1.018); }
 }
 
-/* MARQUEE */
 .marquee {
   overflow: hidden;
   background: #050505;
@@ -134,9 +131,7 @@ body::before {
   font-size: 0.78rem;
 }
 
-.marquee-text {
-  padding: 14px 0;
-}
+.marquee-text { padding: 14px 0; }
 
 .marquee-dot {
   width: 6px;
@@ -152,7 +147,6 @@ body::before {
   to { transform: translateX(-50%); }
 }
 
-/* FEATURE BARS */
 .feature-bar {
   padding: 24px 8%;
   display: flex;
@@ -182,15 +176,8 @@ body::before {
 .red { background: #d51616; }
 .red a { background: white; color: #111; }
 
-.white {
-  background: white;
-  color: #111;
-}
-
-.white a {
-  background: #111;
-  color: white;
-}
+.white { background: white; color: #111; }
+.white a { background: #111; color: white; }
 
 .dark {
   background: #111;
@@ -198,16 +185,9 @@ body::before {
   border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-.dark a {
-  background: #d51616;
-  color: white;
-}
+.dark a { background: #d51616; color: white; }
 
-.bar-buttons {
-  display: flex;
-  gap: 10px;
-  flex-shrink: 0;
-}
+.bar-buttons { display: flex; gap: 10px; flex-shrink: 0; }
 
 .bar-link {
   padding: 12px 18px;
@@ -219,14 +199,9 @@ body::before {
   color: white;
 }
 
-.red .bar-link {
-  border-color: rgba(0,0,0,0.2);
-  color: #111;
-}
-
+.red .bar-link { border-color: rgba(0,0,0,0.2); color: #111; }
 .bar-link:hover { transform: translateY(-2px); }
 
-/* INTRO */
 .intro {
   padding: 95px 6% 80px;
   text-align: center;
@@ -268,11 +243,9 @@ body::before {
 }
 
 .button:hover { transform: translateY(-3px); }
-
 .primary { background: #d51616; color: white; }
 .secondary { border: 1px solid #555; color: white; }
 
-/* BLOCKS */
 .blocks {
   padding: 75px 8%;
   display: grid;
@@ -292,18 +265,9 @@ body::before {
 }
 
 .block:hover { transform: translateY(-4px); }
+.block h3 { margin: 0 0 10px; font-size: 1.45rem; }
+.block p { color: #555; line-height: 1.6; }
 
-.block h3 {
-  margin: 0 0 10px;
-  font-size: 1.45rem;
-}
-
-.block p {
-  color: #555;
-  line-height: 1.6;
-}
-
-/* FEATURED SHOWS */
 .featured-shows {
   padding: 95px 8%;
   text-align: center;
@@ -332,9 +296,9 @@ body::before {
 
 .show-poster-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 26px;
-  max-width: 1250px;
+  max-width: 900px;
   margin: auto;
 }
 
@@ -370,9 +334,7 @@ body::before {
   transition: 0.3s ease;
 }
 
-.show-poster-card:hover img {
-  transform: scale(1.04);
-}
+.show-poster-card:hover img { transform: scale(1.04); }
 
 .show-poster-card h3 {
   margin: 18px 0 8px;
@@ -383,9 +345,7 @@ body::before {
   color: white;
 }
 
-.show-poster-card:hover h3 {
-  color: #d51616;
-}
+.show-poster-card:hover h3 { color: #d51616; }
 
 .show-poster-card p {
   color: #aaa;
@@ -405,12 +365,8 @@ body::before {
   font-size: 0.78rem;
 }
 
-.show-poster-card:hover .card-button {
-  background: #d51616;
-  color: white;
-}
+.show-poster-card:hover .card-button { background: #d51616; color: white; }
 
-/* REVEAL ANIMATIONS */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -422,25 +378,11 @@ body::before {
   transform: translateY(0);
 }
 
-/* MOBILE */
 @media(max-width:850px){
-  .hero {
-    min-height: 82vh;
-  }
-
-  .hero-logo {
-    width: 178vw;
-  }
-
-  .hero-logo img {
-    animation: none;
-  }
-
-  .hero-tagline {
-    bottom: 34px;
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-  }
+  .hero { min-height: 82vh; }
+  .hero-logo { width: 178vw; }
+  .hero-logo img { animation: none; }
+  .hero-tagline { bottom: 34px; font-size: 0.62rem; letter-spacing: 0.1em; }
 
   .feature-bar {
     justify-content: center;
@@ -449,40 +391,14 @@ body::before {
     flex-direction: column;
   }
 
-  .feature-bar div {
-    font-size: 0.78rem;
-  }
-
-  .feature-bar div a {
-    display: block;
-    word-break: break-word;
-  }
-
-  .feature-bar strong {
-    font-size: 1rem;
-  }
-
-  .intro {
-    padding: 65px 6%;
-  }
-
-  .blocks {
-    grid-template-columns: 1fr;
-    padding: 48px 5%;
-  }
-
-  .featured-shows {
-    padding: 70px 5%;
-  }
-
-  .show-poster-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .show-poster-card {
-    padding: 16px;
-  }
+  .feature-bar div { font-size: 0.78rem; }
+  .feature-bar div a { display: block; word-break: break-word; }
+  .feature-bar strong { font-size: 1rem; }
+  .intro { padding: 65px 6%; }
+  .blocks { grid-template-columns: 1fr; padding: 48px 5%; }
+  .featured-shows { padding: 70px 5%; }
+  .show-poster-grid { grid-template-columns: 1fr; gap: 22px; }
+  .show-poster-card { padding: 16px; }
 }
 </style>
 </head>
@@ -494,7 +410,6 @@ body::before {
     <span class="so">SO BELOW</span>
     <span class="ent">ENTERTAINMENT</span>
   </a>
-
   <nav>
     <a href="shows.html">Shows</a>
     <a href="past-shows.html">Past Shows</a>
@@ -513,7 +428,6 @@ body::before {
 
 <section class="marquee">
   <div class="marquee-track">
-
     <div class="marquee-group">
       <span class="marquee-text">Live shows with weight</span>
       <span class="marquee-dot"></span>
@@ -532,7 +446,6 @@ body::before {
       <span class="marquee-text">Real crowds</span>
       <span class="marquee-dot"></span>
     </div>
-
     <div class="marquee-group" aria-hidden="true">
       <span class="marquee-text">Live shows with weight</span>
       <span class="marquee-dot"></span>
@@ -551,18 +464,6 @@ body::before {
       <span class="marquee-text">Real crowds</span>
       <span class="marquee-dot"></span>
     </div>
-
-  </div>
-</section>
-
-<!-- Feature bars ordered by date: soonest first -->
-<section class="feature-bar dark reveal">
-  <div>
-    <strong>Defrost Fest 2026</strong> • 26 & 27 June • Rumours Lounge
-  </div>
-  <div class="bar-buttons">
-    <a href="shows.html#defrost-fest" class="bar-link">View Show</a>
-    <a href="https://tickets.koid.co.za/event/defrost-fest-2026-" target="_blank">Get Tickets</a>
   </div>
 </section>
 
@@ -592,7 +493,6 @@ body::before {
     So Below Entertainment builds alternative, rock and heavy shows with proper lineups,
     proper sound, and rooms that feel alive.
   </p>
-
   <div class="buttons">
     <a class="button primary" href="shows.html">Upcoming Shows</a>
     <a class="button secondary" href="past-shows.html">Past Shows</a>
@@ -604,12 +504,10 @@ body::before {
     <h3>Live Shows</h3>
     <p>Curated alternative, rock and metal events built around energy, flow and proper lineups.</p>
   </div>
-
   <div class="block">
     <h3>Proper Sound</h3>
     <p>Production and atmosphere matter. The room should feel good before the first note hits.</p>
   </div>
-
   <div class="block">
     <h3>Real Lineups</h3>
     <p>Scene-first bookings, heavy hitters, fresh artists and shows people actually want to come back to.</p>
@@ -620,18 +518,7 @@ body::before {
   <h2>Featured Shows</h2>
   <div class="featured-subtitle">Current events on the radar</div>
 
-  <!-- Ordered chronologically: soonest first -->
   <div class="show-poster-grid">
-
-    <a class="show-poster-card" href="shows.html#defrost-fest">
-      <span class="poster-link">
-        <img src="defrost-fest.jpeg" alt="Defrost Fest 2026 poster">
-      </span>
-      <h3>Defrost Fest 2026</h3>
-      <p>26 & 27 June • Rumours Lounge</p>
-      <span class="card-button">View Show</span>
-    </a>
-
     <a class="show-poster-card" href="shows.html#dwi-ep-launch">
       <span class="poster-link">
         <img src="DWI_EP_1920x1005.png" alt="Days Without Incident Paid In Blood EP launch poster">
@@ -649,7 +536,6 @@ body::before {
       <p>29 August • Rumours Lounge</p>
       <span class="card-button">View Show</span>
     </a>
-
   </div>
 </section>
 
@@ -659,20 +545,12 @@ body::before {
 
 <script>
 const revealElements = document.querySelectorAll(".reveal");
-
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
+    if (entry.isIntersecting) entry.target.classList.add("visible");
   });
-}, {
-  threshold: 0.12
-});
-
-revealElements.forEach(element => {
-  revealObserver.observe(element);
-});
+}, { threshold: 0.12 });
+revealElements.forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
