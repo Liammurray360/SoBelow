@@ -229,7 +229,7 @@ body { background: #f5f5f5; color: #111; }
 
   <section class="grid">
 
-    <!-- DEFROST FEST — moved from upcoming -->
+    <!-- DEFROST FEST, moved from upcoming -->
     <div class="card">
       <a class="poster-link" href="defrost-fest.jpeg" target="_blank">
         <img src="defrost-fest.jpeg" alt="Defrost Fest 2026 poster">
@@ -748,7 +748,7 @@ function showNext() {
 
 function showPrev() {
   const gallery = galleries[currentGallery];
-  currentImage = (currentImage - 1 + gallery.images.length) % gallery.images.length;
+  currentImage = (currentImage, 1 + gallery.images.length) % gallery.images.length;
   lightboxImage.src = gallery.images[currentImage];
 }
 
